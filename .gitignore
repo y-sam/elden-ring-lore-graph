@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Neo4j
+*.dump
+*.backup
+
+# Env
+.env
+
+# Node / Python (future)
+node_modules/
+__pycache__/
+.venv/
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
