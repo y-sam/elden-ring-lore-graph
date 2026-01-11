@@ -69,4 +69,5 @@ MATCH (c:Character {name:"Rykard"}), (p:Place {name:"Volcano Manor"})
 MERGE (c)-[r:RELATED_TO]->(p)
 SET r.kind = "rules",
     r.confidence = 0.95,
-    r.canonical =
+    r.canonical = true
+;
