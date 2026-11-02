@@ -1,5 +1,6 @@
 from elden_lore_api.repository import (
     INTENT_PREDICATES,
+    _alias_is_named,
     _entity_is_named,
     _fuzzy_entity_score,
     build_entity_query,
@@ -30,6 +31,13 @@ def test_entity_name_must_appear_as_a_phrase() -> None:
     assert _entity_is_named("¿Dónde ocurrió Aeonia?", "event.battle-of-aeonia")
     assert not _entity_is_named("Who is Radagon?", "event.radagon-becomes-elden-lord")
     assert not _entity_is_named("Who is Miquella?", "event.mohg-takes-miquella")
+
+
+def test_generic_title_does_not_match_an_unmentioned_alias() -> None:
+    question = "Who is the Gloam-Eyed Queen?"
+
+    assert not _alias_is_named(question, "Queen Marika the Eternal")
+    assert _alias_is_named("Who is Marika?", "Queen Marika the Eternal")
 
 
 def test_question_language_detection() -> None:

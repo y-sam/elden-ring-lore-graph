@@ -436,7 +436,9 @@ class EntityRepository:
                     if score >= 0.78
                 ]
             alias_entity_ids = {
-                record["entity"]["id"] for record in alias_records
+                record["entity"]["id"]
+                for record in alias_records
+                if _alias_is_named(question, record.get("matched_alias"))
             } | exact_entity_ids
             seen_entity_ids: set[str] = set()
             matched_entities = [
@@ -614,6 +616,29 @@ def _name_phrase_is_named(question: str, canonical_name: str) -> bool:
     normalized_question = " ".join(re.findall(r"[a-z0-9]+", question.lower()))
     normalized_name = " ".join(re.findall(r"[a-z0-9]+", canonical_name.lower()))
     return len(normalized_name) >= 4 and normalized_name in normalized_question
+
+
+GENERIC_NAME_TOKENS = {
+    "blade", "brother", "captain", "commander", "consort", "dame", "dragonlord",
+    "duke", "elder", "emperor", "empress", "eternal", "father", "general", "golden",
+    "king", "knight", "lady", "lord", "mother", "prince", "princess", "queen",
+    "saint", "sir", "the", "witch",
+}
+
+
+def _alias_is_named(question: str, matched_alias: str | None) -> bool:
+    if not matched_alias:
+        return False
+    question_tokens = set(re.findall(r"[a-z0-9]+", question.lower()))
+    alias_tokens = set(re.findall(r"[a-z0-9]+", matched_alias.lower()))
+    distinctive_tokens = {
+        token
+        for token in alias_tokens
+        if len(token) > 2
+        and token not in QUESTION_STOPWORDS
+        and token not in GENERIC_NAME_TOKENS
+    }
+    return bool(question_tokens & distinctive_tokens)
 
 
 def _claim_details(records: Iterable[Any]) -> list[ClaimDetail]:
