@@ -112,6 +112,34 @@ changes.
 ChatGPT subscriptions do not include API usage. The deterministic answer path
 works without an OpenAI account and remains the recommended initial launch mode.
 
+## Optional grounded generation
+
+Keep `ANSWER_GENERATOR=deterministic` until an OpenAI API project has billing
+limits and a project-scoped key. To enable grounded prose, add the following
+secret and settings to the API service or Render environment:
+
+```text
+ANSWER_GENERATOR=openai
+OPENAI_API_KEY=<project-scoped secret>
+OPENAI_MODEL=gpt-6-astra
+OPENAI_TIMEOUT_SECONDS=12
+OPENAI_MAX_OUTPUT_TOKENS=600
+ANSWER_CACHE_TTL_SECONDS=3600
+ANSWER_CACHE_MAX_ENTRIES=500
+```
+
+The generator uses the Responses API with a strict structured schema. It only
+receives the claims and evidence already selected by the deterministic retrieval
+path. Returned claim and evidence identifiers are checked against that context;
+unknown or unrelated citations reject the generated result. Timeouts, API
+errors, refusals, malformed output, and citation failures automatically return
+the deterministic answer. Unknown answers do not call the API.
+
+The existing answer rate limit, bounded context, output-token ceiling, and TTL
+cache are the initial spend controls. Set a hard project budget in the OpenAI
+platform as the authoritative cost boundary. The cache is per process and is
+cleared by a deploy or restart.
+
 ## Secrets and database roles
 
 Set `APP_ENV=production`, a random `EDITORIAL_TOKEN`, and production Neo4j

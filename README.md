@@ -127,7 +127,10 @@ the `X-Editorial-Token` configured by `EDITORIAL_TOKEN`.
 
 The optional generative mode is configured with `ANSWER_GENERATOR=openai`,
 `OPENAI_API_KEY`, and `OPENAI_MODEL`. Deterministic generation remains the safe
-default; enabling the setting alone does not bypass evidence or review policy.
+default. Generative answers use bounded graph context, structured output,
+verified claim/evidence identifiers, an in-memory TTL cache, output limits, and
+automatic deterministic fallback. Unsupported questions never call the model;
+enabling the setting does not bypass evidence or review policy.
 See [production operations](docs/production.md) before deployment.
 
 Run `make audit` before every import. The audit rejects invalid temporal types,

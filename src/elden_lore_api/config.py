@@ -24,7 +24,11 @@ class Settings(BaseSettings):
     editorial_enabled: bool = True
     answer_generator: Literal["deterministic", "openai"] = "deterministic"
     openai_api_key: str | None = None
-    openai_model: str = "gpt-6-luna"
+    openai_model: str = "gpt-6-astra"
+    openai_timeout_seconds: float = Field(default=12.0, ge=1.0, le=60.0)
+    openai_max_output_tokens: int = Field(default=600, ge=100, le=2000)
+    answer_cache_ttl_seconds: int = Field(default=3600, ge=60, le=86400)
+    answer_cache_max_entries: int = Field(default=500, ge=10, le=10000)
     answer_rate_limit_per_minute: int = Field(default=60, ge=1, le=10000)
     feedback_rate_limit_per_minute: int = Field(default=10, ge=1, le=1000)
     max_request_bytes: int = Field(default=16_384, ge=1024, le=1_048_576)
@@ -41,6 +45,8 @@ class Settings(BaseSettings):
             self.editorial_token
         ) < 32:
             raise ValueError("production requires a random EDITORIAL_TOKEN")
+        if self.answer_generator == "openai" and not self.openai_api_key:
+            raise ValueError("OPENAI_API_KEY is required when ANSWER_GENERATOR=openai")
         return self
 
 

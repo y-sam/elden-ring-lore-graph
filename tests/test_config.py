@@ -18,3 +18,14 @@ def test_production_accepts_explicit_long_secrets() -> None:
     )
 
     assert settings.app_env == "production"
+
+
+def test_production_openai_mode_requires_api_key() -> None:
+    with pytest.raises(ValidationError, match="OPENAI_API_KEY"):
+        Settings(
+            app_env="production",
+            neo4j_password="n" * 32,
+            editorial_token="e" * 48,
+            answer_generator="openai",
+            _env_file=None,
+        )

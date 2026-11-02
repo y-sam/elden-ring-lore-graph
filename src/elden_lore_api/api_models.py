@@ -116,6 +116,10 @@ class AnswerResponse(BaseModel):
     supporting_claims: list[ClaimDetail] = Field(default_factory=list)
     citations: list[EvidenceView] = Field(default_factory=list)
     limitations: list[str] = Field(default_factory=list)
+    generator: Literal["deterministic", "openai"] = "deterministic"
+    generator_model: str | None = None
+    generated_claim_ids: list[str] = Field(default_factory=list)
+    generated_evidence_ids: list[str] = Field(default_factory=list)
 
 
 class FeedbackCreate(BaseModel):
