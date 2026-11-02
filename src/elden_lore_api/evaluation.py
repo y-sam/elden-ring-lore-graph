@@ -71,6 +71,42 @@ CORNERSTONE_QUESTIONS = (
         "relationship",
     ),
     ReferenceQuestion(
+        "What is the Crucible?",
+        ("concept.crucible",),
+        ("claim.crucible-primordial-erdtree",),
+        "what",
+    ),
+    ReferenceQuestion(
+        "What connects Morgott and Mohg?",
+        ("character.morgott", "character.mohg"),
+        ("claim.morgott-sibling-mohg",),
+        "relationship",
+    ),
+    ReferenceQuestion(
+        "Where are the Three Fingers?",
+        ("faction.three-fingers",),
+        ("claim.three-fingers-in-proscription",),
+        "where",
+    ),
+    ReferenceQuestion(
+        "Who created the Mending Rune of Perfect Order?",
+        ("artifact.mending-rune-perfect-order",),
+        ("claim.goldmask-created-perfect-order-rune",),
+        "who",
+    ),
+    ReferenceQuestion(
+        "What connects Millicent and Malenia?",
+        ("character.millicent", "character.malenia"),
+        ("claim.millicent-seeks-malenia",),
+        "relationship",
+    ),
+    ReferenceQuestion(
+        "Who is Alexander?",
+        ("character.alexander",),
+        ("claim.alexander-participant-radahn-festival",),
+        "who",
+    ),
+    ReferenceQuestion(
         "Who rules Stormveil Castle?",
         ("location.stormveil-castle",),
         ("claim.godrick-rules-stormveil",),

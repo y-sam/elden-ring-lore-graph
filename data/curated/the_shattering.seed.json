@@ -1,6 +1,6 @@
 {
   "dataset_id": "dataset.the-shattering.seed",
-  "dataset_version": 15,
+  "dataset_version": 16,
   "status": "draft",
   "entities": [
     {
@@ -407,7 +407,31 @@
     {"id":"location.nokstella","kind":"location","canonical_name":"Nokstella, Eternal City","continuity":"base_game"},
     {"id":"location.nameless-eternal-city","kind":"location","canonical_name":"Nameless Eternal City","continuity":"base_game"},
     {"id":"location.jagged-peak","kind":"location","canonical_name":"Jagged Peak","continuity":"shadow_of_the_erdtree"},
-    {"id":"event.war-ancient-dragons","kind":"event","canonical_name":"War Against the Ancient Dragons","continuity":"base_game"}
+    {"id":"event.war-ancient-dragons","kind":"event","canonical_name":"War Against the Ancient Dragons","continuity":"base_game"},
+    {"id":"concept.crucible","kind":"concept","canonical_name":"Crucible of Life","continuity":"both"},
+    {"id":"faction.crucible-knights","kind":"faction","canonical_name":"Crucible Knights","continuity":"base_game"},
+    {"id":"concept.grace","kind":"concept","canonical_name":"Guidance of Grace","continuity":"base_game"},
+    {"id":"people.omens","kind":"people","canonical_name":"Omens","continuity":"base_game"},
+    {"id":"location.subterranean-shunning-grounds","kind":"location","canonical_name":"Subterranean Shunning-Grounds","continuity":"base_game"},
+    {"id":"location.frenzied-flame-proscription","kind":"location","canonical_name":"Frenzied Flame Proscription","continuity":"base_game"},
+    {"id":"character.hyetta","kind":"character","canonical_name":"Hyetta","continuity":"base_game"},
+    {"id":"character.shabriri","kind":"character","canonical_name":"Shabriri","continuity":"base_game"},
+    {"id":"character.millicent","kind":"character","canonical_name":"Millicent","continuity":"base_game"},
+    {"id":"character.gowry","kind":"character","canonical_name":"Sage Gowry","continuity":"base_game"},
+    {"id":"character.goldmask","kind":"character","canonical_name":"Goldmask","continuity":"base_game"},
+    {"id":"character.corhyn","kind":"character","canonical_name":"Brother Corhyn","continuity":"base_game"},
+    {"id":"character.d-hunter","kind":"character","canonical_name":"D, Hunter of the Dead","continuity":"base_game"},
+    {"id":"character.rogier","kind":"character","canonical_name":"Sorcerer Rogier","continuity":"base_game"},
+    {"id":"character.alexander","kind":"character","canonical_name":"Iron Fist Alexander","continuity":"base_game"},
+    {"id":"character.dung-eater","kind":"character","canonical_name":"Dung Eater","continuity":"base_game"},
+    {"id":"artifact.mending-rune-death-prince","kind":"artifact","canonical_name":"Mending Rune of the Death-Prince","continuity":"base_game"},
+    {"id":"artifact.mending-rune-perfect-order","kind":"artifact","canonical_name":"Mending Rune of Perfect Order","continuity":"base_game"},
+    {"id":"artifact.mending-rune-fell-curse","kind":"artifact","canonical_name":"Mending Rune of the Fell Curse","continuity":"base_game"},
+    {"id":"event.age-of-duskborn","kind":"event","canonical_name":"Age of the Duskborn","continuity":"base_game"},
+    {"id":"event.age-of-order","kind":"event","canonical_name":"Age of Order","continuity":"base_game"},
+    {"id":"event.blessing-of-despair","kind":"event","canonical_name":"Blessing of Despair","continuity":"base_game"},
+    {"id":"event.lord-of-frenzied-flame","kind":"event","canonical_name":"Lord of Frenzied Flame","continuity":"base_game"},
+    {"id":"event.radahn-festival","kind":"event","canonical_name":"Radahn Festival","continuity":"base_game"}
   ],
   "aliases": [
   {
@@ -973,7 +997,7 @@
       "id":"evidence.base.melina-guidance","source_id":"game.base.melina-dialogue",
       "locator":"Melina's early meetings, accord and guidance dialogue",
       "summary_en":"Melina offers an accord to the Tarnished and guides their journey toward the Erdtree while pursuing her own purpose.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"
     },
     {
       "id":"evidence.base.ranni-retinue","source_id":"game.base.boss-and-quest-scenes","locator":"Ranni quest meetings at Caria Manor, Siofra and Nokron","summary_en":"Ranni's quest identifies Blaidd, Iji and Seluvis as members of her retinue and traces their roles in her search for Nokron and the Fingerslayer Blade.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"
@@ -994,7 +1018,7 @@
       "id":"evidence.base.gideon-roundtable","source_id":"game.base.gideon-dialogue",
       "locator":"Roundtable Hold introductions and Gideon's demigod briefings",
       "summary_en":"Gideon's dialogue establishes him as the All-Knowing leader associated with Roundtable Hold and its search for Great Runes.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"
     },
     {
       "id":"evidence.base.blood-formless-mother",
@@ -1115,7 +1139,21 @@
       "summary_rights_status":"original",
       "review_status":"reviewed",
       "verification_status":"game_verified"
-    }
+    },
+    {"id":"evidence.base.crucible-erdtree","source_id":"game.base.item-descriptions","locator":"Siluria's Tree, Crucible armor and Aspect of the Crucible descriptions","summary_en":"Crucible records identify it as the primordial form of the Erdtree, where life was once blended together, and connect its knights to Godfrey.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.base.golden-order-origin","source_id":"game.base.enia-dialogue","locator":"Enia dialogue concerning the Rune of Death and the Golden Order","summary_en":"Enia's account connects the founding of the Golden Order to the removal and sealing of Destined Death.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.base.omen-twins","source_id":"game.base.remembrances","locator":"Morgott's and Mohg's Great Runes, Regal Omen Bairn and Omen descriptions","summary_en":"The records identify Morgott and Mohg as Omen twins of the Golden Lineage and describe royal Omens as confined beneath the capital rather than excised.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.base.shunning-grounds","source_id":"game.base.boss-and-quest-scenes","locator":"Subterranean Shunning-Grounds, Cathedral of the Forsaken and Three Fingers encounter","summary_en":"The underground route beneath Leyndell leads through the Omen prison, past Mohg's apparition, to the sealed chamber of the Three Fingers.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.base.tarnished-grace","source_id":"game.base.opening-cinematic","locator":"Opening cinematic and Sites of Grace guidance","summary_en":"The opening calls the exiled dead back as Tarnished, while visible grace guides their journey toward the Elden Ring and the office of Elden Lord.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.base.godfrey-tarnished","source_id":"game.base.remembrances","locator":"Remembrance of Hoarah Loux, Elden Lord armor and Godfrey encounter","summary_en":"Godfrey was the first Elden Lord; after losing grace he became the first Tarnished and led his warriors away from the Lands Between.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.base.mending-runes","source_id":"game.base.item-descriptions","locator":"Descriptions of the three Mending Runes and their ending choices","summary_en":"Fia, Goldmask and the Dung Eater each produce a distinct Mending Rune that can repair the Elden Ring and establish a corresponding order.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.base.hyetta-three-fingers","source_id":"game.base.boss-and-quest-scenes","locator":"Hyetta quest dialogue and Three Fingers audience beneath Leyndell","summary_en":"Hyetta follows the distant light to the Three Fingers, interprets their purpose and offers to serve the prospective Lord of Frenzied Flame as maiden.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.base.shabriri","source_id":"game.base.boss-and-quest-scenes","locator":"Shabriri dialogue at the Zamor Ruins and Frenzied Flame ending route","summary_en":"Shabriri urges the Tarnished to inherit the Frenzied Flame below Leyndell in order to spare Melina from serving as kindling.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.base.millicent","source_id":"game.base.boss-and-quest-scenes","locator":"Millicent and Gowry quest dialogue; Unalloyed Gold Needle and prosthesis records","summary_en":"Millicent's journey links her to Gowry, the scarlet rot, Malenia and the unalloyed gold needle, culminating at the Haligtree.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.base.goldmask-corhyn","source_id":"game.base.boss-and-quest-scenes","locator":"Corhyn and Goldmask quest dialogue; Mending Rune of Perfect Order","summary_en":"Corhyn leaves Roundtable Hold to follow Goldmask, whose study of the Golden Order culminates in the Mending Rune of Perfect Order.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.base.rogier-black-knives","source_id":"game.base.boss-and-quest-scenes","locator":"Rogier dialogue, Black Knifeprint investigation and Stormveil bloodstain","summary_en":"Rogier investigates the Night of the Black Knives and seeks the knifeprint that records the ritual behind Godwyn's death.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.base.d-fia","source_id":"game.base.boss-and-quest-scenes","locator":"D and Fia quest dialogue, Weathered Dagger and Twinned armor scenes","summary_en":"D hunts Those Who Live in Death, while Fia champions them; their opposed paths meet through the returned dagger at Roundtable Hold.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.base.alexander","source_id":"game.base.boss-and-quest-scenes","locator":"Alexander quest dialogue from Limgrave through Farum Azula; Shard of Alexander","summary_en":"Alexander is a warrior jar who joins the Radahn Festival, pursues strength and ultimately challenges the Tarnished in Farum Azula.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"}
   ],
   "localized_texts": [
   {
@@ -2747,7 +2785,7 @@
       "id":"claim.melina.guides-tarnished","subject_id":"character.melina","predicate":"GUIDED","object_id":"character.tarnished","evidence_ids":["evidence.base.melina-guidance"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
     },
     {
-      "id":"claim.gideon.member-roundtable","subject_id":"character.gideon-ofnir","predicate":"MEMBER_OF","object_id":"faction.roundtable-hold","evidence_ids":["evidence.base.gideon-roundtable"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+      "id":"claim.gideon.member-roundtable","subject_id":"character.gideon-ofnir","predicate":"MEMBER_OF","object_id":"faction.roundtable-hold","evidence_ids":["evidence.base.gideon-roundtable"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"
     },
     {
       "id":"claim.gurranq.is-maliketh","subject_id":"character.maliketh-gurranq","predicate":"IDENTITY_OF","object_id":"character.maliketh","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"
@@ -2842,7 +2880,7 @@
     {"id":"claim.godrick-rules-stormveil","subject_id":"character.godrick","predicate":"RULED","object_id":"location.stormveil-castle","evidence_ids":["evidence.base.godrick-stormveil"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.fire-giant-in-mountaintops","subject_id":"character.fire-giant","predicate":"INHABITS","object_id":"location.mountaintops-giants","evidence_ids":["evidence.base.giants-flame"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.fire-giant-guards-forge","subject_id":"character.fire-giant","predicate":"DEFENDS","object_id":"location.forge-giants","evidence_ids":["evidence.base.giants-flame"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
-    {"id":"claim.fia-serves-those-live-death","subject_id":"character.fia","predicate":"SERVES","object_id":"faction.those-live-death","evidence_ids":["evidence.base.fia-fortissax"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.fia-serves-those-live-death","subject_id":"character.fia","predicate":"SERVES","object_id":"faction.those-live-death","evidence_ids":["evidence.base.d-fia","evidence.base.fia-fortissax"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.fia-seeks-godwyn","subject_id":"character.fia","predicate":"SEEKS","object_id":"character.godwyn","evidence_ids":["evidence.base.fia-fortissax"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.fortissax-defends-godwyn","subject_id":"character.fortissax","predicate":"DEFENDS","object_id":"character.godwyn","evidence_ids":["evidence.base.fia-fortissax"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.tanith-leads-volcano-manor","subject_id":"character.tanith","predicate":"LEADS","object_id":"faction.volcano-manor","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
@@ -2899,6 +2937,41 @@
     {"id":"claim.dragon-cult-based-leyndell","subject_id":"faction.ancient-dragon-cult","predicate":"BASED_IN","object_id":"location.leyndell","evidence_ids":["evidence.base.ancient-dragon-war"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.greyoll-inhabits-caelid","subject_id":"character.greyoll","predicate":"INHABITS","object_id":"location.caelid","evidence_ids":["evidence.base.ancient-dragon-war","evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.dragon-communion-targets-bayle","subject_id":"concept.dragon-communion","predicate":"TARGETED","object_id":"character.bayle","evidence_ids":["evidence.dlc.dragons"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
-    {"id":"claim.bayle-in-jagged-peak","subject_id":"character.bayle","predicate":"LOCATED_IN","object_id":"location.jagged-peak","evidence_ids":["evidence.dlc.dragons","evidence.dlc.locations"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"}
+    {"id":"claim.bayle-in-jagged-peak","subject_id":"character.bayle","predicate":"LOCATED_IN","object_id":"location.jagged-peak","evidence_ids":["evidence.dlc.dragons","evidence.dlc.locations"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.crucible-primordial-erdtree","subject_id":"concept.crucible","predicate":"SOURCE_OF","object_id":"artifact.erdtree","evidence_ids":["evidence.base.crucible-erdtree"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"both"},
+    {"id":"claim.crucible-knights-served-godfrey","subject_id":"faction.crucible-knights","predicate":"SERVED","object_id":"character.godfrey","evidence_ids":["evidence.base.crucible-erdtree"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.golden-order-sealed-destined-death","subject_id":"artifact.golden-order","predicate":"OPPOSED","object_id":"concept.destined-death","evidence_ids":["evidence.base.golden-order-origin"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.morgott-member-omens","subject_id":"character.morgott","predicate":"MEMBER_OF","object_id":"people.omens","evidence_ids":["evidence.base.omen-twins"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.mohg-member-omens","subject_id":"character.mohg","predicate":"MEMBER_OF","object_id":"people.omens","evidence_ids":["evidence.base.omen-twins"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.morgott-sibling-mohg","subject_id":"character.morgott","predicate":"SIBLING_OF","object_id":"character.mohg","evidence_ids":["evidence.base.omen-twins"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.shunning-grounds-in-leyndell","subject_id":"location.subterranean-shunning-grounds","predicate":"LOCATED_IN","object_id":"location.leyndell","evidence_ids":["evidence.base.shunning-grounds"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.omens-inhabit-shunning-grounds","subject_id":"people.omens","predicate":"INHABITS","object_id":"location.subterranean-shunning-grounds","evidence_ids":["evidence.base.omen-twins","evidence.base.shunning-grounds"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.proscription-in-shunning-grounds","subject_id":"location.frenzied-flame-proscription","predicate":"LOCATED_IN","object_id":"location.subterranean-shunning-grounds","evidence_ids":["evidence.base.shunning-grounds"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.three-fingers-in-proscription","subject_id":"faction.three-fingers","predicate":"LOCATED_IN","object_id":"location.frenzied-flame-proscription","evidence_ids":["evidence.base.shunning-grounds","evidence.base.hyetta-three-fingers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.grace-guides-tarnished","subject_id":"concept.grace","predicate":"GUIDED","object_id":"character.tarnished","evidence_ids":["evidence.base.tarnished-grace"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.tarnished-seeks-elden-ring","subject_id":"character.tarnished","predicate":"SEEKS","object_id":"artifact.elden-ring","evidence_ids":["evidence.base.tarnished-grace"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.godfrey-first-tarnished","subject_id":"character.godfrey","predicate":"HELD_TITLE","object_id":"character.tarnished","evidence_ids":["evidence.base.godfrey-tarnished"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.corhyn-member-roundtable","subject_id":"character.corhyn","predicate":"MEMBER_OF","object_id":"faction.roundtable-hold","evidence_ids":["evidence.base.goldmask-corhyn"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.fia-created-death-rune","subject_id":"character.fia","predicate":"CREATED","object_id":"artifact.mending-rune-death-prince","evidence_ids":["evidence.base.mending-runes","evidence.base.fia-fortissax"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.death-rune-causes-duskborn","subject_id":"artifact.mending-rune-death-prince","predicate":"CAUSED","object_id":"event.age-of-duskborn","evidence_ids":["evidence.base.mending-runes"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.goldmask-created-perfect-order-rune","subject_id":"character.goldmask","predicate":"CREATED","object_id":"artifact.mending-rune-perfect-order","evidence_ids":["evidence.base.mending-runes","evidence.base.goldmask-corhyn"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.perfect-order-rune-causes-age-order","subject_id":"artifact.mending-rune-perfect-order","predicate":"CAUSED","object_id":"event.age-of-order","evidence_ids":["evidence.base.mending-runes"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.dung-eater-created-fell-curse-rune","subject_id":"character.dung-eater","predicate":"CREATED","object_id":"artifact.mending-rune-fell-curse","evidence_ids":["evidence.base.mending-runes"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.fell-curse-rune-causes-despair","subject_id":"artifact.mending-rune-fell-curse","predicate":"CAUSED","object_id":"event.blessing-of-despair","evidence_ids":["evidence.base.mending-runes"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.hyetta-follows-three-fingers","subject_id":"character.hyetta","predicate":"FOLLOWS","object_id":"faction.three-fingers","evidence_ids":["evidence.base.hyetta-three-fingers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.hyetta-interprets-frenzied-flame","subject_id":"character.hyetta","predicate":"INTERPRETS","object_id":"outer-god.frenzied-flame","evidence_ids":["evidence.base.hyetta-three-fingers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.shabriri-serves-frenzied-flame","subject_id":"character.shabriri","predicate":"SERVES","object_id":"outer-god.frenzied-flame","evidence_ids":["evidence.base.shabriri"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.shabriri-guides-tarnished-proscription","subject_id":"character.shabriri","predicate":"GUIDED","object_id":"character.tarnished","evidence_ids":["evidence.base.shabriri"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.frenzied-flame-causes-ending","subject_id":"outer-god.frenzied-flame","predicate":"CAUSED","object_id":"event.lord-of-frenzied-flame","evidence_ids":["evidence.base.hyetta-three-fingers","evidence.base.shabriri"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.millicent-afflicted-rot","subject_id":"character.millicent","predicate":"AFFLICTED_BY","object_id":"concept.scarlet-rot","evidence_ids":["evidence.base.millicent"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.millicent-seeks-malenia","subject_id":"character.millicent","predicate":"SEEKS","object_id":"character.malenia","evidence_ids":["evidence.base.millicent"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.gowry-guides-millicent","subject_id":"character.gowry","predicate":"GUIDED","object_id":"character.millicent","evidence_ids":["evidence.base.millicent"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.corhyn-follows-goldmask","subject_id":"character.corhyn","predicate":"FOLLOWS","object_id":"character.goldmask","evidence_ids":["evidence.base.goldmask-corhyn"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.goldmask-interprets-golden-order","subject_id":"character.goldmask","predicate":"INTERPRETS","object_id":"artifact.golden-order","evidence_ids":["evidence.base.goldmask-corhyn"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.rogier-seeks-black-knives","subject_id":"character.rogier","predicate":"SEEKS","object_id":"event.night-of-black-knives","evidence_ids":["evidence.base.rogier-black-knives"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.d-hunter-opposes-undead","subject_id":"character.d-hunter","predicate":"OPPOSED","object_id":"faction.those-live-death","evidence_ids":["evidence.base.d-fia"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.alexander-participant-radahn-festival","subject_id":"event.radahn-festival","predicate":"PARTICIPANT","object_id":"character.alexander","evidence_ids":["evidence.base.alexander"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.alexander-challenged-tarnished","subject_id":"character.alexander","predicate":"OPPOSED","object_id":"character.tarnished","evidence_ids":["evidence.base.alexander"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.alexander-in-farum-azula","subject_id":"character.alexander","predicate":"LOCATED_IN","object_id":"location.crumbling-farum-azula","evidence_ids":["evidence.base.alexander"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"}
   ]
 }
