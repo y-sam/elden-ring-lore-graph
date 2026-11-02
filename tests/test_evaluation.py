@@ -14,3 +14,7 @@ def test_reference_suite_contains_one_hundred_valid_english_questions() -> None:
     assert validate_reference_questions(dataset, questions) == []
     assert all(question.question.endswith("?") for question in questions)
     assert any(question.question == "Who is Blaidd?" for question in questions)
+    assert any(
+        question.question == "What is the relationship between Marika and Radagon?"
+        for question in questions
+    )

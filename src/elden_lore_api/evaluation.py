@@ -65,6 +65,12 @@ CORNERSTONE_QUESTIONS = (
         "relationship",
     ),
     ReferenceQuestion(
+        "What is the relationship between Marika and Radagon?",
+        ("character.marika", "character.radagon"),
+        ("claim.marika-and-radagon.same-being",),
+        "relationship",
+    ),
+    ReferenceQuestion(
         "Who rules Stormveil Castle?",
         ("location.stormveil-castle",),
         ("claim.godrick-rules-stormveil",),

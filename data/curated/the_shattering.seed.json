@@ -1,6 +1,6 @@
 {
   "dataset_id": "dataset.the-shattering.seed",
-  "dataset_version": 14,
+  "dataset_version": 15,
   "status": "draft",
   "entities": [
     {
@@ -768,7 +768,8 @@
       "locator": "Opening cinematic; account of the broken Elden Ring and the demigod war",
       "summary_en": "The opening connects the broken Elden Ring, the Great Runes, the demigods and the war called the Shattering.",
       "summary_rights_status": "original",
-      "review_status": "draft"
+      "review_status": "reviewed",
+      "verification_status": "game_verified"
     },
     {
       "id": "evidence.base.opening.godwyn",
@@ -776,7 +777,8 @@
       "locator": "Opening cinematic; introduction of the Night of the Black Knives",
       "summary_en": "The opening identifies Godwyn as the first demigod to die during the Night of the Black Knives.",
       "summary_rights_status": "original",
-      "review_status": "draft"
+      "review_status": "reviewed",
+      "verification_status": "game_verified"
     },
     {
       "id": "evidence.base.official.story",
@@ -784,7 +786,8 @@
       "locator": "Official website; base-game story synopsis",
       "summary_en": "The official synopsis describes Marika's rule, the Elden Ring, the Great Runes, the Shattering and the return of the Tarnished.",
       "summary_rights_status": "original",
-      "review_status": "reviewed"
+      "review_status": "reviewed",
+      "verification_status": "official_verified"
     },
     {
       "id": "evidence.base.marika-echoes",
@@ -792,7 +795,8 @@
       "locator": "Melina's recitations of Marika's words at the Third Church, Grand Lift and Queen's Bedchamber",
       "summary_en": "Marika's spoken echoes connect Godfrey's loss of grace, the exile of his warriors, their eventual return and her charge to Radagon.",
       "summary_rights_status": "original",
-      "review_status": "draft"
+      "review_status": "reviewed",
+      "verification_status": "game_verified"
     },
     {
       "id": "evidence.base.radagon-statue",
@@ -800,7 +804,8 @@
       "locator": "Leyndell statue revelation and Goldmask quest progression",
       "summary_en": "The capital's hidden revelation identifies Radagon and Marika as one being while the narrative continues to distinguish their actions and roles.",
       "summary_rights_status": "original",
-      "review_status": "draft"
+      "review_status": "reviewed",
+      "verification_status": "game_verified"
     },
     {
       "id": "evidence.base.carian-history",
@@ -826,7 +831,8 @@
       "locator": "Black Knife, Cursemark of Death and Maliketh-related item descriptions",
       "summary_en": "These items connect the stolen fragment of Destined Death, the Black Knives, Ranni's ritual and Godwyn's death in soul.",
       "summary_rights_status": "original",
-      "review_status": "draft"
+      "review_status": "reviewed",
+      "verification_status": "game_verified"
     },
     {
       "id": "evidence.base.great-runes",
@@ -884,7 +890,8 @@
       "locator": "Map fragments and regional item descriptions",
       "summary_en": "Map and item records situate major powers in Leyndell, Liurnia, Caelid, Volcano Manor, the Haligtree and Mohgwyn Palace.",
       "summary_rights_status": "original",
-      "review_status": "draft"
+      "review_status": "reviewed",
+      "verification_status": "game_verified"
     },
     {
       "id": "evidence.dlc.official-story",
@@ -908,7 +915,8 @@
       "locator": "Shadow of the Erdtree story trailer; account of the hidden war",
       "summary_en": "The trailer depicts an old conflict in the Realm of Shadow led by Messmer and frames it as concealed from the later world.",
       "summary_rights_status": "original",
-      "review_status": "reviewed"
+      "review_status": "reviewed",
+      "verification_status": "official_verified"
     },
     {
       "id": "evidence.dlc.messmer",
@@ -916,7 +924,8 @@
       "locator": "Remembrance of the Impaler and related Messmer item descriptions",
       "summary_en": "The records identify Messmer's connection to Marika and his role in the crusade against the hornsent.",
       "summary_rights_status": "original",
-      "review_status": "draft"
+      "review_status": "reviewed",
+      "verification_status": "game_verified"
     },
     {
       "id": "evidence.dlc.miquella-crosses",
@@ -948,14 +957,17 @@
       "locator": "Realm of Shadow map fragments and regional item descriptions",
       "summary_en": "Regional records situate Belurat, Enir-Ilim and the hornsent civilization within the concealed realm.",
       "summary_rights_status": "original",
-      "review_status": "draft"
+      "review_status": "reviewed",
+      "verification_status": "game_verified"
     },
     {
       "id":"evidence.base.frenzied-flame",
       "source_id":"game.base.item-descriptions",
       "locator":"Frenzied Flame incantations, notes, and related quest records",
       "summary_en":"Records connect the Frenzied Flame, the Three Fingers, madness and an ambition to erase distinctions by returning existence to one.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original",
+      "review_status":"reviewed",
+      "verification_status":"game_verified"
     },
     {
       "id":"evidence.base.melina-guidance","source_id":"game.base.melina-dialogue",
@@ -970,13 +982,13 @@
       "id":"evidence.base.godrick-stormveil","source_id":"game.base.remembrances","locator":"Godrick remembrance, Stormveil scenes and related descriptions","summary_en":"The records identify Godrick as a distant member of the Golden Lineage who rules from Stormveil and practices grafting.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"
     },
     {
-      "id":"evidence.base.giants-flame","source_id":"game.base.item-descriptions","locator":"Fire Giant remembrance, Flame of the Fell God and Forge descriptions","summary_en":"The records connect the last Fire Giant, the Mountaintops, the Forge and the enduring flame once opposed by Marika's forces.","summary_rights_status":"original","review_status":"draft"
+      "id":"evidence.base.giants-flame","source_id":"game.base.item-descriptions","locator":"Fire Giant remembrance, Flame of the Fell God and Forge descriptions","summary_en":"The records connect the last Fire Giant, the Mountaintops, the Forge and the enduring flame once opposed by Marika's forces.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"
     },
     {
-      "id":"evidence.base.fia-fortissax","source_id":"game.base.boss-and-quest-scenes","locator":"Fia quest, Deeproot Depths scenes and Fortissax remembrance","summary_en":"Fia's quest connects her to Godwyn, Those Who Live in Death and Fortissax, who fought Death within his companion.","summary_rights_status":"original","review_status":"draft"
+      "id":"evidence.base.fia-fortissax","source_id":"game.base.boss-and-quest-scenes","locator":"Fia quest, Deeproot Depths scenes and Fortissax remembrance","summary_en":"Fia's quest connects her to Godwyn, Those Who Live in Death and Fortissax, who fought Death within his companion.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"
     },
     {
-      "id":"evidence.base.volcano-manor","source_id":"game.base.boss-and-quest-scenes","locator":"Volcano Manor invitations, Tanith dialogue and Rykard encounter","summary_en":"Volcano Manor records identify Tanith as its proprietress and the faction as a movement serving Rykard in rebellion against the Erdtree.","summary_rights_status":"original","review_status":"draft"
+      "id":"evidence.base.volcano-manor","source_id":"game.base.boss-and-quest-scenes","locator":"Volcano Manor invitations, Tanith dialogue and Rykard encounter","summary_en":"Volcano Manor records identify Tanith as its proprietress and the faction as a movement serving Rykard in rebellion against the Erdtree.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"
     },
     {
       "id":"evidence.base.gideon-roundtable","source_id":"game.base.gideon-dialogue",
@@ -989,14 +1001,18 @@
       "source_id":"game.base.remembrances",
       "locator":"Mohg remembrance and blood incantation descriptions",
       "summary_en":"Blood-related records identify the Formless Mother as the power encountered and served by Mohg.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original",
+      "review_status":"reviewed",
+      "verification_status":"game_verified"
     },
     {
       "id":"evidence.base.rot",
       "source_id":"game.base.item-descriptions",
       "locator":"Lake of Rot, rot incantations, needles and Malenia-related descriptions",
       "summary_en":"These records connect Scarlet Rot to Malenia, Caelid, the Lake of Rot and efforts to resist an outer power's influence.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original",
+      "review_status":"reviewed",
+      "verification_status":"game_verified"
     },
     {
       "id":"evidence.base.deathroot",
@@ -1010,7 +1026,9 @@
       "source_id":"game.base.item-descriptions",
       "locator":"Nox, Eternal City, Siofra and Fingerslayer Blade descriptions",
       "summary_en":"Subterranean records place Nokron by the Siofra and connect the Nox with an artificial night and opposition to the Greater Will.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original",
+      "review_status":"reviewed",
+      "verification_status":"game_verified"
     },
     {
       "id":"evidence.base.farum-dragons",
@@ -1024,49 +1042,63 @@
       "source_id":"game.dlc.remembrances",
       "locator":"Metyr remembrance, finger ruins and Ymir quest records",
       "summary_en":"The records identify Metyr as mother of the Fingers, a daughter of the Greater Will, and the first shooting star to reach the Lands Between.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original",
+      "review_status":"reviewed",
+      "verification_status":"game_verified"
     },
     {
       "id":"evidence.dlc.trina",
       "source_id":"game.dlc.dialogue",
       "locator":"Stone Coffin Fissure, Thiollier dialogue and St. Trina quest scenes",
       "summary_en":"The quest records connect St. Trina to Miquella's discarded aspect, sleep, Thiollier and opposition to Miquella's godhood.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original",
+      "review_status":"reviewed",
+      "verification_status":"game_verified"
     },
     {
       "id":"evidence.dlc.midra",
       "source_id":"game.dlc.item-descriptions",
       "locator":"Abyssal Woods, Midra's Manse and frenzy-related descriptions",
       "summary_en":"Regional records connect Midra, the Abyssal Woods, prolonged torment and the emergence of a Lord of Frenzied Flame.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original",
+      "review_status":"reviewed",
+      "verification_status":"game_verified"
     },
     {
       "id":"evidence.dlc.dragons",
       "source_id":"game.dlc.remembrances",
       "locator":"Bayle remembrance, Dragon Communion and Jagged Peak records",
       "summary_en":"Dragon records describe Bayle's ancient conflict with Placidusax and the enduring wounds borne by both dragons.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original",
+      "review_status":"reviewed",
+      "verification_status":"game_verified"
     },
     {
       "id":"evidence.dlc.rellana",
       "source_id":"game.dlc.remembrances",
       "locator":"Rellana remembrance and Twin Moon Knight equipment descriptions",
       "summary_en":"The records identify Rellana as Rennala's younger twin, a Carian princess who relinquished her birthright and followed Messmer into the Realm of Shadow.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original",
+      "review_status":"reviewed",
+      "verification_status":"game_verified"
     },
     {
       "id":"evidence.base.albinauric-quest",
       "source_id":"game.base.boss-and-quest-scenes",
       "locator":"Albus and Latenna quest dialogue in Liurnia and the Consecrated Snowfield",
       "summary_en":"The quest identifies Albus and Latenna as Albinaurics, connects the secret medallion to the Haligtree route, and traces Latenna's search for the Albinaurics' promised refuge.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original",
+      "review_status":"reviewed",
+      "verification_status":"game_verified"
     },
     {
       "id":"evidence.base.godskins",
       "source_id":"game.base.item-descriptions",
       "locator":"Godskin armor, Black Flame incantations, Godslayer's Greatsword and related descriptions",
       "summary_en":"The records connect the Godskin Apostles to the Gloam-Eyed Queen, Destined Death and a god-slaying black flame whose true power diminished after the Rune of Death was sealed.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original",
+      "review_status":"reviewed",
+      "verification_status":"game_verified"
     },
     {
       "id":"evidence.base.numen",
@@ -1080,7 +1112,9 @@
       "source_id":"game.base.item-descriptions",
       "locator":"Bolt of Gransax, Lansseax's Glaive, dragon cult incantations and Greyoll's Roar descriptions",
       "summary_en":"Dragon records connect Gransax's attack on Leyndell to the ancient dragon war, identify Lansseax as Fortissax's sister and a priestess of the dragon cult, and call Greyoll the mother of all dragons.",
-      "summary_rights_status":"original","review_status":"draft"
+      "summary_rights_status":"original",
+      "review_status":"reviewed",
+      "verification_status":"game_verified"
     }
   ],
   "localized_texts": [
@@ -1606,7 +1640,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1633,7 +1668,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1813,7 +1849,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "shadow_of_the_erdtree"
     },
     {
@@ -1892,7 +1929,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1905,7 +1943,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1919,7 +1958,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "official_verified",
       "continuity": "base_game"
     },
     {
@@ -2000,7 +2040,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -2013,7 +2054,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "both"
     },
     {
@@ -2026,7 +2068,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -2052,7 +2095,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "shadow_of_the_erdtree"
     },
     {
@@ -2065,7 +2109,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "shadow_of_the_erdtree"
     },
     {
@@ -2078,7 +2123,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "shadow_of_the_erdtree"
     },
     {
@@ -2091,7 +2137,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -2182,7 +2229,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -2288,7 +2336,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -2315,7 +2364,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -2369,7 +2419,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -2382,7 +2433,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -2396,7 +2448,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "official_verified",
       "continuity": "base_game"
     },
     {
@@ -2607,7 +2660,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "official_verified",
       "continuity": "shadow_of_the_erdtree"
     },
     {
@@ -2696,7 +2750,7 @@
       "id":"claim.gideon.member-roundtable","subject_id":"character.gideon-ofnir","predicate":"MEMBER_OF","object_id":"faction.roundtable-hold","evidence_ids":["evidence.base.gideon-roundtable"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
     },
     {
-      "id":"claim.gurranq.is-maliketh","subject_id":"character.maliketh-gurranq","predicate":"IDENTITY_OF","object_id":"character.maliketh","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+      "id":"claim.gurranq.is-maliketh","subject_id":"character.maliketh-gurranq","predicate":"IDENTITY_OF","object_id":"character.maliketh","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"
     },
     {
       "id":"claim.gurranq.seeks-deathroot","subject_id":"character.maliketh-gurranq","predicate":"SEEKS","object_id":"artifact.deathroot","evidence_ids":["evidence.base.deathroot"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
@@ -2708,28 +2762,28 @@
       "id":"claim.godwyn.rests-deeproot","subject_id":"character.godwyn","predicate":"RESTS_IN","object_id":"location.deeproot-depths","evidence_ids":["evidence.base.deathroot"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"
     },
     {
-      "id":"claim.rune-death-embodies-destined-death","subject_id":"artifact.rune-of-death","predicate":"EMBODIES","object_id":"concept.destined-death","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+      "id":"claim.rune-death-embodies-destined-death","subject_id":"artifact.rune-of-death","predicate":"EMBODIES","object_id":"concept.destined-death","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"
     },
     {
-      "id":"claim.three-fingers-serve-frenzy","subject_id":"faction.three-fingers","predicate":"SERVES","object_id":"outer-god.frenzied-flame","evidence_ids":["evidence.base.frenzied-flame"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+      "id":"claim.three-fingers-serve-frenzy","subject_id":"faction.three-fingers","predicate":"SERVES","object_id":"outer-god.frenzied-flame","evidence_ids":["evidence.base.frenzied-flame"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"
     },
     {
       "id":"claim.frenzy-opposes-distinctions","subject_id":"outer-god.frenzied-flame","predicate":"SEEKS_TO_END","object_id":"artifact.golden-order","evidence_ids":["evidence.base.frenzied-flame"],"evidence_level":"synthesis","confidence":"medium","review_status":"draft","continuity":"base_game"
     },
     {
-      "id":"claim.midra-in-abyssal-woods","subject_id":"character.midra","predicate":"LOCATED_IN","object_id":"location.abyssal-woods","evidence_ids":["evidence.dlc.midra"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+      "id":"claim.midra-in-abyssal-woods","subject_id":"character.midra","predicate":"LOCATED_IN","object_id":"location.abyssal-woods","evidence_ids":["evidence.dlc.midra"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"
     },
     {
-      "id":"claim.midra-lord-frenzy","subject_id":"character.midra","predicate":"BECAME_LORD_OF","object_id":"outer-god.frenzied-flame","evidence_ids":["evidence.dlc.midra"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+      "id":"claim.midra-lord-frenzy","subject_id":"character.midra","predicate":"BECAME_LORD_OF","object_id":"outer-god.frenzied-flame","evidence_ids":["evidence.dlc.midra"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"
     },
     {
-      "id":"claim.mohg-serves-formless-mother","subject_id":"character.mohg","predicate":"SERVES","object_id":"outer-god.formless-mother","evidence_ids":["evidence.base.blood-formless-mother"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+      "id":"claim.mohg-serves-formless-mother","subject_id":"character.mohg","predicate":"SERVES","object_id":"outer-god.formless-mother","evidence_ids":["evidence.base.blood-formless-mother"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"
     },
     {
-      "id":"claim.formless-mother-grants-bloodflame","subject_id":"outer-god.formless-mother","predicate":"GRANTS_POWER_TO","object_id":"character.mohg","evidence_ids":["evidence.base.blood-formless-mother"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+      "id":"claim.formless-mother-grants-bloodflame","subject_id":"outer-god.formless-mother","predicate":"GRANTS_POWER_TO","object_id":"character.mohg","evidence_ids":["evidence.base.blood-formless-mother"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"
     },
     {
-      "id":"claim.malenia-afflicted-rot","subject_id":"character.malenia","predicate":"AFFLICTED_BY","object_id":"concept.scarlet-rot","evidence_ids":["evidence.base.rot"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"both"
+      "id":"claim.malenia-afflicted-rot","subject_id":"character.malenia","predicate":"AFFLICTED_BY","object_id":"concept.scarlet-rot","evidence_ids":["evidence.base.rot"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"both"
     },
     {
       "id":"claim.rot-devastated-caelid","subject_id":"concept.scarlet-rot","predicate":"DEVASTATED","object_id":"location.caelid","evidence_ids":["evidence.base.rot","evidence.base.aeonia"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
@@ -2738,7 +2792,7 @@
       "id":"claim.two-fingers-interpret-greater-will","subject_id":"faction.two-fingers","predicate":"INTERPRETS","object_id":"character.greater-will","evidence_ids":["evidence.base.great-runes"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"both"
     },
     {
-      "id":"claim.nokron-in-siofra","subject_id":"location.nokron","predicate":"LOCATED_IN","object_id":"location.siofra-river","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+      "id":"claim.nokron-in-siofra","subject_id":"location.nokron","predicate":"LOCATED_IN","object_id":"location.siofra-river","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"
     },
     {
       "id":"claim.nokron-opposed-greater-will","subject_id":"location.nokron","predicate":"OPPOSED","object_id":"character.greater-will","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"synthesis","confidence":"medium","review_status":"draft","continuity":"base_game"
@@ -2750,22 +2804,22 @@
       "id":"claim.placidusax-in-farum","subject_id":"character.placidusax","predicate":"LOCATED_IN","object_id":"location.crumbling-farum-azula","evidence_ids":["evidence.base.farum-dragons"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
     },
     {
-      "id":"claim.bayle-fought-placidusax","subject_id":"character.bayle","predicate":"FOUGHT","object_id":"character.placidusax","evidence_ids":["evidence.dlc.dragons"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+      "id":"claim.bayle-fought-placidusax","subject_id":"character.bayle","predicate":"FOUGHT","object_id":"character.placidusax","evidence_ids":["evidence.dlc.dragons"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"
     },
     {
-      "id":"claim.metyr-child-greater-will","subject_id":"character.metyr","predicate":"CHILD_OF","object_id":"character.greater-will","evidence_ids":["evidence.dlc.metyr-fingers"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+      "id":"claim.metyr-child-greater-will","subject_id":"character.metyr","predicate":"CHILD_OF","object_id":"character.greater-will","evidence_ids":["evidence.dlc.metyr-fingers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"
     },
     {
-      "id":"claim.metyr-mother-fingers","subject_id":"character.metyr","predicate":"PROGENITOR_OF","object_id":"faction.two-fingers","evidence_ids":["evidence.dlc.metyr-fingers"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+      "id":"claim.metyr-mother-fingers","subject_id":"character.metyr","predicate":"PROGENITOR_OF","object_id":"faction.two-fingers","evidence_ids":["evidence.dlc.metyr-fingers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"
     },
     {
-      "id":"claim.trina-aspect-miquella","subject_id":"character.st-trina","predicate":"ASPECT_OF","object_id":"character.miquella","evidence_ids":["evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+      "id":"claim.trina-aspect-miquella","subject_id":"character.st-trina","predicate":"ASPECT_OF","object_id":"character.miquella","evidence_ids":["evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"
     },
     {
-      "id":"claim.thiollier-follows-trina","subject_id":"character.thiollier","predicate":"FOLLOWS","object_id":"character.st-trina","evidence_ids":["evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+      "id":"claim.thiollier-follows-trina","subject_id":"character.thiollier","predicate":"FOLLOWS","object_id":"character.st-trina","evidence_ids":["evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"
     },
     {
-      "id":"claim.miquella-abandoned-trina","subject_id":"character.miquella","predicate":"ABANDONED_ASPECT","object_id":"character.st-trina","evidence_ids":["evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+      "id":"claim.miquella-abandoned-trina","subject_id":"character.miquella","predicate":"ABANDONED_ASPECT","object_id":"character.st-trina","evidence_ids":["evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"
     },
     {
       "id":"claim.hornsent-member-people","subject_id":"character.hornsent","predicate":"MEMBER_OF","object_id":"faction.hornsent","evidence_ids":["evidence.dlc.followers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","continuity":"shadow_of_the_erdtree"
@@ -2786,26 +2840,26 @@
     {"id":"claim.ranni-seeks-nokron","subject_id":"character.ranni","predicate":"SEEKS","object_id":"location.nokron","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.godrick-member-golden-lineage","subject_id":"character.godrick","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.godrick-stormveil"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.godrick-rules-stormveil","subject_id":"character.godrick","predicate":"RULED","object_id":"location.stormveil-castle","evidence_ids":["evidence.base.godrick-stormveil"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
-    {"id":"claim.fire-giant-in-mountaintops","subject_id":"character.fire-giant","predicate":"INHABITS","object_id":"location.mountaintops-giants","evidence_ids":["evidence.base.giants-flame"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.fire-giant-guards-forge","subject_id":"character.fire-giant","predicate":"DEFENDS","object_id":"location.forge-giants","evidence_ids":["evidence.base.giants-flame"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.fire-giant-in-mountaintops","subject_id":"character.fire-giant","predicate":"INHABITS","object_id":"location.mountaintops-giants","evidence_ids":["evidence.base.giants-flame"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.fire-giant-guards-forge","subject_id":"character.fire-giant","predicate":"DEFENDS","object_id":"location.forge-giants","evidence_ids":["evidence.base.giants-flame"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.fia-serves-those-live-death","subject_id":"character.fia","predicate":"SERVES","object_id":"faction.those-live-death","evidence_ids":["evidence.base.fia-fortissax"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.fia-seeks-godwyn","subject_id":"character.fia","predicate":"SEEKS","object_id":"character.godwyn","evidence_ids":["evidence.base.fia-fortissax"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.fia-seeks-godwyn","subject_id":"character.fia","predicate":"SEEKS","object_id":"character.godwyn","evidence_ids":["evidence.base.fia-fortissax"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.fortissax-defends-godwyn","subject_id":"character.fortissax","predicate":"DEFENDS","object_id":"character.godwyn","evidence_ids":["evidence.base.fia-fortissax"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.tanith-leads-volcano-manor","subject_id":"character.tanith","predicate":"LEADS","object_id":"faction.volcano-manor","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.volcano-manor-serves-rykard","subject_id":"faction.volcano-manor","predicate":"SERVES","object_id":"character.rykard","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.volcano-manor-based-volcano","subject_id":"faction.volcano-manor","predicate":"BASED_IN","object_id":"location.volcano-manor","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.astel-in-ainsel-river","subject_id":"character.astel","predicate":"LOCATED_IN","object_id":"location.ainsel-river","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.tanith-leads-volcano-manor","subject_id":"character.tanith","predicate":"LEADS","object_id":"faction.volcano-manor","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.volcano-manor-serves-rykard","subject_id":"faction.volcano-manor","predicate":"SERVES","object_id":"character.rykard","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.volcano-manor-based-volcano","subject_id":"faction.volcano-manor","predicate":"BASED_IN","object_id":"location.volcano-manor","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.astel-in-ainsel-river","subject_id":"character.astel","predicate":"LOCATED_IN","object_id":"location.ainsel-river","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.albinaurics-in-liurnia","subject_id":"people.albinaurics","predicate":"INHABITS","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.ranni-member-carian-family","subject_id":"character.ranni","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.radahn-member-carian-family","subject_id":"character.radahn","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.rykard-member-carian-family","subject_id":"character.rykard","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
-    {"id":"claim.carian-family-based-caria-manor","subject_id":"faction.carian-royal-family","predicate":"BASED_IN","object_id":"location.caria-manor","evidence_ids":["evidence.base.carian-history","evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.caria-manor-in-liurnia","subject_id":"location.caria-manor","predicate":"LOCATED_IN","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.raya-lucaria-in-liurnia","subject_id":"location.raya-lucaria","predicate":"LOCATED_IN","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.carian-family-based-caria-manor","subject_id":"faction.carian-royal-family","predicate":"BASED_IN","object_id":"location.caria-manor","evidence_ids":["evidence.base.carian-history","evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.caria-manor-in-liurnia","subject_id":"location.caria-manor","predicate":"LOCATED_IN","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.raya-lucaria-in-liurnia","subject_id":"location.raya-lucaria","predicate":"LOCATED_IN","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.rennala-leads-raya-lucaria","subject_id":"character.rennala","predicate":"LEADS","object_id":"location.raya-lucaria","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
-    {"id":"claim.rellana-twin-rennala","subject_id":"character.rellana","predicate":"TWIN_OF","object_id":"character.rennala","evidence_ids":["evidence.dlc.rellana"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"},
-    {"id":"claim.rellana-member-carian-family","subject_id":"character.rellana","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.dlc.rellana"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"},
-    {"id":"claim.rellana-serves-messmer","subject_id":"character.rellana","predicate":"SERVES","object_id":"character.messmer","evidence_ids":["evidence.dlc.rellana"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.rellana-twin-rennala","subject_id":"character.rellana","predicate":"TWIN_OF","object_id":"character.rennala","evidence_ids":["evidence.dlc.rellana"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.rellana-member-carian-family","subject_id":"character.rellana","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.dlc.rellana"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.rellana-serves-messmer","subject_id":"character.rellana","predicate":"SERVES","object_id":"character.messmer","evidence_ids":["evidence.dlc.rellana"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
     {"id":"claim.godwyn-member-golden-lineage","subject_id":"character.godwyn","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.family-remembrances"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.morgott-member-golden-lineage","subject_id":"character.morgott","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.family-remembrances"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.mohg-member-golden-lineage","subject_id":"character.mohg","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.family-remembrances"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
@@ -2813,38 +2867,38 @@
     {"id":"claim.ranni-is-empyrean","subject_id":"character.ranni","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.miquella-is-empyrean","subject_id":"character.miquella","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.miquella-haligtree"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"both"},
     {"id":"claim.malenia-is-empyrean","subject_id":"character.malenia","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.miquella-haligtree"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"both"},
-    {"id":"claim.gloam-eyed-queen-is-empyrean","subject_id":"character.gloam-eyed-queen","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.maliketh-defeated-gloam-eyed-queen","subject_id":"character.maliketh","predicate":"DEFEATED","object_id":"character.gloam-eyed-queen","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.latenna-member-albinaurics","subject_id":"character.latenna","predicate":"MEMBER_OF","object_id":"people.albinaurics","evidence_ids":["evidence.base.albinauric-quest"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.albus-member-albinaurics","subject_id":"character.albus","predicate":"MEMBER_OF","object_id":"people.albinaurics","evidence_ids":["evidence.base.albinauric-quest"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.albus-guards-secret-medallion","subject_id":"character.albus","predicate":"GUARDED","object_id":"artifact.haligtree-secret-medallion","evidence_ids":["evidence.base.albinauric-quest"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.village-albinaurics-in-liurnia","subject_id":"location.village-albinaurics","predicate":"LOCATED_IN","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.albinaurics-inhabit-village","subject_id":"people.albinaurics","predicate":"INHABITS","object_id":"location.village-albinaurics","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.gloam-eyed-queen-is-empyrean","subject_id":"character.gloam-eyed-queen","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.maliketh-defeated-gloam-eyed-queen","subject_id":"character.maliketh","predicate":"DEFEATED","object_id":"character.gloam-eyed-queen","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.latenna-member-albinaurics","subject_id":"character.latenna","predicate":"MEMBER_OF","object_id":"people.albinaurics","evidence_ids":["evidence.base.albinauric-quest"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.albus-member-albinaurics","subject_id":"character.albus","predicate":"MEMBER_OF","object_id":"people.albinaurics","evidence_ids":["evidence.base.albinauric-quest"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.albus-guards-secret-medallion","subject_id":"character.albus","predicate":"GUARDED","object_id":"artifact.haligtree-secret-medallion","evidence_ids":["evidence.base.albinauric-quest"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.village-albinaurics-in-liurnia","subject_id":"location.village-albinaurics","predicate":"LOCATED_IN","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.albinaurics-inhabit-village","subject_id":"people.albinaurics","predicate":"INHABITS","object_id":"location.village-albinaurics","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.loretta-serves-haligtree","subject_id":"character.loretta","predicate":"SERVES","object_id":"artifact.haligtree","evidence_ids":["evidence.base.miquella-haligtree"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.consecrated-snowfield-leads-haligtree","subject_id":"location.consecrated-snowfield","predicate":"ROUTE_TO","object_id":"location.haligtree","evidence_ids":["evidence.base.locations"],"evidence_level":"synthesis","confidence":"medium","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.nox-inhabit-nokron","subject_id":"people.nox","predicate":"INHABITS","object_id":"location.nokron","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.nox-inhabit-nokstella","subject_id":"people.nox","predicate":"INHABITS","object_id":"location.nokstella","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.nokstella-in-ainsel","subject_id":"location.nokstella","predicate":"LOCATED_IN","object_id":"location.ainsel-river","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.nameless-city-in-deeproot","subject_id":"location.nameless-eternal-city","predicate":"LOCATED_IN","object_id":"location.deeproot-depths","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.fingerslayer-blade-in-nokron","subject_id":"artifact.fingerslayer-blade","predicate":"LOCATED_IN","object_id":"location.nokron","evidence_ids":["evidence.base.underground-cities","evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.fingerslayer-blade-targets-greater-will","subject_id":"artifact.fingerslayer-blade","predicate":"HARMS_VASSALS_OF","object_id":"character.greater-will","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.nox-created-mimic-tear","subject_id":"people.nox","predicate":"CREATED","object_id":"character.mimic-tear","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.nox-inhabit-nokron","subject_id":"people.nox","predicate":"INHABITS","object_id":"location.nokron","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.nox-inhabit-nokstella","subject_id":"people.nox","predicate":"INHABITS","object_id":"location.nokstella","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.nokstella-in-ainsel","subject_id":"location.nokstella","predicate":"LOCATED_IN","object_id":"location.ainsel-river","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.nameless-city-in-deeproot","subject_id":"location.nameless-eternal-city","predicate":"LOCATED_IN","object_id":"location.deeproot-depths","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.fingerslayer-blade-in-nokron","subject_id":"artifact.fingerslayer-blade","predicate":"LOCATED_IN","object_id":"location.nokron","evidence_ids":["evidence.base.underground-cities","evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.fingerslayer-blade-targets-greater-will","subject_id":"artifact.fingerslayer-blade","predicate":"HARMS_VASSALS_OF","object_id":"character.greater-will","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.nox-created-mimic-tear","subject_id":"people.nox","predicate":"CREATED","object_id":"character.mimic-tear","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.marika-member-numen","subject_id":"character.marika","predicate":"MEMBER_OF","object_id":"people.numen","evidence_ids":["evidence.base.numen"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"both"},
-    {"id":"claim.black-knives-member-numen","subject_id":"faction.black-knife-assassins","predicate":"MEMBER_OF","object_id":"people.numen","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.alecto-leads-black-knives","subject_id":"character.alecto","predicate":"LEADS","object_id":"faction.black-knife-assassins","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.black-knives-participated-night","subject_id":"event.night-of-black-knives","predicate":"PARTICIPANT","object_id":"faction.black-knife-assassins","evidence_ids":["evidence.base.opening.godwyn","evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.godskins-serve-gloam-queen","subject_id":"faction.godskin-apostles","predicate":"SERVES","object_id":"character.gloam-eyed-queen","evidence_ids":["evidence.base.godskins"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.godskins-serve-destined-death","subject_id":"faction.godskin-apostles","predicate":"SERVES","object_id":"concept.destined-death","evidence_ids":["evidence.base.godskins"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.godskins-wield-black-flame","subject_id":"faction.godskin-apostles","predicate":"WIELDS","object_id":"concept.black-flame","evidence_ids":["evidence.base.godskins"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.black-knives-member-numen","subject_id":"faction.black-knife-assassins","predicate":"MEMBER_OF","object_id":"people.numen","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.alecto-leads-black-knives","subject_id":"character.alecto","predicate":"LEADS","object_id":"faction.black-knife-assassins","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.black-knives-participated-night","subject_id":"event.night-of-black-knives","predicate":"PARTICIPANT","object_id":"faction.black-knife-assassins","evidence_ids":["evidence.base.opening.godwyn","evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.godskins-serve-gloam-queen","subject_id":"faction.godskin-apostles","predicate":"SERVES","object_id":"character.gloam-eyed-queen","evidence_ids":["evidence.base.godskins"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.godskins-serve-destined-death","subject_id":"faction.godskin-apostles","predicate":"SERVES","object_id":"concept.destined-death","evidence_ids":["evidence.base.godskins"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.godskins-wield-black-flame","subject_id":"faction.godskin-apostles","predicate":"WIELDS","object_id":"concept.black-flame","evidence_ids":["evidence.base.godskins"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.black-flame-draws-destined-death","subject_id":"concept.black-flame","predicate":"DRAWS_POWER_FROM","object_id":"concept.destined-death","evidence_ids":["evidence.base.godskins"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.gransax-attacked-leyndell","subject_id":"character.gransax","predicate":"ATTACKED","object_id":"location.leyndell","evidence_ids":["evidence.base.ancient-dragon-war","evidence.base.leyndell-war"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.gransax-caused-dragon-war","subject_id":"character.gransax","predicate":"CATALYST_FOR","object_id":"event.war-ancient-dragons","evidence_ids":["evidence.base.ancient-dragon-war","evidence.base.leyndell-war"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.dragon-war-in-age-erdtree","subject_id":"event.war-ancient-dragons","predicate":"IN_ERA","object_id":"era.age-of-erdtree","evidence_ids":["evidence.base.ancient-dragon-war"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.lansseax-sibling-fortissax","subject_id":"character.lansseax","predicate":"SIBLING_OF","object_id":"character.fortissax","evidence_ids":["evidence.base.ancient-dragon-war"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.lansseax-serves-dragon-cult","subject_id":"character.lansseax","predicate":"SERVES","object_id":"faction.ancient-dragon-cult","evidence_ids":["evidence.base.ancient-dragon-war"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.dragon-war-in-age-erdtree","subject_id":"event.war-ancient-dragons","predicate":"IN_ERA","object_id":"era.age-of-erdtree","evidence_ids":["evidence.base.ancient-dragon-war"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.lansseax-sibling-fortissax","subject_id":"character.lansseax","predicate":"SIBLING_OF","object_id":"character.fortissax","evidence_ids":["evidence.base.ancient-dragon-war"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.lansseax-serves-dragon-cult","subject_id":"character.lansseax","predicate":"SERVES","object_id":"faction.ancient-dragon-cult","evidence_ids":["evidence.base.ancient-dragon-war"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.dragon-cult-based-leyndell","subject_id":"faction.ancient-dragon-cult","predicate":"BASED_IN","object_id":"location.leyndell","evidence_ids":["evidence.base.ancient-dragon-war"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.greyoll-inhabits-caelid","subject_id":"character.greyoll","predicate":"INHABITS","object_id":"location.caelid","evidence_ids":["evidence.base.ancient-dragon-war","evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.dragon-communion-targets-bayle","subject_id":"concept.dragon-communion","predicate":"TARGETED","object_id":"character.bayle","evidence_ids":["evidence.dlc.dragons"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"},
-    {"id":"claim.bayle-in-jagged-peak","subject_id":"character.bayle","predicate":"LOCATED_IN","object_id":"location.jagged-peak","evidence_ids":["evidence.dlc.dragons","evidence.dlc.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"}
+    {"id":"claim.greyoll-inhabits-caelid","subject_id":"character.greyoll","predicate":"INHABITS","object_id":"location.caelid","evidence_ids":["evidence.base.ancient-dragon-war","evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.dragon-communion-targets-bayle","subject_id":"concept.dragon-communion","predicate":"TARGETED","object_id":"character.bayle","evidence_ids":["evidence.dlc.dragons"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.bayle-in-jagged-peak","subject_id":"character.bayle","predicate":"LOCATED_IN","object_id":"location.jagged-peak","evidence_ids":["evidence.dlc.dragons","evidence.dlc.locations"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"}
   ]
 }
