@@ -7,6 +7,7 @@ from fastapi import APIRouter, Query
 from elden_lore_api.api_models import AnswerResponse
 from elden_lore_api.config import Settings, get_settings
 from elden_lore_api.generation import (
+    GeminiAnswerGenerator,
     GroundedAnswerCache,
     GroundedAnswerService,
     OpenAIAnswerGenerator,
@@ -39,18 +40,53 @@ def _openai_service(
     return GroundedAnswerService(generator, cache)
 
 
+@lru_cache(maxsize=4)
+def _gemini_service(
+    api_key: str,
+    model: str,
+    timeout_seconds: float,
+    max_output_tokens: int,
+    cache_ttl_seconds: int,
+    cache_max_entries: int,
+) -> GroundedAnswerService:
+    generator = GeminiAnswerGenerator(
+        api_key=api_key,
+        model=model,
+        timeout_seconds=timeout_seconds,
+        max_output_tokens=max_output_tokens,
+    )
+    cache = GroundedAnswerCache(
+        ttl_seconds=cache_ttl_seconds,
+        max_entries=cache_max_entries,
+    )
+    return GroundedAnswerService(generator, cache)
+
+
 def _enhance_answer(base: AnswerResponse, settings: Settings) -> AnswerResponse:
-    if settings.answer_generator != "openai" or not settings.openai_api_key:
+    if settings.answer_generator == "deterministic":
         return base
     try:
-        return _openai_service(
-            settings.openai_api_key,
-            settings.openai_model,
-            settings.openai_timeout_seconds,
-            settings.openai_max_output_tokens,
-            settings.answer_cache_ttl_seconds,
-            settings.answer_cache_max_entries,
-        ).enhance(base)
+        if settings.answer_generator == "openai" and settings.openai_api_key:
+            service = _openai_service(
+                settings.openai_api_key,
+                settings.openai_model,
+                settings.openai_timeout_seconds,
+                settings.openai_max_output_tokens,
+                settings.answer_cache_ttl_seconds,
+                settings.answer_cache_max_entries,
+            )
+        elif settings.answer_generator == "gemini" and settings.gemini_api_key:
+            service = _gemini_service(
+                settings.gemini_api_key,
+                settings.gemini_model,
+                settings.gemini_timeout_seconds,
+                settings.gemini_max_output_tokens,
+                settings.answer_cache_ttl_seconds,
+                settings.answer_cache_max_entries,
+            )
+        else:
+            return base
+        return service.enhance(base)
     except Exception:
         logger.exception("grounded answer generation failed; using deterministic fallback")
         return base

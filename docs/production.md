@@ -107,16 +107,27 @@ changes.
 - a Neo4j 5.26+ database with persistent backups;
 - a container or Python host for the FastAPI application;
 - HTTPS and a domain, normally through a managed reverse proxy;
-- optional OpenAI API billing and a project-scoped API key for generative prose.
+- an optional Gemini or OpenAI API key for generative prose.
 
-ChatGPT subscriptions do not include API usage. The deterministic answer path
-works without an OpenAI account and remains the recommended initial launch mode.
+ChatGPT subscriptions do not include OpenAI API usage. Gemini offers a limited
+free tier. The deterministic answer path works without either provider.
 
 ## Optional grounded generation
 
-Keep `ANSWER_GENERATOR=deterministic` until an OpenAI API project has billing
-limits and a project-scoped key. To enable grounded prose, add the following
-secret and settings to the API service or Render environment:
+Keep `ANSWER_GENERATOR=deterministic` until a provider key is available. For the
+Gemini free tier, add these Render environment values:
+
+```text
+ANSWER_GENERATOR=gemini
+GEMINI_API_KEY=<secret>
+GEMINI_MODEL=gemini-2.5-flash-lite
+GEMINI_TIMEOUT_SECONDS=12
+GEMINI_MAX_OUTPUT_TOKENS=600
+ANSWER_CACHE_TTL_SECONDS=3600
+ANSWER_CACHE_MAX_ENTRIES=500
+```
+
+Alternatively, enable OpenAI with:
 
 ```text
 ANSWER_GENERATOR=openai
@@ -128,7 +139,7 @@ ANSWER_CACHE_TTL_SECONDS=3600
 ANSWER_CACHE_MAX_ENTRIES=500
 ```
 
-The generator uses the Responses API with a strict structured schema. It only
+Both providers use a strict structured schema. The generator only
 receives the claims and evidence already selected by the deterministic retrieval
 path. Returned claim and evidence identifiers are checked against that context;
 unknown or unrelated citations reject the generated result. Timeouts, API
@@ -136,9 +147,9 @@ errors, refusals, malformed output, and citation failures automatically return
 the deterministic answer. Unknown answers do not call the API.
 
 The existing answer rate limit, bounded context, output-token ceiling, and TTL
-cache are the initial spend controls. Set a hard project budget in the OpenAI
-platform as the authoritative cost boundary. The cache is per process and is
-cleared by a deploy or restart.
+cache are the initial quota and spend controls. Provider-side limits remain the
+authoritative boundary. The cache is per process and is cleared by a deploy or
+restart.
 
 ## Secrets and database roles
 

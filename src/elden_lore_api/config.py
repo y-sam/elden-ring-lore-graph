@@ -22,11 +22,18 @@ class Settings(BaseSettings):
     neo4j_database: str = "neo4j"
     editorial_token: str = Field(default="local-development-only", min_length=16)
     editorial_enabled: bool = True
-    answer_generator: Literal["deterministic", "openai"] = "deterministic"
+    answer_generator: Literal["deterministic", "openai", "gemini"] = "deterministic"
     openai_api_key: str | None = None
     openai_model: str = "gpt-6-astra"
     openai_timeout_seconds: float = Field(default=12.0, ge=1.0, le=60.0)
     openai_max_output_tokens: int = Field(default=600, ge=100, le=2000)
+    gemini_api_key: str | None = None
+    gemini_model: str = Field(
+        default="gemini-2.5-flash-lite",
+        pattern=r"^[A-Za-z0-9._-]+$",
+    )
+    gemini_timeout_seconds: float = Field(default=12.0, ge=1.0, le=60.0)
+    gemini_max_output_tokens: int = Field(default=600, ge=100, le=2000)
     answer_cache_ttl_seconds: int = Field(default=3600, ge=60, le=86400)
     answer_cache_max_entries: int = Field(default=500, ge=10, le=10000)
     answer_rate_limit_per_minute: int = Field(default=60, ge=1, le=10000)
@@ -47,6 +54,8 @@ class Settings(BaseSettings):
             raise ValueError("production requires a random EDITORIAL_TOKEN")
         if self.answer_generator == "openai" and not self.openai_api_key:
             raise ValueError("OPENAI_API_KEY is required when ANSWER_GENERATOR=openai")
+        if self.answer_generator == "gemini" and not self.gemini_api_key:
+            raise ValueError("GEMINI_API_KEY is required when ANSWER_GENERATOR=gemini")
         return self
 
 
