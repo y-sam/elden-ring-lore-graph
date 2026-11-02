@@ -22,7 +22,7 @@ services:
       - key: NEO4J_PASSWORD
         sync: false
       - key: NEO4J_DATABASE
-        value: neo4j
+        sync: false
       - key: EDITORIAL_TOKEN
         generateValue: true
       - key: EDITORIAL_ENABLED

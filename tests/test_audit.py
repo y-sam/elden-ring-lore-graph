@@ -13,6 +13,9 @@ def test_seed_passes_editorial_audit() -> None:
     assert report.counts["precedence_claims"] >= 10
     assert report.counts["timeline_memberships"] >= 12
     assert report.counts["localized_texts"] == report.counts["evidence"] * 2
+    assert report.coverage["connected_entity_percentage"] >= 95.0
+    assert report.coverage["entities_by_kind"]["character"] > 0
+    assert report.coverage["claims_by_verification"]
 
 
 def test_audit_detects_timeline_cycle() -> None:
@@ -34,3 +37,15 @@ def test_audit_detects_timeline_cycle() -> None:
     report = audit_dataset(dataset)
 
     assert any(issue.code == "timeline_cycle" for issue in report.issues)
+
+
+def test_audit_flags_semantic_duplicate_claim() -> None:
+    dataset = load_curated_dataset(DATASET)
+    original = dataset.claims[0]
+    dataset.claims.append(
+        ClaimRecord(**{**original.model_dump(), "id": "claim.duplicate.for-test"})
+    )
+
+    report = audit_dataset(dataset)
+
+    assert any(issue.code == "possible_duplicate_claim" for issue in report.issues)

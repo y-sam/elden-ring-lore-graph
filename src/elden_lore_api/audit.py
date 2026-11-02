@@ -1,5 +1,5 @@
 import argparse
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Literal
 
@@ -21,6 +21,7 @@ class AuditReport(BaseModel):
     dataset_id: str
     dataset_version: int
     counts: dict[str, int]
+    coverage: dict[str, object]
     issues: list[AuditIssue]
 
     @property
@@ -32,6 +33,60 @@ def audit_dataset(dataset: CuratedDataset) -> AuditReport:
     issues: list[AuditIssue] = []
     entities = {entity.id: entity for entity in dataset.entities}
     evidence = {item.id: item for item in dataset.evidence}
+
+    entity_names: dict[tuple[str, str], list[str]] = defaultdict(list)
+    for entity in dataset.entities:
+        entity_names[(entity.kind, _normalized(entity.canonical_name))].append(entity.id)
+    for record_ids in entity_names.values():
+        if len(record_ids) > 1:
+            issues.append(
+                AuditIssue(
+                    severity="warning",
+                    code="possible_duplicate_entity",
+                    message=f"Entities share a kind and normalized name: {record_ids}",
+                )
+            )
+
+    alias_keys: dict[tuple[str, str, str], list[str]] = defaultdict(list)
+    for alias in dataset.aliases:
+        alias_keys[(alias.entity_id, alias.locale, _normalized(alias.value))].append(alias.id)
+    for record_ids in alias_keys.values():
+        if len(record_ids) > 1:
+            issues.append(
+                AuditIssue(
+                    severity="error",
+                    code="duplicate_alias_value",
+                    message=f"Aliases repeat the same entity, locale and value: {record_ids}",
+                )
+            )
+
+    evidence_keys: dict[tuple[str, str], list[str]] = defaultdict(list)
+    for item in dataset.evidence:
+        evidence_keys[(item.source_id, _normalized(item.locator))].append(item.id)
+    for record_ids in evidence_keys.values():
+        if len(record_ids) > 1:
+            issues.append(
+                AuditIssue(
+                    severity="warning",
+                    code="possible_duplicate_evidence",
+                    message=f"Evidence shares a source and normalized locator: {record_ids}",
+                )
+            )
+
+    claim_keys: dict[tuple[str, str, str | None, str], list[str]] = defaultdict(list)
+    for claim in dataset.claims:
+        claim_keys[
+            (claim.subject_id, claim.predicate, claim.object_id, claim.continuity)
+        ].append(claim.id)
+    for record_ids in claim_keys.values():
+        if len(record_ids) > 1:
+            issues.append(
+                AuditIssue(
+                    severity="warning",
+                    code="possible_duplicate_claim",
+                    message=f"Claims share subject, predicate, object and continuity: {record_ids}",
+                )
+            )
 
     for claim in dataset.claims:
         subject = entities[claim.subject_id]
@@ -100,6 +155,22 @@ def audit_dataset(dataset: CuratedDataset) -> AuditReport:
         )
 
     predicates = Counter(claim.predicate for claim in dataset.claims)
+    connected_entity_ids = {
+        entity_id
+        for claim in dataset.claims
+        for entity_id in (claim.subject_id, claim.object_id)
+        if entity_id is not None
+    }
+    isolated_entity_ids = sorted(set(entities) - connected_entity_ids)
+    for entity_id in isolated_entity_ids:
+        issues.append(
+            AuditIssue(
+                severity="warning",
+                code="isolated_entity",
+                message="Entity is not referenced by any claim",
+                record_id=entity_id,
+            )
+        )
     counts = {
         "entities": len(dataset.entities),
         "aliases": len(dataset.aliases),
@@ -110,12 +181,45 @@ def audit_dataset(dataset: CuratedDataset) -> AuditReport:
         "timeline_memberships": predicates["IN_ERA"],
         "precedence_claims": predicates["BEFORE"],
     }
+    reviewed_claims = sum(claim.review_status == "reviewed" for claim in dataset.claims)
+    reviewed_evidence = sum(item.review_status == "reviewed" for item in dataset.evidence)
+    coverage: dict[str, object] = {
+        "entities_by_kind": dict(sorted(Counter(e.kind for e in dataset.entities).items())),
+        "entities_by_continuity": dict(
+            sorted(Counter(e.continuity.value for e in dataset.entities).items())
+        ),
+        "claims_by_predicate": dict(sorted(predicates.items())),
+        "claims_by_evidence_level": dict(
+            sorted(Counter(c.evidence_level.value for c in dataset.claims).items())
+        ),
+        "claims_by_verification": dict(
+            sorted(Counter(c.verification_status.value for c in dataset.claims).items())
+        ),
+        "evidence_by_verification": dict(
+            sorted(Counter(e.verification_status.value for e in dataset.evidence).items())
+        ),
+        "reviewed_claim_percentage": _percentage(reviewed_claims, len(dataset.claims)),
+        "reviewed_evidence_percentage": _percentage(reviewed_evidence, len(dataset.evidence)),
+        "connected_entity_percentage": _percentage(
+            len(connected_entity_ids), len(dataset.entities)
+        ),
+        "isolated_entity_ids": isolated_entity_ids,
+    }
     return AuditReport(
         dataset_id=dataset.dataset_id,
         dataset_version=dataset.dataset_version,
         counts=counts,
+        coverage=coverage,
         issues=issues,
     )
+
+
+def _normalized(value: str) -> str:
+    return " ".join(value.casefold().split())
+
+
+def _percentage(part: int, total: int) -> float:
+    return round(part * 100 / total, 1) if total else 100.0
 
 
 def run() -> None:

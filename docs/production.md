@@ -45,7 +45,9 @@ and an unsupported question. Confirm that `/editorial.html` and
 
 For the no-cost v0, `render.yaml` defines a Docker web service in Frankfurt.
 Set the three prompted secrets to the AuraDB connection URI, username, and
-password. Keep `NEO4J_DATABASE=neo4j`, `EDITORIAL_ENABLED=false`, and
+password. Set `NEO4J_DATABASE` to the database name shown by Aura Query (Aura
+Free instances may use the instance ID rather than `neo4j`). Keep
+`EDITORIAL_ENABLED=false` and
 `ANSWER_GENERATOR=deterministic`. The application listens on port 10000 and
 Render checks `/ready`.
 
@@ -58,17 +60,17 @@ write Aura credentials to `.env`, commit them, or paste them into issue trackers
 NEO4J_URI='neo4j+s://YOUR_INSTANCE.databases.neo4j.io' \
 NEO4J_USERNAME='neo4j' \
 NEO4J_PASSWORD='YOUR_LOCAL_SECRET' \
-NEO4J_DATABASE='neo4j' make migrate
+NEO4J_DATABASE='YOUR_AURA_DATABASE' make migrate
 
 NEO4J_URI='neo4j+s://YOUR_INSTANCE.databases.neo4j.io' \
 NEO4J_USERNAME='neo4j' \
 NEO4J_PASSWORD='YOUR_LOCAL_SECRET' \
-NEO4J_DATABASE='neo4j' make audit
+NEO4J_DATABASE='YOUR_AURA_DATABASE' make audit
 
 NEO4J_URI='neo4j+s://YOUR_INSTANCE.databases.neo4j.io' \
 NEO4J_USERNAME='neo4j' \
 NEO4J_PASSWORD='YOUR_LOCAL_SECRET' \
-NEO4J_DATABASE='neo4j' make import
+NEO4J_DATABASE='YOUR_AURA_DATABASE' make import
 ```
 
 Create the Render service only after the graph import succeeds. The free

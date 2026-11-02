@@ -2,7 +2,7 @@ UV_ENVIRONMENT ?= /tmp/elden-lore-venv
 UV_CACHE ?= /tmp/elden-lore-uv-cache
 UV_RUN = UV_PROJECT_ENVIRONMENT=$(UV_ENVIRONMENT) UV_CACHE_DIR=$(UV_CACHE) uv run
 
-.PHONY: sync lint test check run migrate import audit evaluate prod-config prod-build
+.PHONY: sync lint test check run migrate import audit corpus-validate corpus-report evaluate prod-config prod-build
 
 sync:
 	UV_PROJECT_ENVIRONMENT=$(UV_ENVIRONMENT) UV_CACHE_DIR=$(UV_CACHE) uv sync --extra dev --link-mode=copy
@@ -25,6 +25,12 @@ import:
 	$(UV_RUN) elden-lore-import
 
 audit:
+	$(UV_RUN) elden-lore-audit
+
+corpus-validate:
+	$(UV_RUN) elden-lore-audit
+
+corpus-report:
 	$(UV_RUN) elden-lore-audit
 
 evaluate:

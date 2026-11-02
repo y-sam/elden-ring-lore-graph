@@ -33,6 +33,11 @@ make import
 make run
 ```
 
+For larger corpus contributions, use thematic fragment manifests documented in
+[`data/curated/README.md`](data/curated/README.md). `make corpus-validate` checks
+referential and editorial invariants, while `make corpus-report` also exposes
+coverage, duplicate candidates, and disconnected entities.
+
 The API is available at `http://127.0.0.1:8000`; interactive documentation is
 at `/docs`. The web archive is served at the root URL. Run checks with:
 

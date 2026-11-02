@@ -244,6 +244,24 @@ class CuratedDataset(StrictModel):
         return self
 
 
+class CuratedDatasetFragment(StrictModel):
+    """A reviewable thematic batch that can be assembled through a manifest."""
+
+    entities: list[EntityRecord] = Field(default_factory=list)
+    aliases: list[AliasRecord] = Field(default_factory=list)
+    sources: list[SourceRecord] = Field(default_factory=list)
+    evidence: list[EvidenceRecord] = Field(default_factory=list)
+    localized_texts: list[LocalizedEvidenceTextRecord] = Field(default_factory=list)
+    claims: list[ClaimRecord] = Field(default_factory=list)
+
+
+class CuratedDatasetManifest(StrictModel):
+    dataset_id: Identifier
+    dataset_version: Annotated[int, Field(ge=1)]
+    status: DatasetStatus
+    fragments: Annotated[list[str], Field(min_length=1)]
+
+
 def _unique_ids(records: list[StrictModel], record_type: str) -> set[str]:
     ids = [str(record.id) for record in records]
     if len(ids) != len(set(ids)):
@@ -252,4 +270,38 @@ def _unique_ids(records: list[StrictModel], record_type: str) -> set[str]:
 
 
 def load_curated_dataset(path: Path) -> CuratedDataset:
-    return CuratedDataset.model_validate(json.loads(path.read_text(encoding="utf-8")))
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if "fragments" not in payload:
+        return CuratedDataset.model_validate(payload)
+
+    manifest = CuratedDatasetManifest.model_validate(payload)
+    assembled: dict[str, object] = {
+        "dataset_id": manifest.dataset_id,
+        "dataset_version": manifest.dataset_version,
+        "status": manifest.status,
+        "entities": [],
+        "aliases": [],
+        "sources": [],
+        "evidence": [],
+        "localized_texts": [],
+        "claims": [],
+    }
+    manifest_root = path.resolve().parent
+    for relative_path in manifest.fragments:
+        fragment_path = (manifest_root / relative_path).resolve()
+        if not fragment_path.is_relative_to(manifest_root):
+            raise ValueError(f"fragment escapes manifest directory: {relative_path}")
+        fragment = CuratedDatasetFragment.model_validate(
+            json.loads(fragment_path.read_text(encoding="utf-8"))
+        )
+        fragment_payload = fragment.model_dump(mode="json")
+        for collection in (
+            "entities",
+            "aliases",
+            "sources",
+            "evidence",
+            "localized_texts",
+            "claims",
+        ):
+            assembled[collection].extend(fragment_payload[collection])
+    return CuratedDataset.model_validate(assembled)

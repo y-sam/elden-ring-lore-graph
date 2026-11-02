@@ -1,6 +1,6 @@
 {
   "dataset_id": "dataset.the-shattering.seed",
-  "dataset_version": 8,
+  "dataset_version": 10,
   "status": "draft",
   "entities": [
     {
@@ -377,7 +377,20 @@
     {"id":"location.forge-giants","kind":"location","canonical_name":"Forge of the Giants","continuity":"base_game"},
     {"id":"faction.volcano-manor","kind":"faction","canonical_name":"Volcano Manor","continuity":"base_game"},
     {"id":"faction.those-live-death","kind":"faction","canonical_name":"Those Who Live in Death","continuity":"base_game"},
-    {"id":"people.albinaurics","kind":"people","canonical_name":"Albinaurics","continuity":"base_game"}
+    {"id":"people.albinaurics","kind":"people","canonical_name":"Albinaurics","continuity":"base_game"},
+    {"id":"location.ainsel-river","kind":"location","canonical_name":"Ainsel River","continuity":"base_game"},
+    {"id":"character.rellana","kind":"character","canonical_name":"Rellana, Twin Moon Knight","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.latenna","kind":"character","canonical_name":"Latenna the Albinauric","continuity":"base_game"},
+    {"id":"character.albus","kind":"character","canonical_name":"Old Albus","continuity":"base_game"},
+    {"id":"character.loretta","kind":"character","canonical_name":"Loretta, Knight of the Haligtree","continuity":"base_game"},
+    {"id":"character.godefroy","kind":"character","canonical_name":"Godefroy the Grafted","continuity":"base_game"},
+    {"id":"character.gloam-eyed-queen","kind":"character","canonical_name":"Gloam-Eyed Queen","continuity":"base_game"},
+    {"id":"concept.empyrean","kind":"concept","canonical_name":"Empyrean","continuity":"both"},
+    {"id":"location.caria-manor","kind":"location","canonical_name":"Caria Manor","continuity":"base_game"},
+    {"id":"location.raya-lucaria","kind":"location","canonical_name":"Academy of Raya Lucaria","continuity":"base_game"},
+    {"id":"location.village-albinaurics","kind":"location","canonical_name":"Village of the Albinaurics","continuity":"base_game"},
+    {"id":"location.consecrated-snowfield","kind":"location","canonical_name":"Consecrated Snowfield","continuity":"base_game"},
+    {"id":"artifact.haligtree-secret-medallion","kind":"artifact","canonical_name":"Haligtree Secret Medallion","continuity":"base_game"}
   ],
   "aliases": [
   {
@@ -1012,6 +1025,20 @@
       "locator":"Bayle remembrance, Dragon Communion and Jagged Peak records",
       "summary_en":"Dragon records describe Bayle's ancient conflict with Placidusax and the enduring wounds borne by both dragons.",
       "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.dlc.rellana",
+      "source_id":"game.dlc.remembrances",
+      "locator":"Rellana remembrance and Twin Moon Knight equipment descriptions",
+      "summary_en":"The records identify Rellana as Rennala's younger twin, a Carian princess who relinquished her birthright and followed Messmer into the Realm of Shadow.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.albinauric-quest",
+      "source_id":"game.base.boss-and-quest-scenes",
+      "locator":"Albus and Latenna quest dialogue in Liurnia and the Consecrated Snowfield",
+      "summary_en":"The quest identifies Albus and Latenna as Albinaurics, connects the secret medallion to the Haligtree route, and traces Latenna's search for the Albinaurics' promised refuge.",
+      "summary_rights_status":"original","review_status":"draft"
     }
   ],
   "localized_texts": [
@@ -1460,6 +1487,42 @@
     "locale": "pt-BR",
     "field": "summary",
     "text": "Os registros regionais situam Belurat, Enir-Ilim e a civilização dos hornsent dentro do reino oculto.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-rellana.summary.es",
+    "evidence_id": "evidence.dlc.rellana",
+    "locale": "es",
+    "field": "summary",
+    "text": "Los registros identifican a Rellana como la gemela menor de Rennala, una princesa cariana que renunció a su derecho de nacimiento y siguió a Messmer al Reino de las Sombras.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-rellana.summary.pt-br",
+    "evidence_id": "evidence.dlc.rellana",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "Os registros identificam Rellana como a irmã gêmea mais nova de Rennala, uma princesa cariana que renunciou ao seu direito de nascença e seguiu Messmer ao Reino das Sombras.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-albinauric-quest.summary.es",
+    "evidence_id": "evidence.base.albinauric-quest",
+    "locale": "es",
+    "field": "summary",
+    "text": "La misión identifica a Albus y Latenna como albináuricos, relaciona el medallón secreto con la ruta al Árbol Hierático y sigue la búsqueda de Latenna del refugio prometido para los albináuricos.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-albinauric-quest.summary.pt-br",
+    "evidence_id": "evidence.base.albinauric-quest",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "A missão identifica Albus e Latenna como albináuricos, relaciona o medalhão secreto à rota para a Árvore Sacra e acompanha a busca de Latenna pelo refúgio prometido aos albináuricos.",
     "origin": "machine_assisted",
     "review_status": "draft"
   }
@@ -2672,6 +2735,34 @@
     {"id":"claim.fortissax-defends-godwyn","subject_id":"character.fortissax","predicate":"DEFENDS","object_id":"character.godwyn","evidence_ids":["evidence.base.fia-fortissax"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.tanith-leads-volcano-manor","subject_id":"character.tanith","predicate":"LEADS","object_id":"faction.volcano-manor","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.volcano-manor-serves-rykard","subject_id":"faction.volcano-manor","predicate":"SERVES","object_id":"character.rykard","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.volcano-manor-based-volcano","subject_id":"faction.volcano-manor","predicate":"BASED_IN","object_id":"location.volcano-manor","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"}
+    {"id":"claim.volcano-manor-based-volcano","subject_id":"faction.volcano-manor","predicate":"BASED_IN","object_id":"location.volcano-manor","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.astel-in-ainsel-river","subject_id":"character.astel","predicate":"LOCATED_IN","object_id":"location.ainsel-river","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.albinaurics-in-liurnia","subject_id":"people.albinaurics","predicate":"INHABITS","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.ranni-member-carian-family","subject_id":"character.ranni","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.radahn-member-carian-family","subject_id":"character.radahn","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.rykard-member-carian-family","subject_id":"character.rykard","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.carian-family-based-caria-manor","subject_id":"faction.carian-royal-family","predicate":"BASED_IN","object_id":"location.caria-manor","evidence_ids":["evidence.base.carian-history","evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.caria-manor-in-liurnia","subject_id":"location.caria-manor","predicate":"LOCATED_IN","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.raya-lucaria-in-liurnia","subject_id":"location.raya-lucaria","predicate":"LOCATED_IN","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.rennala-leads-raya-lucaria","subject_id":"character.rennala","predicate":"LEADS","object_id":"location.raya-lucaria","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.rellana-twin-rennala","subject_id":"character.rellana","predicate":"TWIN_OF","object_id":"character.rennala","evidence_ids":["evidence.dlc.rellana"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.rellana-member-carian-family","subject_id":"character.rellana","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.dlc.rellana"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.rellana-serves-messmer","subject_id":"character.rellana","predicate":"SERVES","object_id":"character.messmer","evidence_ids":["evidence.dlc.rellana"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.godwyn-member-golden-lineage","subject_id":"character.godwyn","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.family-remembrances"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.morgott-member-golden-lineage","subject_id":"character.morgott","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.family-remembrances"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.mohg-member-golden-lineage","subject_id":"character.mohg","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.family-remembrances"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.godefroy-member-golden-lineage","subject_id":"character.godefroy","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.godrick-stormveil"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.ranni-is-empyrean","subject_id":"character.ranni","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.miquella-is-empyrean","subject_id":"character.miquella","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.miquella-haligtree"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"both"},
+    {"id":"claim.malenia-is-empyrean","subject_id":"character.malenia","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.miquella-haligtree"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"both"},
+    {"id":"claim.gloam-eyed-queen-is-empyrean","subject_id":"character.gloam-eyed-queen","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.maliketh-defeated-gloam-eyed-queen","subject_id":"character.maliketh","predicate":"DEFEATED","object_id":"character.gloam-eyed-queen","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.latenna-member-albinaurics","subject_id":"character.latenna","predicate":"MEMBER_OF","object_id":"people.albinaurics","evidence_ids":["evidence.base.albinauric-quest"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.albus-member-albinaurics","subject_id":"character.albus","predicate":"MEMBER_OF","object_id":"people.albinaurics","evidence_ids":["evidence.base.albinauric-quest"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.albus-guards-secret-medallion","subject_id":"character.albus","predicate":"GUARDED","object_id":"artifact.haligtree-secret-medallion","evidence_ids":["evidence.base.albinauric-quest"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.village-albinaurics-in-liurnia","subject_id":"location.village-albinaurics","predicate":"LOCATED_IN","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.albinaurics-inhabit-village","subject_id":"people.albinaurics","predicate":"INHABITS","object_id":"location.village-albinaurics","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.loretta-serves-haligtree","subject_id":"character.loretta","predicate":"SERVES","object_id":"artifact.haligtree","evidence_ids":["evidence.base.miquella-haligtree"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.consecrated-snowfield-leads-haligtree","subject_id":"location.consecrated-snowfield","predicate":"ROUTE_TO","object_id":"location.haligtree","evidence_ids":["evidence.base.locations"],"evidence_level":"synthesis","confidence":"medium","review_status":"draft","continuity":"base_game"}
   ]
 }

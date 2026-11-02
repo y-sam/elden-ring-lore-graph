@@ -84,3 +84,53 @@ def test_claim_cannot_outrank_supporting_evidence() -> None:
 
     with pytest.raises(ValidationError, match="cannot be game verified"):
         CuratedDataset.model_validate(payload)
+
+
+def test_manifest_assembles_thematic_fragments(tmp_path: Path) -> None:
+    payload = json.loads(DATASET.read_text(encoding="utf-8"))
+    collections = (
+        "entities",
+        "aliases",
+        "sources",
+        "evidence",
+        "localized_texts",
+        "claims",
+    )
+    fragments = []
+    for index, collection in enumerate(collections):
+        fragment_name = f"{index:02d}-{collection}.json"
+        (tmp_path / fragment_name).write_text(
+            json.dumps({collection: payload[collection]}), encoding="utf-8"
+        )
+        fragments.append(fragment_name)
+    manifest = {
+        "dataset_id": payload["dataset_id"],
+        "dataset_version": payload["dataset_version"],
+        "status": payload["status"],
+        "fragments": fragments,
+    }
+    manifest_path = tmp_path / "dataset.manifest.json"
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    assembled = load_curated_dataset(manifest_path)
+
+    for collection in collections:
+        assert len(getattr(assembled, collection)) == len(payload[collection])
+
+
+def test_manifest_rejects_fragment_outside_its_directory(tmp_path: Path) -> None:
+    manifest_path = tmp_path / "dataset.manifest.json"
+    manifest_path.write_text(
+        json.dumps(
+            {
+                "dataset_id": "dataset.test",
+                "dataset_version": 1,
+                "status": "draft",
+                "fragments": ["../outside.json"],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="escapes manifest directory"):
+        load_curated_dataset(manifest_path)
