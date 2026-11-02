@@ -1,4 +1,5 @@
 from elden_lore_api.repository import (
+    INTENT_PREDICATES,
     _entity_is_named,
     _fuzzy_entity_score,
     build_entity_query,
@@ -43,6 +44,10 @@ def test_question_intent_detection() -> None:
     assert detect_question_intent("¿Cuándo ocurrió Aeonia?") == "when"
     assert detect_question_intent("Why did the Shattering happen?") == "why"
     assert detect_question_intent("Qual a relação entre Marika e Radagon?") == "relationship"
+
+
+def test_who_intent_accepts_character_service_relationships() -> None:
+    assert {"SERVES", "SERVED", "FOLLOWS", "FOLLOWED"} <= INTENT_PREDICATES["who"]
 
 
 def test_fuzzy_entity_score_recovers_small_name_typos() -> None:
