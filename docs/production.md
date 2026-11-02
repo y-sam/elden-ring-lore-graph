@@ -171,6 +171,10 @@ Back up Neo4j before migrations, run `make check`, `make migrate`, `make audit`,
 and `make import`, then verify `/ready`. Retain feedback only as long as needed;
 comments must not collect email addresses or other unnecessary personal data.
 
+For a controlled AuraDB corpus synchronization, run `make import-aura`. The
+script prompts for credentials without storing them, audits the bundled dataset,
+shows the target URI, and requires typing `IMPORT` before the idempotent import.
+
 ## Feedback integrity
 
 Feedback is moderation input, not canonical evidence. It is stored against a

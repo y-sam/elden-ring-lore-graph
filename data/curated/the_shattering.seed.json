@@ -1,6 +1,6 @@
 {
   "dataset_id": "dataset.the-shattering.seed",
-  "dataset_version": 13,
+  "dataset_version": 14,
   "status": "draft",
   "entities": [
     {
@@ -808,7 +808,8 @@
       "locator": "Carian and Golden Order equipment, sorcery and incantation descriptions",
       "summary_en": "The records describe the Liurnian conflicts, Radagon's union with Rennala and the Carian children later becoming demigod stepchildren.",
       "summary_rights_status": "original",
-      "review_status": "draft"
+      "review_status": "reviewed",
+      "verification_status": "game_verified"
     },
     {
       "id": "evidence.base.family-remembrances",
@@ -816,7 +817,8 @@
       "locator": "Remembrances of major demigods and shardbearers",
       "summary_en": "The remembrances identify key family relations and titles among Marika, Radagon, Godfrey and their demigod children.",
       "summary_rights_status": "original",
-      "review_status": "draft"
+      "review_status": "reviewed",
+      "verification_status": "game_verified"
     },
     {
       "id": "evidence.base.death-rune",
@@ -832,7 +834,8 @@
       "locator": "Great Rune descriptions obtained from shardbearers",
       "summary_en": "The Great Runes identify their bearers and preserve family and lineage details about the demigods.",
       "summary_rights_status": "original",
-      "review_status": "draft"
+      "review_status": "reviewed",
+      "verification_status": "game_verified"
     },
     {
       "id": "evidence.base.aeonia",
@@ -856,7 +859,8 @@
       "locator": "Haligtree, unalloyed gold and Miquella-related item descriptions",
       "summary_en": "The records connect Miquella, Malenia, unalloyed gold and the growth of the Haligtree.",
       "summary_rights_status": "original",
-      "review_status": "draft"
+      "review_status": "reviewed",
+      "verification_status": "game_verified"
     },
     {
       "id": "evidence.base.mohg-miquella",
@@ -963,7 +967,7 @@
       "id":"evidence.base.ranni-retinue","source_id":"game.base.boss-and-quest-scenes","locator":"Ranni quest meetings at Caria Manor, Siofra and Nokron","summary_en":"Ranni's quest identifies Blaidd, Iji and Seluvis as members of her retinue and traces their roles in her search for Nokron and the Fingerslayer Blade.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"
     },
     {
-      "id":"evidence.base.godrick-stormveil","source_id":"game.base.remembrances","locator":"Godrick remembrance, Stormveil scenes and related descriptions","summary_en":"The records identify Godrick as a distant member of the Golden Lineage who rules from Stormveil and practices grafting.","summary_rights_status":"original","review_status":"draft"
+      "id":"evidence.base.godrick-stormveil","source_id":"game.base.remembrances","locator":"Godrick remembrance, Stormveil scenes and related descriptions","summary_en":"The records identify Godrick as a distant member of the Golden Lineage who rules from Stormveil and practices grafting.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"
     },
     {
       "id":"evidence.base.giants-flame","source_id":"game.base.item-descriptions","locator":"Fire Giant remembrance, Flame of the Fell God and Forge descriptions","summary_en":"The records connect the last Fire Giant, the Mountaintops, the Forge and the enduring flame once opposed by Marika's forces.","summary_rights_status":"original","review_status":"draft"
@@ -1615,7 +1619,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1641,7 +1646,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1654,7 +1660,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1667,7 +1674,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1680,7 +1688,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1693,7 +1702,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1706,7 +1716,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1719,7 +1730,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1746,7 +1758,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "both"
     },
     {
@@ -1772,7 +1785,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "both"
     },
     {
@@ -1785,7 +1799,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "both"
     },
     {
@@ -1824,7 +1839,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1929,7 +1945,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "both"
     },
     {
@@ -1942,7 +1959,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -1955,7 +1973,8 @@
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "base_game"
     },
     {
@@ -2765,8 +2784,8 @@
     {"id":"claim.iji-serves-ranni","subject_id":"character.iji","predicate":"SERVES","object_id":"character.ranni","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.seluvus-serves-ranni","subject_id":"character.seluvus","predicate":"SERVES","object_id":"character.ranni","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.ranni-seeks-nokron","subject_id":"character.ranni","predicate":"SEEKS","object_id":"location.nokron","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.godrick-member-golden-lineage","subject_id":"character.godrick","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.godrick-stormveil"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.godrick-rules-stormveil","subject_id":"character.godrick","predicate":"RULED","object_id":"location.stormveil-castle","evidence_ids":["evidence.base.godrick-stormveil"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.godrick-member-golden-lineage","subject_id":"character.godrick","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.godrick-stormveil"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.godrick-rules-stormveil","subject_id":"character.godrick","predicate":"RULED","object_id":"location.stormveil-castle","evidence_ids":["evidence.base.godrick-stormveil"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.fire-giant-in-mountaintops","subject_id":"character.fire-giant","predicate":"INHABITS","object_id":"location.mountaintops-giants","evidence_ids":["evidence.base.giants-flame"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.fire-giant-guards-forge","subject_id":"character.fire-giant","predicate":"DEFENDS","object_id":"location.forge-giants","evidence_ids":["evidence.base.giants-flame"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.fia-serves-those-live-death","subject_id":"character.fia","predicate":"SERVES","object_id":"faction.those-live-death","evidence_ids":["evidence.base.fia-fortissax"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
@@ -2777,23 +2796,23 @@
     {"id":"claim.volcano-manor-based-volcano","subject_id":"faction.volcano-manor","predicate":"BASED_IN","object_id":"location.volcano-manor","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.astel-in-ainsel-river","subject_id":"character.astel","predicate":"LOCATED_IN","object_id":"location.ainsel-river","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.albinaurics-in-liurnia","subject_id":"people.albinaurics","predicate":"INHABITS","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.ranni-member-carian-family","subject_id":"character.ranni","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.radahn-member-carian-family","subject_id":"character.radahn","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.rykard-member-carian-family","subject_id":"character.rykard","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.ranni-member-carian-family","subject_id":"character.ranni","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.radahn-member-carian-family","subject_id":"character.radahn","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.rykard-member-carian-family","subject_id":"character.rykard","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.carian-family-based-caria-manor","subject_id":"faction.carian-royal-family","predicate":"BASED_IN","object_id":"location.caria-manor","evidence_ids":["evidence.base.carian-history","evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.caria-manor-in-liurnia","subject_id":"location.caria-manor","predicate":"LOCATED_IN","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.raya-lucaria-in-liurnia","subject_id":"location.raya-lucaria","predicate":"LOCATED_IN","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.rennala-leads-raya-lucaria","subject_id":"character.rennala","predicate":"LEADS","object_id":"location.raya-lucaria","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.rennala-leads-raya-lucaria","subject_id":"character.rennala","predicate":"LEADS","object_id":"location.raya-lucaria","evidence_ids":["evidence.base.carian-history"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.rellana-twin-rennala","subject_id":"character.rellana","predicate":"TWIN_OF","object_id":"character.rennala","evidence_ids":["evidence.dlc.rellana"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"},
     {"id":"claim.rellana-member-carian-family","subject_id":"character.rellana","predicate":"MEMBER_OF","object_id":"faction.carian-royal-family","evidence_ids":["evidence.dlc.rellana"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"},
     {"id":"claim.rellana-serves-messmer","subject_id":"character.rellana","predicate":"SERVES","object_id":"character.messmer","evidence_ids":["evidence.dlc.rellana"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"},
-    {"id":"claim.godwyn-member-golden-lineage","subject_id":"character.godwyn","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.family-remembrances"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.morgott-member-golden-lineage","subject_id":"character.morgott","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.family-remembrances"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.mohg-member-golden-lineage","subject_id":"character.mohg","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.family-remembrances"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.godwyn-member-golden-lineage","subject_id":"character.godwyn","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.family-remembrances"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.morgott-member-golden-lineage","subject_id":"character.morgott","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.family-remembrances"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.mohg-member-golden-lineage","subject_id":"character.mohg","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.family-remembrances"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.godefroy-member-golden-lineage","subject_id":"character.godefroy","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.godrick-stormveil"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.ranni-is-empyrean","subject_id":"character.ranni","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.miquella-is-empyrean","subject_id":"character.miquella","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.miquella-haligtree"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"both"},
-    {"id":"claim.malenia-is-empyrean","subject_id":"character.malenia","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.miquella-haligtree"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"both"},
+    {"id":"claim.ranni-is-empyrean","subject_id":"character.ranni","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.miquella-is-empyrean","subject_id":"character.miquella","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.miquella-haligtree"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"both"},
+    {"id":"claim.malenia-is-empyrean","subject_id":"character.malenia","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.miquella-haligtree"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"both"},
     {"id":"claim.gloam-eyed-queen-is-empyrean","subject_id":"character.gloam-eyed-queen","predicate":"HELD_TITLE","object_id":"concept.empyrean","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.maliketh-defeated-gloam-eyed-queen","subject_id":"character.maliketh","predicate":"DEFEATED","object_id":"character.gloam-eyed-queen","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.latenna-member-albinaurics","subject_id":"character.latenna","predicate":"MEMBER_OF","object_id":"people.albinaurics","evidence_ids":["evidence.base.albinauric-quest"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
