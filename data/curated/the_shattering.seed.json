@@ -1,6 +1,6 @@
 {
   "dataset_id": "dataset.the-shattering.seed",
-  "dataset_version": 11,
+  "dataset_version": 12,
   "status": "draft",
   "entities": [
     {
@@ -960,7 +960,7 @@
       "summary_rights_status":"original","review_status":"draft"
     },
     {
-      "id":"evidence.base.ranni-retinue","source_id":"game.base.boss-and-quest-scenes","locator":"Ranni quest meetings at Caria Manor, Siofra and Nokron","summary_en":"Ranni's quest identifies Blaidd, Iji and Seluvis as members of her retinue and traces their roles in her search for Nokron and the Fingerslayer Blade.","summary_rights_status":"original","review_status":"draft"
+      "id":"evidence.base.ranni-retinue","source_id":"game.base.boss-and-quest-scenes","locator":"Ranni quest meetings at Caria Manor, Siofra and Nokron","summary_en":"Ranni's quest identifies Blaidd, Iji and Seluvis as members of her retinue and traces their roles in her search for Nokron and the Fingerslayer Blade.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"
     },
     {
       "id":"evidence.base.godrick-stormveil","source_id":"game.base.remembrances","locator":"Godrick remembrance, Stormveil scenes and related descriptions","summary_en":"The records identify Godrick as a distant member of the Golden Lineage who rules from Stormveil and practices grafting.","summary_rights_status":"original","review_status":"draft"
@@ -2760,7 +2760,7 @@
     {
       "id":"claim.freyja-served-radahn","subject_id":"character.freyja","predicate":"SERVED","object_id":"character.radahn","evidence_ids":["evidence.dlc.followers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","continuity":"shadow_of_the_erdtree"
     },
-    {"id":"claim.blaidd-serves-ranni","subject_id":"character.blaidd","predicate":"SERVES","object_id":"character.ranni","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.blaidd-serves-ranni","subject_id":"character.blaidd","predicate":"SERVES","object_id":"character.ranni","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.iji-serves-ranni","subject_id":"character.iji","predicate":"SERVES","object_id":"character.ranni","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.seluvus-serves-ranni","subject_id":"character.seluvus","predicate":"SERVES","object_id":"character.ranni","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.ranni-seeks-nokron","subject_id":"character.ranni","predicate":"SEEKS","object_id":"location.nokron","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
