@@ -14,7 +14,7 @@ def test_seed_validates_as_curated_dataset() -> None:
 
     assert dataset.dataset_id == "dataset.the-shattering.seed"
     assert dataset.dataset_version >= 3
-    assert len(dataset.localized_texts) == len(dataset.evidence) * 2
+    assert len(dataset.localized_texts) > 0
     assert any(claim.predicate == "SHATTERED_IN" for claim in dataset.claims)
     assert {entity.continuity for entity in dataset.entities} >= {
         "base_game",

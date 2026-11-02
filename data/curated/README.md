@@ -30,6 +30,10 @@ Identifiers must remain globally unique across every fragment. Prefer one
 cohesive lore area per file and keep shared sources in a dedicated fragment.
 Fragment paths cannot escape the manifest directory.
 
+English evidence summaries are required. Spanish and Brazilian Portuguese
+localized texts are optional and tracked as coverage metrics; they do not block
+English-first corpus expansion.
+
 Run the quality gates before importing:
 
 ```bash

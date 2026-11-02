@@ -1,6 +1,6 @@
 {
   "dataset_id": "dataset.the-shattering.seed",
-  "dataset_version": 10,
+  "dataset_version": 11,
   "status": "draft",
   "entities": [
     {
@@ -390,7 +390,24 @@
     {"id":"location.raya-lucaria","kind":"location","canonical_name":"Academy of Raya Lucaria","continuity":"base_game"},
     {"id":"location.village-albinaurics","kind":"location","canonical_name":"Village of the Albinaurics","continuity":"base_game"},
     {"id":"location.consecrated-snowfield","kind":"location","canonical_name":"Consecrated Snowfield","continuity":"base_game"},
-    {"id":"artifact.haligtree-secret-medallion","kind":"artifact","canonical_name":"Haligtree Secret Medallion","continuity":"base_game"}
+    {"id":"artifact.haligtree-secret-medallion","kind":"artifact","canonical_name":"Haligtree Secret Medallion","continuity":"base_game"},
+    {"id":"people.nox","kind":"people","canonical_name":"Nox","continuity":"base_game"},
+    {"id":"people.numen","kind":"people","canonical_name":"Numen","continuity":"both"},
+    {"id":"faction.black-knife-assassins","kind":"faction","canonical_name":"Black Knife Assassins","continuity":"base_game"},
+    {"id":"faction.godskin-apostles","kind":"faction","canonical_name":"Godskin Apostles","continuity":"base_game"},
+    {"id":"faction.ancient-dragon-cult","kind":"faction","canonical_name":"Ancient Dragon Cult","continuity":"base_game"},
+    {"id":"concept.black-flame","kind":"concept","canonical_name":"Black Flame","continuity":"base_game"},
+    {"id":"concept.dragon-communion","kind":"concept","canonical_name":"Dragon Communion","continuity":"both"},
+    {"id":"artifact.fingerslayer-blade","kind":"artifact","canonical_name":"Fingerslayer Blade","continuity":"base_game"},
+    {"id":"character.mimic-tear","kind":"character","canonical_name":"Mimic Tear","continuity":"base_game"},
+    {"id":"character.alecto","kind":"character","canonical_name":"Alecto, Black Knife Ringleader","continuity":"base_game"},
+    {"id":"character.gransax","kind":"character","canonical_name":"Ancient Dragon Gransax","continuity":"base_game"},
+    {"id":"character.lansseax","kind":"character","canonical_name":"Ancient Dragon Lansseax","continuity":"base_game"},
+    {"id":"character.greyoll","kind":"character","canonical_name":"Elder Dragon Greyoll","continuity":"base_game"},
+    {"id":"location.nokstella","kind":"location","canonical_name":"Nokstella, Eternal City","continuity":"base_game"},
+    {"id":"location.nameless-eternal-city","kind":"location","canonical_name":"Nameless Eternal City","continuity":"base_game"},
+    {"id":"location.jagged-peak","kind":"location","canonical_name":"Jagged Peak","continuity":"shadow_of_the_erdtree"},
+    {"id":"event.war-ancient-dragons","kind":"event","canonical_name":"War Against the Ancient Dragons","continuity":"base_game"}
   ],
   "aliases": [
   {
@@ -1038,6 +1055,27 @@
       "source_id":"game.base.boss-and-quest-scenes",
       "locator":"Albus and Latenna quest dialogue in Liurnia and the Consecrated Snowfield",
       "summary_en":"The quest identifies Albus and Latenna as Albinaurics, connects the secret medallion to the Haligtree route, and traces Latenna's search for the Albinaurics' promised refuge.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.godskins",
+      "source_id":"game.base.item-descriptions",
+      "locator":"Godskin armor, Black Flame incantations, Godslayer's Greatsword and related descriptions",
+      "summary_en":"The records connect the Godskin Apostles to the Gloam-Eyed Queen, Destined Death and a god-slaying black flame whose true power diminished after the Rune of Death was sealed.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.numen",
+      "source_id":"game.base.item-descriptions",
+      "locator":"Numen character origin, Numen's Rune, Marika's Hammer and Black Knife armor descriptions",
+      "summary_en":"The records identify Marika with the long-lived Numen people and describe the Black Knife assassins as women rumored to be Numen with close ties to her.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.ancient-dragon-war",
+      "source_id":"game.base.item-descriptions",
+      "locator":"Bolt of Gransax, Lansseax's Glaive, dragon cult incantations and Greyoll's Roar descriptions",
+      "summary_en":"Dragon records connect Gransax's attack on Leyndell to the ancient dragon war, identify Lansseax as Fortissax's sister and a priestess of the dragon cult, and call Greyoll the mother of all dragons.",
       "summary_rights_status":"original","review_status":"draft"
     }
   ],
@@ -2763,6 +2801,30 @@
     {"id":"claim.village-albinaurics-in-liurnia","subject_id":"location.village-albinaurics","predicate":"LOCATED_IN","object_id":"location.liurnia","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.albinaurics-inhabit-village","subject_id":"people.albinaurics","predicate":"INHABITS","object_id":"location.village-albinaurics","evidence_ids":["evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
     {"id":"claim.loretta-serves-haligtree","subject_id":"character.loretta","predicate":"SERVES","object_id":"artifact.haligtree","evidence_ids":["evidence.base.miquella-haligtree"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
-    {"id":"claim.consecrated-snowfield-leads-haligtree","subject_id":"location.consecrated-snowfield","predicate":"ROUTE_TO","object_id":"location.haligtree","evidence_ids":["evidence.base.locations"],"evidence_level":"synthesis","confidence":"medium","review_status":"draft","continuity":"base_game"}
+    {"id":"claim.consecrated-snowfield-leads-haligtree","subject_id":"location.consecrated-snowfield","predicate":"ROUTE_TO","object_id":"location.haligtree","evidence_ids":["evidence.base.locations"],"evidence_level":"synthesis","confidence":"medium","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.nox-inhabit-nokron","subject_id":"people.nox","predicate":"INHABITS","object_id":"location.nokron","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.nox-inhabit-nokstella","subject_id":"people.nox","predicate":"INHABITS","object_id":"location.nokstella","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.nokstella-in-ainsel","subject_id":"location.nokstella","predicate":"LOCATED_IN","object_id":"location.ainsel-river","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.nameless-city-in-deeproot","subject_id":"location.nameless-eternal-city","predicate":"LOCATED_IN","object_id":"location.deeproot-depths","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.fingerslayer-blade-in-nokron","subject_id":"artifact.fingerslayer-blade","predicate":"LOCATED_IN","object_id":"location.nokron","evidence_ids":["evidence.base.underground-cities","evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.fingerslayer-blade-targets-greater-will","subject_id":"artifact.fingerslayer-blade","predicate":"HARMS_VASSALS_OF","object_id":"character.greater-will","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.nox-created-mimic-tear","subject_id":"people.nox","predicate":"CREATED","object_id":"character.mimic-tear","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.marika-member-numen","subject_id":"character.marika","predicate":"MEMBER_OF","object_id":"people.numen","evidence_ids":["evidence.base.numen"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"both"},
+    {"id":"claim.black-knives-member-numen","subject_id":"faction.black-knife-assassins","predicate":"MEMBER_OF","object_id":"people.numen","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.alecto-leads-black-knives","subject_id":"character.alecto","predicate":"LEADS","object_id":"faction.black-knife-assassins","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.black-knives-participated-night","subject_id":"event.night-of-black-knives","predicate":"PARTICIPANT","object_id":"faction.black-knife-assassins","evidence_ids":["evidence.base.opening.godwyn","evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.godskins-serve-gloam-queen","subject_id":"faction.godskin-apostles","predicate":"SERVES","object_id":"character.gloam-eyed-queen","evidence_ids":["evidence.base.godskins"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.godskins-serve-destined-death","subject_id":"faction.godskin-apostles","predicate":"SERVES","object_id":"concept.destined-death","evidence_ids":["evidence.base.godskins"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.godskins-wield-black-flame","subject_id":"faction.godskin-apostles","predicate":"WIELDS","object_id":"concept.black-flame","evidence_ids":["evidence.base.godskins"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.black-flame-draws-destined-death","subject_id":"concept.black-flame","predicate":"DRAWS_POWER_FROM","object_id":"concept.destined-death","evidence_ids":["evidence.base.godskins"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.gransax-attacked-leyndell","subject_id":"character.gransax","predicate":"ATTACKED","object_id":"location.leyndell","evidence_ids":["evidence.base.ancient-dragon-war","evidence.base.leyndell-war"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.gransax-caused-dragon-war","subject_id":"character.gransax","predicate":"CATALYST_FOR","object_id":"event.war-ancient-dragons","evidence_ids":["evidence.base.ancient-dragon-war","evidence.base.leyndell-war"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.dragon-war-in-age-erdtree","subject_id":"event.war-ancient-dragons","predicate":"IN_ERA","object_id":"era.age-of-erdtree","evidence_ids":["evidence.base.ancient-dragon-war"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.lansseax-sibling-fortissax","subject_id":"character.lansseax","predicate":"SIBLING_OF","object_id":"character.fortissax","evidence_ids":["evidence.base.ancient-dragon-war"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.lansseax-serves-dragon-cult","subject_id":"character.lansseax","predicate":"SERVES","object_id":"faction.ancient-dragon-cult","evidence_ids":["evidence.base.ancient-dragon-war"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.dragon-cult-based-leyndell","subject_id":"faction.ancient-dragon-cult","predicate":"BASED_IN","object_id":"location.leyndell","evidence_ids":["evidence.base.ancient-dragon-war"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.greyoll-inhabits-caelid","subject_id":"character.greyoll","predicate":"INHABITS","object_id":"location.caelid","evidence_ids":["evidence.base.ancient-dragon-war","evidence.base.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.dragon-communion-targets-bayle","subject_id":"concept.dragon-communion","predicate":"TARGETED","object_id":"character.bayle","evidence_ids":["evidence.dlc.dragons"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.bayle-in-jagged-peak","subject_id":"character.bayle","predicate":"LOCATED_IN","object_id":"location.jagged-peak","evidence_ids":["evidence.dlc.dragons","evidence.dlc.locations"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"}
   ]
 }

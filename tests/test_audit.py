@@ -12,10 +12,11 @@ def test_seed_passes_editorial_audit() -> None:
     assert report.has_errors is False
     assert report.counts["precedence_claims"] >= 10
     assert report.counts["timeline_memberships"] >= 12
-    assert report.counts["localized_texts"] == report.counts["evidence"] * 2
+    assert report.counts["localized_texts"] > 0
     assert report.coverage["connected_entity_percentage"] >= 95.0
     assert report.coverage["entities_by_kind"]["character"] > 0
     assert report.coverage["claims_by_verification"]
+    assert report.coverage["evidence_with_spanish_percentage"] > 0
 
 
 def test_audit_detects_timeline_cycle() -> None:

@@ -183,6 +183,9 @@ def audit_dataset(dataset: CuratedDataset) -> AuditReport:
     }
     reviewed_claims = sum(claim.review_status == "reviewed" for claim in dataset.claims)
     reviewed_evidence = sum(item.review_status == "reviewed" for item in dataset.evidence)
+    localized_evidence_ids: dict[str, set[str]] = defaultdict(set)
+    for text in dataset.localized_texts:
+        localized_evidence_ids[text.evidence_id].add(text.locale)
     coverage: dict[str, object] = {
         "entities_by_kind": dict(sorted(Counter(e.kind for e in dataset.entities).items())),
         "entities_by_continuity": dict(
@@ -200,6 +203,14 @@ def audit_dataset(dataset: CuratedDataset) -> AuditReport:
         ),
         "reviewed_claim_percentage": _percentage(reviewed_claims, len(dataset.claims)),
         "reviewed_evidence_percentage": _percentage(reviewed_evidence, len(dataset.evidence)),
+        "evidence_with_spanish_percentage": _percentage(
+            sum("es" in locales for locales in localized_evidence_ids.values()),
+            len(dataset.evidence),
+        ),
+        "evidence_with_portuguese_percentage": _percentage(
+            sum("pt-BR" in locales for locales in localized_evidence_ids.values()),
+            len(dataset.evidence),
+        ),
         "connected_entity_percentage": _percentage(
             len(connected_entity_ids), len(dataset.entities)
         ),
