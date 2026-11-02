@@ -107,6 +107,36 @@ CORNERSTONE_QUESTIONS = (
         "who",
     ),
     ReferenceQuestion(
+        "Who is Roderika?",
+        ("character.roderika",),
+        ("claim.roderika-member-roundtable",),
+        "who",
+    ),
+    ReferenceQuestion(
+        "Who rules Limgrave after Godrick?",
+        ("location.limgrave",),
+        ("claim.nepheli-rules-limgrave",),
+        "who",
+    ),
+    ReferenceQuestion(
+        "What connects Sellen and Jerren?",
+        ("character.sellen", "character.jerren"),
+        ("claim.jerren-opposes-sellen",),
+        "relationship",
+    ),
+    ReferenceQuestion(
+        "Who does the Redmane Army serve?",
+        ("faction.redmane-army",),
+        ("claim.redmanes-serve-radahn",),
+        "who",
+    ),
+    ReferenceQuestion(
+        "Where is Castle Sol?",
+        ("location.castle-sol",),
+        ("claim.castle-sol-in-mountaintops",),
+        "where",
+    ),
+    ReferenceQuestion(
         "Who rules Stormveil Castle?",
         ("location.stormveil-castle",),
         ("claim.godrick-rules-stormveil",),
