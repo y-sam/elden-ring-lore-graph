@@ -92,12 +92,31 @@ class GeminiAnswerGenerator:
         self.client = client
         self.api_key = api_key
         self.model = model
+        self.active_model = model
         self.max_output_tokens = max_output_tokens
 
     def generate(self, answer: AnswerResponse) -> GeneratedAnswer:
         context = build_grounding_context(answer)
-        response = self.client.post(
-            f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent",
+        response = self._request(answer, context, self.active_model)
+        if getattr(response, "status_code", None) == 404:
+            self.active_model = self._discover_flash_model()
+            response = self._request(answer, context, self.active_model)
+        response.raise_for_status()
+        payload = response.json()
+        try:
+            raw = payload["candidates"][0]["content"]["parts"][0]["text"]
+        except (KeyError, IndexError, TypeError) as exc:
+            raise ValueError("Gemini returned no generated answer") from exc
+        return GeneratedAnswer.model_validate_json(raw)
+
+    def _request(
+        self,
+        answer: AnswerResponse,
+        context: dict[str, Any],
+        model: str,
+    ) -> Any:
+        return self.client.post(
+            f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
             headers={
                 "x-goog-api-key": self.api_key,
                 "Content-Type": "application/json",
@@ -133,13 +152,26 @@ class GeminiAnswerGenerator:
                 },
             },
         )
+
+    def _discover_flash_model(self) -> str:
+        response = self.client.get(
+            "https://generativelanguage.googleapis.com/v1beta/models",
+            headers={"x-goog-api-key": self.api_key},
+        )
         response.raise_for_status()
-        payload = response.json()
-        try:
-            raw = payload["candidates"][0]["content"]["parts"][0]["text"]
-        except (KeyError, IndexError, TypeError) as exc:
-            raise ValueError("Gemini returned no generated answer") from exc
-        return GeneratedAnswer.model_validate_json(raw)
+        candidates = [
+            item["name"].removeprefix("models/")
+            for item in response.json().get("models", [])
+            if "generateContent" in item.get("supportedGenerationMethods", [])
+            and "flash" in item.get("name", "").lower()
+            and "image" not in item.get("name", "").lower()
+            and "tts" not in item.get("name", "").lower()
+            and "live" not in item.get("name", "").lower()
+        ]
+        if not candidates:
+            raise ValueError("Gemini account exposes no Flash model for generateContent")
+        candidates.sort(key=_gemini_model_preference, reverse=True)
+        return candidates[0]
 
 
 class GroundedAnswerCache:
@@ -228,7 +260,9 @@ class GroundedAnswerService:
             update={
                 "answer": generated.answer.strip(),
                 "generator": self.generator.provider,
-                "generator_model": self.generator.model,
+                "generator_model": getattr(
+                    self.generator, "active_model", self.generator.model
+                ),
                 "generated_claim_ids": cited_claim_ids,
                 "generated_evidence_ids": cited_evidence_ids,
                 "limitations": limitations,
@@ -283,6 +317,12 @@ def _validated_ids(values: list[str], allowed: set[str], label: str) -> list[str
     if invalid:
         raise ValueError(f"generated answer cited unknown {label} ids: {sorted(invalid)}")
     return unique
+
+
+def _gemini_model_preference(model: str) -> tuple[int, int, str]:
+    stable = 0 if "preview" in model or "experimental" in model else 1
+    lite = 1 if "lite" in model else 0
+    return stable, lite, model
 
 
 def _system_prompt(language: str) -> str:

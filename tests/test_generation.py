@@ -33,6 +33,7 @@ class FakeResponses:
 class FakeGeminiResponse:
     def __init__(self, generated: GeneratedAnswer) -> None:
         self.generated = generated
+        self.status_code = 200
 
     def raise_for_status(self) -> None:
         return None
@@ -61,6 +62,50 @@ class FakeGeminiClient:
         self.url = url
         self.kwargs = kwargs
         return FakeGeminiResponse(self.generated)
+
+
+class MissingGeminiModelResponse:
+    status_code = 404
+
+
+class GeminiModelsResponse:
+    status_code = 200
+
+    def raise_for_status(self) -> None:
+        return None
+
+    def json(self) -> dict:
+        return {
+            "models": [
+                {
+                    "name": "models/gemini-flash-preview",
+                    "supportedGenerationMethods": ["generateContent"],
+                },
+                {
+                    "name": "models/gemini-flash-lite-stable",
+                    "supportedGenerationMethods": ["generateContent"],
+                },
+                {
+                    "name": "models/gemini-flash-image",
+                    "supportedGenerationMethods": ["generateContent"],
+                },
+            ]
+        }
+
+
+class DiscoveringGeminiClient(FakeGeminiClient):
+    def post(self, url: str, **kwargs):
+        self.calls += 1
+        self.url = url
+        self.kwargs = kwargs
+        if self.calls == 1:
+            return MissingGeminiModelResponse()
+        return FakeGeminiResponse(self.generated)
+
+    def get(self, url: str, **kwargs):
+        self.discovery_url = url
+        self.discovery_kwargs = kwargs
+        return GeminiModelsResponse()
 
 
 def _base_answer() -> AnswerResponse:
@@ -173,6 +218,32 @@ def test_gemini_generator_uses_json_schema_and_provider_metadata() -> None:
     assert config["responseMimeType"] == "application/json"
     assert config["responseJsonSchema"]["additionalProperties"] is False
     assert client.kwargs["headers"]["x-goog-api-key"] == "secret"
+
+
+def test_gemini_discovers_an_available_flash_model_after_404() -> None:
+    generated = GeneratedAnswer(
+        answer="Ranni is explicitly identified as an Empyrean.",
+        cited_claim_ids=["claim.ranni-is-empyrean"],
+        cited_evidence_ids=["evidence.base.ranni-retinue"],
+    )
+    client = DiscoveringGeminiClient(generated)
+    generator = GeminiAnswerGenerator(
+        api_key="secret",
+        model="missing-model",
+        timeout_seconds=1,
+        max_output_tokens=300,
+        client=client,
+    )
+    service = GroundedAnswerService(
+        generator, GroundedAnswerCache(ttl_seconds=60, max_entries=10)
+    )
+
+    result = service.enhance(_base_answer())
+
+    assert result.generator == "gemini"
+    assert result.generator_model == "gemini-flash-lite-stable"
+    assert client.calls == 2
+    assert client.url.endswith("/models/gemini-flash-lite-stable:generateContent")
 
 
 def test_generated_answer_cannot_cite_unknown_records() -> None:
