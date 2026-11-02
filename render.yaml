@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: elden-ring-lore-graph
+    runtime: docker
+    plan: free
+    region: frankfurt
+    branch: main
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /ready
+    autoDeployTrigger: commit
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_HOST
+        value: 0.0.0.0
+      - key: APP_PORT
+        value: 10000
+      - key: NEO4J_URI
+        sync: false
+      - key: NEO4J_USERNAME
+        sync: false
+      - key: NEO4J_PASSWORD
+        sync: false
+      - key: NEO4J_DATABASE
+        value: neo4j
+      - key: EDITORIAL_TOKEN
+        generateValue: true
+      - key: EDITORIAL_ENABLED
+        value: "false"
+      - key: ANSWER_GENERATOR
+        value: deterministic
+      - key: ANSWER_RATE_LIMIT_PER_MINUTE
+        value: "60"
+      - key: FEEDBACK_RATE_LIMIT_PER_MINUTE
+        value: "10"
+      - key: MAX_REQUEST_BYTES
+        value: "16384"

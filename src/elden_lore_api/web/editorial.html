@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Editorial Review · Lands Between Archive</title><link rel="stylesheet" href="/styles.css"></head>
+<body class="editorial-page">
+  <main class="editorial-shell">
+    <a class="brand" href="/"><span class="brand-mark">✦</span><strong>The Lands Between</strong></a>
+    <header><p class="eyebrow">Protected workspace</p><h1>Editorial review</h1><p>Review evidence before claims. Community feedback is a signal, never an automatic canon decision.</p></header>
+    <form id="editorial-login" class="editorial-login"><label>Editorial token<input id="editorial-token" type="password" autocomplete="current-password" required></label><button type="submit">Open queue</button></form>
+    <section id="editorial-workspace" hidden>
+      <div class="editorial-metrics" id="editorial-metrics"></div>
+      <aside class="editorial-readiness" id="editorial-readiness"></aside>
+      <nav class="editorial-tabs">
+        <button data-kind="priority">Priority evidence</button><button data-kind="evidence">All evidence</button><button data-kind="claim">Claims</button><button data-kind="localized_text">Translations</button><button data-kind="feedback" data-status="pending">Feedback</button>
+      </nav>
+      <div class="editorial-batch" id="editorial-batch" hidden>
+        <button id="select-all" type="button">Select all visible</button>
+        <label>Batch level<select id="batch-verification"><option value="community_verified">Community verified</option><option value="official_verified">Official verified</option><option value="game_verified">Game verified</option><option value="unverified">Unverified</option></select></label>
+        <input id="batch-verification-url" type="url" placeholder="Shared verification URL">
+        <button id="approve-selected" type="button">Approve selected</button>
+        <span id="batch-status" role="status"></span>
+      </div>
+      <div id="editorial-queue"></div>
+    </section>
+  </main>
+  <script src="/editorial.js" defer></script>
+</body></html>

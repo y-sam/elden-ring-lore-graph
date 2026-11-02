@@ -1,0 +1,2 @@
+CREATE CONSTRAINT evidence_id_unique IF NOT EXISTS
+FOR (n:Evidence) REQUIRE n.id IS UNIQUE

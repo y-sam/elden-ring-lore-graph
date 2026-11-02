@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore evidence-backed Elden Ring lore through entities, relationships, and relative chronology."
+    />
+    <title>The Lands Between Archive</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to the archive</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="The Lands Between Archive home">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>
+          <strong>The Lands Between</strong>
+          <small>Evidence-backed lore archive</small>
+        </span>
+      </a>
+      <div class="header-actions">
+        <span class="status" id="api-status" role="status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Connecting
+        </span>
+        <button class="quiet-button" id="about-button" type="button">About</button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow">A graph of claims, not a book of answers</p>
+        <h1 id="hero-title">Trace the lore.<br /><em>Inspect the evidence.</em></h1>
+        <p class="hero-copy">
+          Search people, events, and artifacts. Follow their relationships or
+          move through a chronology that preserves uncertainty.
+        </p>
+        <form class="search" id="search-form" role="search">
+          <label class="sr-only" for="search-input">Search the archive</label>
+          <span aria-hidden="true">⌕</span>
+          <input
+            id="search-input"
+            name="q"
+            type="search"
+            minlength="2"
+            autocomplete="off"
+            placeholder="Search Malenia, Aeonia, Elden Ring…"
+          />
+          <kbd>Enter</kbd>
+        </form>
+        <div class="search-results" id="search-results" hidden></div>
+        <section class="answer-panel" aria-labelledby="answer-heading">
+          <div class="answer-intro">
+            <p class="eyebrow">Ask the archive</p>
+            <h2 id="answer-heading">A supported answer, or an honest unknown.</h2>
+          </div>
+          <form class="question-form" id="question-form">
+            <label class="sr-only" for="question-input">Ask a lore question</label>
+            <textarea id="question-input" name="q" minlength="3" maxlength="300" rows="2" placeholder="What is the relationship between Marika and Radagon?"></textarea>
+            <label class="sr-only" for="answer-language">Answer language</label>
+            <select id="answer-language" aria-label="Answer language">
+              <option value="">Detect language</option>
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="pt-BR">Português BR</option>
+            </select>
+            <button type="submit">Trace an answer</button>
+          </form>
+          <div class="question-examples" aria-label="Example questions">
+            <button type="button" data-question="Who is Miquella?">Who is Miquella?</button>
+            <button type="button" data-question="What is the relationship between Marika and Radagon?">Marika &amp; Radagon</button>
+            <button type="button" data-question="What happened at the Battle of Aeonia?">Battle of Aeonia</button>
+            <button type="button" data-question="Quem é Miquella?">Quem é Miquella?</button>
+            <button type="button" data-question="¿Dónde ocurrió la Batalla de Aeonia?">¿Dónde ocurrió Aeonia?</button>
+          </div>
+          <div class="answer-result" id="answer-result" hidden aria-live="polite"></div>
+        </section>
+      </section>
+
+      <nav class="view-tabs" aria-label="Archive views">
+        <button class="view-tab is-active" data-view="graph" type="button">
+          Relationship graph
+        </button>
+        <button class="view-tab" data-view="timeline" type="button">
+          Relative timeline
+        </button>
+      </nav>
+
+      <section class="workspace is-active" id="graph-view" aria-label="Relationship graph">
+        <aside class="inspector" id="entity-inspector" aria-live="polite">
+          <div class="skeleton-block"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line short"></div>
+        </aside>
+        <section class="graph-stage" aria-labelledby="graph-heading">
+          <div class="stage-heading">
+            <div>
+              <p class="eyebrow">Neighborhood</p>
+              <h2 id="graph-heading">Relationship map</h2>
+            </div>
+            <div class="legend" aria-label="Graph legend">
+              <span><i class="legend-dot explicit"></i> Explicit</span>
+              <span><i class="legend-dot inferred"></i> Inferred</span>
+            </div>
+          </div>
+          <div class="graph-toolbar" aria-label="Graph controls">
+            <div class="graph-actions">
+              <button id="expand-node" type="button">Expand</button>
+              <button id="collapse-node" type="button">Collapse branch</button>
+              <button id="focus-node" type="button">Focus selected</button>
+              <button id="hide-node" type="button">Hide selected</button>
+              <button id="arrange-graph" type="button">Auto arrange</button>
+              <button id="zoom-out" type="button" aria-label="Zoom out">−</button>
+              <button id="zoom-in" type="button" aria-label="Zoom in">+</button>
+              <button id="zoom-reset" type="button">100%</button>
+              <button id="undo-graph" type="button">Undo</button>
+              <button id="reset-graph" type="button">Reset</button>
+            </div>
+            <div class="graph-filters">
+              <label>Entity
+                <select id="kind-filter">
+                  <option value="all">All kinds</option>
+                  <option value="character">Characters</option>
+                  <option value="event">Events</option>
+                  <option value="artifact">Artifacts</option>
+                  <option value="era">Eras</option>
+                  <option value="location">Locations</option>
+                </select>
+              </label>
+              <label>Evidence
+                <select id="evidence-filter">
+                  <option value="all">All levels</option>
+                  <option value="explicit">Explicit</option>
+                  <option value="synthesis">Synthesis</option>
+                  <option value="inference">Inference</option>
+                  <option value="theory">Theory</option>
+                </select>
+              </label>
+            </div>
+            <span class="graph-stats" id="graph-stats" aria-live="polite"></span>
+          </div>
+          <div class="graph-canvas" id="graph-canvas">
+            <p class="empty-state">Select an entity to reveal its relationships.</p>
+          </div>
+          <p class="graph-hint">Drag nodes to rearrange the map. Double-click expands a node; select a relationship to inspect its evidence.</p>
+        </section>
+      </section>
+
+      <section class="workspace timeline-workspace" id="timeline-view" aria-label="Timeline">
+        <div class="timeline-heading">
+          <div>
+            <p class="eyebrow" id="timeline-scope">All documented eras</p>
+            <h2>Known order, visible uncertainty</h2>
+          </div>
+          <div class="timeline-options">
+            <label for="timeline-era">Era</label>
+            <select id="timeline-era">
+              <option value="">Complete chronology</option>
+              <option value="era.age-of-erdtree">Age of the Erdtree</option>
+              <option value="era.the-shattering">The Shattering</option>
+              <option value="era.realm-of-shadow-crusade">Realm of Shadow Crusade</option>
+            </select>
+            <p>Columns express supported precedence. Events in the same column remain unordered.</p>
+          </div>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+    </main>
+
+    <dialog class="about-dialog" id="about-dialog">
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Close">×</button>
+      <p class="eyebrow">Editorial method</p>
+      <h2>Evidence before certainty</h2>
+      <p>
+        Every connection is a reviewable claim. Explicit statements, synthesis,
+        inference, and theory remain distinct instead of being blended into a
+        single authoritative narrative.
+      </p>
+      <p>
+        This early archive contains draft records for development. Protected game
+        text is referenced by location and summarized in original language rather
+        than redistributed.
+      </p>
+    </dialog>
+
+    <footer>
+      <span>Unofficial fan project.</span>
+      <span>Not affiliated with FromSoftware or Bandai Namco Entertainment.</span>
+    </footer>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "elden-ring-lore-graph"
+version = "0.1.0"
+description = "Evidence-first Elden Ring lore knowledge graph and API"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "neo4j>=5.26,<7",
+  "pydantic-settings>=2.7,<3",
+  "uvicorn[standard]>=0.34,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28,<1",
+  "pytest>=8.3,<10",
+  "pytest-cov>=6,<8",
+  "ruff>=0.9,<1",
+]
+
+[project.scripts]
+elden-lore-api = "elden_lore_api.main:run"
+elden-lore-audit = "elden_lore_api.audit:run"
+elden-lore-import = "elden_lore_api.importer:run"
+elden-lore-migrate = "elden_lore_api.migrations:run"
+elden-lore-evaluate = "elden_lore_api.evaluation:run"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/elden_lore_api"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

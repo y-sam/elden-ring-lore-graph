@@ -1,0 +1,2 @@
+CREATE CONSTRAINT feedback_id_unique IF NOT EXISTS
+FOR (n:Feedback) REQUIRE n.id IS UNIQUE

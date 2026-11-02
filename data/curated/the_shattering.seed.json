@@ -1,0 +1,2677 @@
+{
+  "dataset_id": "dataset.the-shattering.seed",
+  "dataset_version": 8,
+  "status": "draft",
+  "entities": [
+    {
+      "id": "artifact.elden-ring",
+      "kind": "artifact",
+      "canonical_name": "Elden Ring",
+      "continuity": "both"
+    },
+    {
+      "id": "artifact.great-runes",
+      "kind": "artifact",
+      "canonical_name": "Great Runes",
+      "continuity": "base_game"
+    },
+    {
+      "id": "artifact.rune-of-death",
+      "kind": "artifact",
+      "canonical_name": "Rune of Death",
+      "continuity": "base_game"
+    },
+    {
+      "id": "artifact.golden-order",
+      "kind": "concept",
+      "canonical_name": "Golden Order",
+      "continuity": "both"
+    },
+    {
+      "id": "artifact.erdtree",
+      "kind": "landmark",
+      "canonical_name": "Erdtree",
+      "continuity": "both"
+    },
+    {
+      "id": "artifact.haligtree",
+      "kind": "landmark",
+      "canonical_name": "Haligtree",
+      "continuity": "base_game"
+    },
+    {
+      "id": "artifact.miquellas-cocoon",
+      "kind": "artifact",
+      "canonical_name": "Miquella's Cocoon",
+      "continuity": "both"
+    },
+    {
+      "id": "era.age-of-erdtree",
+      "kind": "era",
+      "canonical_name": "Age of the Erdtree",
+      "continuity": "both"
+    },
+    {
+      "id": "era.the-shattering",
+      "kind": "era",
+      "canonical_name": "The Shattering",
+      "continuity": "base_game"
+    },
+    {
+      "id": "era.realm-of-shadow-crusade",
+      "kind": "era",
+      "canonical_name": "Realm of Shadow Crusade",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "character.marika",
+      "kind": "character",
+      "canonical_name": "Queen Marika the Eternal",
+      "continuity": "both"
+    },
+    {
+      "id": "character.radagon",
+      "kind": "character",
+      "canonical_name": "Radagon of the Golden Order",
+      "continuity": "both"
+    },
+    {
+      "id": "character.godfrey",
+      "kind": "character",
+      "canonical_name": "Godfrey, First Elden Lord",
+      "continuity": "base_game"
+    },
+    {
+      "id": "character.rennala",
+      "kind": "character",
+      "canonical_name": "Rennala, Queen of the Full Moon",
+      "continuity": "base_game"
+    },
+    {
+      "id": "character.godwyn",
+      "kind": "character",
+      "canonical_name": "Godwyn the Golden",
+      "continuity": "base_game"
+    },
+    {
+      "id": "character.ranni",
+      "kind": "character",
+      "canonical_name": "Ranni the Witch",
+      "continuity": "base_game"
+    },
+    {
+      "id": "character.morgott",
+      "kind": "character",
+      "canonical_name": "Morgott, the Omen King",
+      "continuity": "base_game"
+    },
+    {
+      "id": "character.mohg",
+      "kind": "character",
+      "canonical_name": "Mohg, Lord of Blood",
+      "continuity": "both"
+    },
+    {
+      "id": "character.rykard",
+      "kind": "character",
+      "canonical_name": "Rykard, Lord of Blasphemy",
+      "continuity": "base_game"
+    },
+    {
+      "id": "character.radahn",
+      "kind": "character",
+      "canonical_name": "Starscourge Radahn",
+      "continuity": "both"
+    },
+    {
+      "id": "character.malenia",
+      "kind": "character",
+      "canonical_name": "Malenia, Blade of Miquella",
+      "continuity": "both"
+    },
+    {
+      "id": "character.miquella",
+      "kind": "character",
+      "canonical_name": "Miquella the Kind",
+      "continuity": "both"
+    },
+    {
+      "id": "character.maliketh",
+      "kind": "character",
+      "canonical_name": "Maliketh, the Black Blade",
+      "continuity": "base_game"
+    },
+    {
+      "id": "character.messmer",
+      "kind": "character",
+      "canonical_name": "Messmer the Impaler",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "character.leda",
+      "kind": "character",
+      "canonical_name": "Needle Knight Leda",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "character.ansbach",
+      "kind": "character",
+      "canonical_name": "Sir Ansbach",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "character.tarnished",
+      "kind": "group",
+      "canonical_name": "The Tarnished",
+      "continuity": "both"
+    },
+    {
+      "id": "character.greater-will",
+      "kind": "outer_god",
+      "canonical_name": "Greater Will",
+      "continuity": "both"
+    },
+    {
+      "id": "faction.carian-royal-family",
+      "kind": "faction",
+      "canonical_name": "Carian Royal Family",
+      "continuity": "base_game"
+    },
+    {
+      "id": "faction.golden-lineage",
+      "kind": "faction",
+      "canonical_name": "Golden Lineage",
+      "continuity": "base_game"
+    },
+    {
+      "id": "faction.miquellas-followers",
+      "kind": "faction",
+      "canonical_name": "Miquella's Followers",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "faction.hornsent",
+      "kind": "people",
+      "canonical_name": "Hornsent",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "location.lands-between",
+      "kind": "location",
+      "canonical_name": "Lands Between",
+      "continuity": "both"
+    },
+    {
+      "id": "location.leyndell",
+      "kind": "location",
+      "canonical_name": "Leyndell, Royal Capital",
+      "continuity": "base_game"
+    },
+    {
+      "id": "location.liurnia",
+      "kind": "location",
+      "canonical_name": "Liurnia of the Lakes",
+      "continuity": "base_game"
+    },
+    {
+      "id": "location.caelid",
+      "kind": "location",
+      "canonical_name": "Caelid",
+      "continuity": "base_game"
+    },
+    {
+      "id": "location.volcano-manor",
+      "kind": "location",
+      "canonical_name": "Volcano Manor",
+      "continuity": "base_game"
+    },
+    {
+      "id": "location.haligtree",
+      "kind": "location",
+      "canonical_name": "Miquella's Haligtree",
+      "continuity": "base_game"
+    },
+    {
+      "id": "location.mohgwyn-palace",
+      "kind": "location",
+      "canonical_name": "Mohgwyn Palace",
+      "continuity": "both"
+    },
+    {
+      "id": "location.realm-of-shadow",
+      "kind": "location",
+      "canonical_name": "Realm of Shadow",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "location.belurat",
+      "kind": "location",
+      "canonical_name": "Belurat, Tower Settlement",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "location.enir-ilim",
+      "kind": "location",
+      "canonical_name": "Enir-Ilim",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "event.godfrey-banished",
+      "kind": "event",
+      "canonical_name": "Banishment of Godfrey and the Tarnished",
+      "continuity": "base_game"
+    },
+    {
+      "id": "event.liurnian-wars",
+      "kind": "event",
+      "canonical_name": "Liurnian Wars",
+      "continuity": "base_game"
+    },
+    {
+      "id": "event.radagon-marries-rennala",
+      "kind": "event",
+      "canonical_name": "Union of Radagon and Rennala",
+      "continuity": "base_game"
+    },
+    {
+      "id": "event.radagon-becomes-elden-lord",
+      "kind": "event",
+      "canonical_name": "Radagon Becomes Elden Lord",
+      "continuity": "base_game"
+    },
+    {
+      "id": "event.night-of-black-knives",
+      "kind": "event",
+      "canonical_name": "Night of the Black Knives",
+      "continuity": "base_game"
+    },
+    {
+      "id": "event.death-of-godwyn",
+      "kind": "event",
+      "canonical_name": "Death of Godwyn",
+      "continuity": "base_game"
+    },
+    {
+      "id": "event.shattering-of-the-elden-ring",
+      "kind": "event",
+      "canonical_name": "Shattering of the Elden Ring",
+      "continuity": "base_game"
+    },
+    {
+      "id": "event.war-of-the-shattering",
+      "kind": "event",
+      "canonical_name": "War of the Shattering",
+      "continuity": "base_game"
+    },
+    {
+      "id": "event.first-defense-of-leyndell",
+      "kind": "event",
+      "canonical_name": "Defense of Leyndell",
+      "continuity": "base_game"
+    },
+    {
+      "id": "event.battle-of-aeonia",
+      "kind": "event",
+      "canonical_name": "Battle of Aeonia",
+      "continuity": "base_game"
+    },
+    {
+      "id": "event.stalemate-of-the-demigods",
+      "kind": "event",
+      "canonical_name": "Stalemate of the Demigods",
+      "continuity": "base_game"
+    },
+    {
+      "id": "event.mohg-takes-miquella",
+      "kind": "event",
+      "canonical_name": "Mohg Takes Miquella",
+      "continuity": "base_game"
+    },
+    {
+      "id": "event.miquella-enters-shadow",
+      "kind": "event",
+      "canonical_name": "Miquella Enters the Realm of Shadow",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "event.messmers-crusade",
+      "kind": "event",
+      "canonical_name": "Messmer's Crusade",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {"id":"character.melina","kind":"character","canonical_name":"Melina","continuity":"base_game"},
+    {"id":"character.gideon-ofnir","kind":"character","canonical_name":"Sir Gideon Ofnir, the All-Knowing","continuity":"base_game"},
+    {"id":"character.maliketh-gurranq","kind":"character","canonical_name":"Gurranq, Beast Clergyman","continuity":"base_game"},
+    {"id":"character.placidusax","kind":"character","canonical_name":"Dragonlord Placidusax","continuity":"base_game"},
+    {"id":"character.metyr","kind":"character","canonical_name":"Metyr, Mother of Fingers","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.st-trina","kind":"character","canonical_name":"St. Trina","continuity":"both"},
+    {"id":"character.thiollier","kind":"character","canonical_name":"Thiollier","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.hornsent","kind":"character","canonical_name":"Hornsent","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.freyja","kind":"character","canonical_name":"Redmane Freyja","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.midra","kind":"character","canonical_name":"Midra, Lord of Frenzied Flame","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.bayle","kind":"character","canonical_name":"Bayle the Dread","continuity":"shadow_of_the_erdtree"},
+    {"id":"outer-god.frenzied-flame","kind":"outer_god","canonical_name":"Frenzied Flame","continuity":"both"},
+    {"id":"outer-god.formless-mother","kind":"outer_god","canonical_name":"Formless Mother","continuity":"base_game"},
+    {"id":"concept.scarlet-rot","kind":"concept","canonical_name":"Scarlet Rot","continuity":"both"},
+    {"id":"concept.destined-death","kind":"concept","canonical_name":"Destined Death","continuity":"base_game"},
+    {"id":"artifact.deathroot","kind":"artifact","canonical_name":"Deathroot","continuity":"base_game"},
+    {"id":"faction.two-fingers","kind":"faction","canonical_name":"Two Fingers","continuity":"both"},
+    {"id":"faction.three-fingers","kind":"faction","canonical_name":"Three Fingers","continuity":"base_game"},
+    {"id":"faction.roundtable-hold","kind":"faction","canonical_name":"Roundtable Hold","continuity":"base_game"},
+    {"id":"location.nokron","kind":"location","canonical_name":"Nokron, Eternal City","continuity":"base_game"},
+    {"id":"location.siofra-river","kind":"location","canonical_name":"Siofra River","continuity":"base_game"},
+    {"id":"location.deeproot-depths","kind":"location","canonical_name":"Deeproot Depths","continuity":"base_game"},
+    {"id":"location.crumbling-farum-azula","kind":"location","canonical_name":"Crumbling Farum Azula","continuity":"base_game"},
+    {"id":"location.abyssal-woods","kind":"location","canonical_name":"Abyssal Woods","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.godrick","kind":"character","canonical_name":"Godrick the Grafted","continuity":"base_game"},
+    {"id":"character.blaidd","kind":"character","canonical_name":"Blaidd the Half-Wolf","continuity":"base_game"},
+    {"id":"character.iji","kind":"character","canonical_name":"War Counselor Iji","continuity":"base_game"},
+    {"id":"character.seluvus","kind":"character","canonical_name":"Preceptor Seluvis","continuity":"base_game"},
+    {"id":"character.astel","kind":"character","canonical_name":"Astel, Naturalborn of the Void","continuity":"base_game"},
+    {"id":"character.fire-giant","kind":"character","canonical_name":"Fire Giant","continuity":"base_game"},
+    {"id":"character.fia","kind":"character","canonical_name":"Fia, Deathbed Companion","continuity":"base_game"},
+    {"id":"character.fortissax","kind":"character","canonical_name":"Lichdragon Fortissax","continuity":"base_game"},
+    {"id":"character.tanith","kind":"character","canonical_name":"Tanith, Volcano Manor Proprietress","continuity":"base_game"},
+    {"id":"location.stormveil-castle","kind":"location","canonical_name":"Stormveil Castle","continuity":"base_game"},
+    {"id":"location.mountaintops-giants","kind":"location","canonical_name":"Mountaintops of the Giants","continuity":"base_game"},
+    {"id":"location.forge-giants","kind":"location","canonical_name":"Forge of the Giants","continuity":"base_game"},
+    {"id":"faction.volcano-manor","kind":"faction","canonical_name":"Volcano Manor","continuity":"base_game"},
+    {"id":"faction.those-live-death","kind":"faction","canonical_name":"Those Who Live in Death","continuity":"base_game"},
+    {"id":"people.albinaurics","kind":"people","canonical_name":"Albinaurics","continuity":"base_game"}
+  ],
+  "aliases": [
+  {
+    "id": "alias.marika.queen.en",
+    "entity_id": "character.marika",
+    "value": "Queen Marika",
+    "locale": "en",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.marika.reina.es",
+    "entity_id": "character.marika",
+    "value": "Reina Marika",
+    "locale": "es",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.marika.rainha.pt-br",
+    "entity_id": "character.marika",
+    "value": "Rainha Marika",
+    "locale": "pt-BR",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.radagon.en",
+    "entity_id": "character.radagon",
+    "value": "Radagon",
+    "locale": "en",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.miquella.en",
+    "entity_id": "character.miquella",
+    "value": "Miquella",
+    "locale": "en",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.malenia.en",
+    "entity_id": "character.malenia",
+    "value": "Malenia",
+    "locale": "en",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.radahn.en",
+    "entity_id": "character.radahn",
+    "value": "Radahn",
+    "locale": "en",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.godwyn.en",
+    "entity_id": "character.godwyn",
+    "value": "Godwyn",
+    "locale": "en",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.ranni.en",
+    "entity_id": "character.ranni",
+    "value": "Ranni",
+    "locale": "en",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.mohg.en",
+    "entity_id": "character.mohg",
+    "value": "Mohg",
+    "locale": "en",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.morgott.en",
+    "entity_id": "character.morgott",
+    "value": "Morgott",
+    "locale": "en",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.messmer.en",
+    "entity_id": "character.messmer",
+    "value": "Messmer",
+    "locale": "en",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.elden-ring.circulo.es",
+    "entity_id": "artifact.elden-ring",
+    "value": "Círculo de Elden",
+    "locale": "es",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.elden-ring.circulo-pristino.pt-br",
+    "entity_id": "artifact.elden-ring",
+    "value": "Círculo Prístino",
+    "locale": "pt-BR",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.shattering.fragmentacion.es",
+    "entity_id": "era.the-shattering",
+    "value": "Fragmentación",
+    "locale": "es",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.shattering.fragmentacao.pt-br",
+    "entity_id": "era.the-shattering",
+    "value": "Fragmentação",
+    "locale": "pt-BR",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.realm-shadow.reino-sombras.es",
+    "entity_id": "location.realm-of-shadow",
+    "value": "Reino de las Sombras",
+    "locale": "es",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.realm-shadow.reino-sombras.pt-br",
+    "entity_id": "location.realm-of-shadow",
+    "value": "Reino das Sombras",
+    "locale": "pt-BR",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.haligtree.arbol.es",
+    "entity_id": "artifact.haligtree",
+    "value": "Árbol Hierático",
+    "locale": "es",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.haligtree.arvore.pt-br",
+    "entity_id": "artifact.haligtree",
+    "value": "Árvore Sacra",
+    "locale": "pt-BR",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.tarnished.sinluz.es",
+    "entity_id": "character.tarnished",
+    "value": "Sinluz",
+    "locale": "es",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.tarnished.maculado.pt-br",
+    "entity_id": "character.tarnished",
+    "value": "Maculado",
+    "locale": "pt-BR",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.black-knives.noche.es",
+    "entity_id": "event.night-of-black-knives",
+    "value": "Noche de los Cuchillos Negros",
+    "locale": "es",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.black-knives.noite.pt-br",
+    "entity_id": "event.night-of-black-knives",
+    "value": "Noite das Facas Negras",
+    "locale": "pt-BR",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.aeonia.batalla.es",
+    "entity_id": "event.battle-of-aeonia",
+    "value": "Batalla de Aeonia",
+    "locale": "es",
+    "review_status": "draft"
+  },
+  {
+    "id": "alias.aeonia.batalha.pt-br",
+    "entity_id": "event.battle-of-aeonia",
+    "value": "Batalha de Aeonia",
+    "locale": "pt-BR",
+    "review_status": "draft"
+  },
+  {"id":"alias.formless-mother.madre-informe.es","entity_id":"outer-god.formless-mother","value":"Madre Informe","locale":"es","review_status":"draft"},
+  {"id":"alias.formless-mother.mae-sem-forma.pt-br","entity_id":"outer-god.formless-mother","value":"Mãe Sem Forma","locale":"pt-BR","review_status":"draft"},
+  {"id":"alias.frenzied-flame.llama-frenetica.es","entity_id":"outer-god.frenzied-flame","value":"Llama Frenética","locale":"es","review_status":"draft"},
+  {"id":"alias.frenzied-flame.chama-frenetica.pt-br","entity_id":"outer-god.frenzied-flame","value":"Chama Frenética","locale":"pt-BR","review_status":"draft"},
+  {"id":"alias.scarlet-rot.putrefaccion.es","entity_id":"concept.scarlet-rot","value":"Putrefacción Escarlata","locale":"es","review_status":"draft"},
+  {"id":"alias.scarlet-rot.podridao.pt-br","entity_id":"concept.scarlet-rot","value":"Podridão Escarlate","locale":"pt-BR","review_status":"draft"},
+  {"id":"alias.destined-death.muerte-destinada.es","entity_id":"concept.destined-death","value":"Muerte Destinada","locale":"es","review_status":"draft"},
+  {"id":"alias.destined-death.morte-destinada.pt-br","entity_id":"concept.destined-death","value":"Morte Destinada","locale":"pt-BR","review_status":"draft"},
+  {"id":"alias.deathroot.raiz-mortifera.es","entity_id":"artifact.deathroot","value":"Raíz Mortífera","locale":"es","review_status":"draft"},
+  {"id":"alias.deathroot.raiz-morte.pt-br","entity_id":"artifact.deathroot","value":"Raiz da Morte","locale":"pt-BR","review_status":"draft"},
+  {"id":"alias.two-fingers.dos-dedos.es","entity_id":"faction.two-fingers","value":"Dos Dedos","locale":"es","review_status":"draft"},
+  {"id":"alias.two-fingers.dois-dedos.pt-br","entity_id":"faction.two-fingers","value":"Dois Dedos","locale":"pt-BR","review_status":"draft"}
+  ],
+  "sources": [
+    {
+      "id": "game.base.opening-cinematic",
+      "title": "Elden Ring base game opening cinematic",
+      "authority_tier": "P0_GAME",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false
+    },
+    {
+      "id": "game.base.melina-dialogue",
+      "title": "Melina dialogue and spoken echoes at churches",
+      "authority_tier": "P0_GAME",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false
+    },
+    {
+      "id": "game.base.gideon-dialogue",
+      "title": "Sir Gideon Ofnir dialogue",
+      "authority_tier": "P0_GAME",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false
+    },
+    {
+      "id": "game.base.enia-dialogue",
+      "title": "Finger Reader Enia dialogue",
+      "authority_tier": "P0_GAME",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false
+    },
+    {
+      "id": "game.base.item-descriptions",
+      "title": "Elden Ring base game item descriptions",
+      "authority_tier": "P0_GAME",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false
+    },
+    {
+      "id": "game.base.remembrances",
+      "title": "Elden Ring base game remembrance descriptions",
+      "authority_tier": "P0_GAME",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false
+    },
+    {
+      "id": "game.base.sword-monuments",
+      "title": "Elden Ring base game sword monuments",
+      "authority_tier": "P0_GAME",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false
+    },
+    {
+      "id": "game.base.boss-and-quest-scenes",
+      "title": "Elden Ring base game boss and quest scenes",
+      "authority_tier": "P0_GAME",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false
+    },
+    {
+      "id": "game.dlc.story-trailer",
+      "title": "Shadow of the Erdtree story trailer",
+      "authority_tier": "P1_OFFICIAL",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false,
+      "source_url": "https://en.bandainamcoent.eu/elden-ring/news/more-secrets-of-miquella-and-the-realm-of-shadow-explained-latest-elden-ring",
+      "retrieved_at": "2026-11-01"
+    },
+    {
+      "id": "game.dlc.item-descriptions",
+      "title": "Shadow of the Erdtree item descriptions",
+      "authority_tier": "P0_GAME",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false
+    },
+    {
+      "id": "game.dlc.dialogue",
+      "title": "Shadow of the Erdtree character dialogue",
+      "authority_tier": "P0_GAME",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false
+    },
+    {
+      "id": "game.dlc.remembrances",
+      "title": "Shadow of the Erdtree remembrance descriptions",
+      "authority_tier": "P0_GAME",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false
+    },
+    {
+      "id": "official.base.story",
+      "title": "Official Elden Ring story overview",
+      "authority_tier": "P1_OFFICIAL",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false,
+      "source_url": "https://en.bandainamcoent.eu/elden-ring/elden-ring",
+      "retrieved_at": "2026-11-01"
+    },
+    {
+      "id": "official.dlc.story",
+      "title": "Official Shadow of the Erdtree story overview",
+      "authority_tier": "P1_OFFICIAL",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false,
+      "source_url": "https://en.bandainamcoent.eu/elden-ring/elden-ring/shadow-of-the-erdtree",
+      "retrieved_at": "2026-11-01"
+    },
+    {
+      "id": "official.dlc.access",
+      "title": "Official guide to entering the Realm of Shadow",
+      "authority_tier": "P1_OFFICIAL",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false,
+      "source_url": "https://en.bandainamcoent.eu/elden-ring/news/elden-ring-how-enter-the-realm-of-shadow",
+      "retrieved_at": "2026-11-01"
+    },
+    {
+      "id": "official.dlc.followers",
+      "title": "Official overview of Miquella's followers",
+      "authority_tier": "P1_OFFICIAL",
+      "rights_status": "reference_only",
+      "ingestion_allowed": false,
+      "public_display_allowed": false,
+      "embedding_allowed": false,
+      "source_url": "https://en.bandainamcoent.eu/elden-ring/news/elden-ring-who-are-miquellas-followers",
+      "retrieved_at": "2026-11-01"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evidence.base.opening.shattering",
+      "source_id": "game.base.opening-cinematic",
+      "locator": "Opening cinematic; account of the broken Elden Ring and the demigod war",
+      "summary_en": "The opening connects the broken Elden Ring, the Great Runes, the demigods and the war called the Shattering.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.base.opening.godwyn",
+      "source_id": "game.base.opening-cinematic",
+      "locator": "Opening cinematic; introduction of the Night of the Black Knives",
+      "summary_en": "The opening identifies Godwyn as the first demigod to die during the Night of the Black Knives.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.base.official.story",
+      "source_id": "official.base.story",
+      "locator": "Official website; base-game story synopsis",
+      "summary_en": "The official synopsis describes Marika's rule, the Elden Ring, the Great Runes, the Shattering and the return of the Tarnished.",
+      "summary_rights_status": "original",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "evidence.base.marika-echoes",
+      "source_id": "game.base.melina-dialogue",
+      "locator": "Melina's recitations of Marika's words at the Third Church, Grand Lift and Queen's Bedchamber",
+      "summary_en": "Marika's spoken echoes connect Godfrey's loss of grace, the exile of his warriors, their eventual return and her charge to Radagon.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.base.radagon-statue",
+      "source_id": "game.base.boss-and-quest-scenes",
+      "locator": "Leyndell statue revelation and Goldmask quest progression",
+      "summary_en": "The capital's hidden revelation identifies Radagon and Marika as one being while the narrative continues to distinguish their actions and roles.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.base.carian-history",
+      "source_id": "game.base.item-descriptions",
+      "locator": "Carian and Golden Order equipment, sorcery and incantation descriptions",
+      "summary_en": "The records describe the Liurnian conflicts, Radagon's union with Rennala and the Carian children later becoming demigod stepchildren.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.base.family-remembrances",
+      "source_id": "game.base.remembrances",
+      "locator": "Remembrances of major demigods and shardbearers",
+      "summary_en": "The remembrances identify key family relations and titles among Marika, Radagon, Godfrey and their demigod children.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.base.death-rune",
+      "source_id": "game.base.item-descriptions",
+      "locator": "Black Knife, Cursemark of Death and Maliketh-related item descriptions",
+      "summary_en": "These items connect the stolen fragment of Destined Death, the Black Knives, Ranni's ritual and Godwyn's death in soul.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.base.great-runes",
+      "source_id": "game.base.item-descriptions",
+      "locator": "Great Rune descriptions obtained from shardbearers",
+      "summary_en": "The Great Runes identify their bearers and preserve family and lineage details about the demigods.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.base.aeonia",
+      "source_id": "game.base.sword-monuments",
+      "locator": "Caelid sword monument associated with the Battle of Aeonia",
+      "summary_en": "The memorial places Malenia and Radahn in their decisive clash and associates it with the scarlet bloom.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.base.leyndell-war",
+      "source_id": "game.base.sword-monuments",
+      "locator": "Sword monuments around Altus Plateau and Leyndell",
+      "summary_en": "The monuments record attacks on the capital and its successful defense during the Shattering.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.base.miquella-haligtree",
+      "source_id": "game.base.item-descriptions",
+      "locator": "Haligtree, unalloyed gold and Miquella-related item descriptions",
+      "summary_en": "The records connect Miquella, Malenia, unalloyed gold and the growth of the Haligtree.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.base.mohg-miquella",
+      "source_id": "game.base.gideon-dialogue",
+      "locator": "Gideon's report about Mohg, Miquella and the cocoon",
+      "summary_en": "Gideon's investigation connects Mohg with Miquella's removal from the Haligtree and the cocoon at Mohgwyn Palace.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.base.mohgwyn-scene",
+      "source_id": "game.base.boss-and-quest-scenes",
+      "locator": "Mohg encounter and Miquella's cocoon at Mohgwyn Palace",
+      "summary_en": "The encounter presents Mohg beside the cocoon containing Miquella's body.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.base.locations",
+      "source_id": "game.base.item-descriptions",
+      "locator": "Map fragments and regional item descriptions",
+      "summary_en": "Map and item records situate major powers in Leyndell, Liurnia, Caelid, Volcano Manor, the Haligtree and Mohgwyn Palace.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.dlc.official-story",
+      "source_id": "official.dlc.story",
+      "locator": "Official expansion page; story premise",
+      "summary_en": "The official premise places Miquella's journey, Marika's first arrival and Messmer's purge in the Realm of Shadow.",
+      "summary_rights_status": "original",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "evidence.dlc.official-access",
+      "source_id": "official.dlc.access",
+      "locator": "Official guide; access requirements and entry sequence",
+      "summary_en": "The official guide links Mohg's defeat, Miquella's cocoon and the player's passage into the Realm of Shadow, with Radahn's defeat also required.",
+      "summary_rights_status": "original",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "evidence.dlc.story-trailer",
+      "source_id": "game.dlc.story-trailer",
+      "locator": "Shadow of the Erdtree story trailer; account of the hidden war",
+      "summary_en": "The trailer depicts an old conflict in the Realm of Shadow led by Messmer and frames it as concealed from the later world.",
+      "summary_rights_status": "original",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "evidence.dlc.messmer",
+      "source_id": "game.dlc.remembrances",
+      "locator": "Remembrance of the Impaler and related Messmer item descriptions",
+      "summary_en": "The records identify Messmer's connection to Marika and his role in the crusade against the hornsent.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.dlc.miquella-crosses",
+      "source_id": "game.dlc.dialogue",
+      "locator": "Miquella's Crosses and follower dialogue across the Realm of Shadow",
+      "summary_en": "The crosses and dialogue trace Miquella's progressive abandonment of body, lineage and Golden inheritance.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.dlc.followers",
+      "source_id": "official.dlc.followers",
+      "locator": "Official overview of Miquella's followers",
+      "summary_en": "The official overview identifies Miquella as a child of Marika and Radagon and describes the followers drawn to his path.",
+      "summary_rights_status": "original",
+      "review_status": "reviewed"
+    },
+    {
+      "id": "evidence.dlc.ansbach",
+      "source_id": "game.dlc.dialogue",
+      "locator": "Sir Ansbach quest dialogue",
+      "summary_en": "Ansbach's investigation addresses Mohg, Miquella's influence and the purpose of Miquella's journey.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id": "evidence.dlc.locations",
+      "source_id": "game.dlc.item-descriptions",
+      "locator": "Realm of Shadow map fragments and regional item descriptions",
+      "summary_en": "Regional records situate Belurat, Enir-Ilim and the hornsent civilization within the concealed realm.",
+      "summary_rights_status": "original",
+      "review_status": "draft"
+    },
+    {
+      "id":"evidence.base.frenzied-flame",
+      "source_id":"game.base.item-descriptions",
+      "locator":"Frenzied Flame incantations, notes, and related quest records",
+      "summary_en":"Records connect the Frenzied Flame, the Three Fingers, madness and an ambition to erase distinctions by returning existence to one.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.melina-guidance","source_id":"game.base.melina-dialogue",
+      "locator":"Melina's early meetings, accord and guidance dialogue",
+      "summary_en":"Melina offers an accord to the Tarnished and guides their journey toward the Erdtree while pursuing her own purpose.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.ranni-retinue","source_id":"game.base.boss-and-quest-scenes","locator":"Ranni quest meetings at Caria Manor, Siofra and Nokron","summary_en":"Ranni's quest identifies Blaidd, Iji and Seluvis as members of her retinue and traces their roles in her search for Nokron and the Fingerslayer Blade.","summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.godrick-stormveil","source_id":"game.base.remembrances","locator":"Godrick remembrance, Stormveil scenes and related descriptions","summary_en":"The records identify Godrick as a distant member of the Golden Lineage who rules from Stormveil and practices grafting.","summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.giants-flame","source_id":"game.base.item-descriptions","locator":"Fire Giant remembrance, Flame of the Fell God and Forge descriptions","summary_en":"The records connect the last Fire Giant, the Mountaintops, the Forge and the enduring flame once opposed by Marika's forces.","summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.fia-fortissax","source_id":"game.base.boss-and-quest-scenes","locator":"Fia quest, Deeproot Depths scenes and Fortissax remembrance","summary_en":"Fia's quest connects her to Godwyn, Those Who Live in Death and Fortissax, who fought Death within his companion.","summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.volcano-manor","source_id":"game.base.boss-and-quest-scenes","locator":"Volcano Manor invitations, Tanith dialogue and Rykard encounter","summary_en":"Volcano Manor records identify Tanith as its proprietress and the faction as a movement serving Rykard in rebellion against the Erdtree.","summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.gideon-roundtable","source_id":"game.base.gideon-dialogue",
+      "locator":"Roundtable Hold introductions and Gideon's demigod briefings",
+      "summary_en":"Gideon's dialogue establishes him as the All-Knowing leader associated with Roundtable Hold and its search for Great Runes.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.blood-formless-mother",
+      "source_id":"game.base.remembrances",
+      "locator":"Mohg remembrance and blood incantation descriptions",
+      "summary_en":"Blood-related records identify the Formless Mother as the power encountered and served by Mohg.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.rot",
+      "source_id":"game.base.item-descriptions",
+      "locator":"Lake of Rot, rot incantations, needles and Malenia-related descriptions",
+      "summary_en":"These records connect Scarlet Rot to Malenia, Caelid, the Lake of Rot and efforts to resist an outer power's influence.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.deathroot",
+      "source_id":"game.base.item-descriptions",
+      "locator":"Deathroot, Black Knife and Death-related item descriptions",
+      "summary_en":"Deathroot spread through roots beneath the Lands Between after Death entered Godwyn and became associated with Those Who Live in Death.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.underground-cities",
+      "source_id":"game.base.item-descriptions",
+      "locator":"Nox, Eternal City, Siofra and Fingerslayer Blade descriptions",
+      "summary_en":"Subterranean records place Nokron by the Siofra and connect the Nox with an artificial night and opposition to the Greater Will.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.base.farum-dragons",
+      "source_id":"game.base.remembrances",
+      "locator":"Dragonlord remembrance and Farum Azula-related descriptions",
+      "summary_en":"The records identify Placidusax as an Elden Lord from an age before the Erdtree and place him in Farum Azula beyond ordinary time.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.dlc.metyr-fingers",
+      "source_id":"game.dlc.remembrances",
+      "locator":"Metyr remembrance, finger ruins and Ymir quest records",
+      "summary_en":"The records identify Metyr as mother of the Fingers, a daughter of the Greater Will, and the first shooting star to reach the Lands Between.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.dlc.trina",
+      "source_id":"game.dlc.dialogue",
+      "locator":"Stone Coffin Fissure, Thiollier dialogue and St. Trina quest scenes",
+      "summary_en":"The quest records connect St. Trina to Miquella's discarded aspect, sleep, Thiollier and opposition to Miquella's godhood.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.dlc.midra",
+      "source_id":"game.dlc.item-descriptions",
+      "locator":"Abyssal Woods, Midra's Manse and frenzy-related descriptions",
+      "summary_en":"Regional records connect Midra, the Abyssal Woods, prolonged torment and the emergence of a Lord of Frenzied Flame.",
+      "summary_rights_status":"original","review_status":"draft"
+    },
+    {
+      "id":"evidence.dlc.dragons",
+      "source_id":"game.dlc.remembrances",
+      "locator":"Bayle remembrance, Dragon Communion and Jagged Peak records",
+      "summary_en":"Dragon records describe Bayle's ancient conflict with Placidusax and the enduring wounds borne by both dragons.",
+      "summary_rights_status":"original","review_status":"draft"
+    }
+  ],
+  "localized_texts": [
+  {
+    "id": "text.evidence-base-opening-shattering.summary.es",
+    "evidence_id": "evidence.base.opening.shattering",
+    "locale": "es",
+    "field": "summary",
+    "text": "La introducción relaciona el Círculo de Elden roto, las Grandes Runas, los semidioses y la guerra conocida como la Fragmentación.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {"id":"text.evidence-base-frenzied-flame.summary.es","evidence_id":"evidence.base.frenzied-flame","locale":"es","field":"summary","text":"Los registros vinculan la Llama Frenética, los Tres Dedos, la locura y el propósito de borrar las distinciones devolviendo la existencia a una sola unidad.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-melina-guidance.summary.es","evidence_id":"evidence.base.melina-guidance","locale":"es","field":"summary","text":"Melina ofrece un acuerdo al Sinluz y guía su viaje hacia el Árbol Áureo mientras persigue su propio propósito.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-ranni-retinue.summary.es","evidence_id":"evidence.base.ranni-retinue","locale":"es","field":"summary","text":"La misión de Ranni identifica a Blaidd, Iji y Seluvis como miembros de su séquito y describe sus papeles en la búsqueda de Nokron y la Hoja Dactilocida.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-ranni-retinue.summary.pt-br","evidence_id":"evidence.base.ranni-retinue","locale":"pt-BR","field":"summary","text":"A missão de Ranni identifica Blaidd, Iji e Seluvis como membros de seu séquito e descreve seus papéis na busca por Nokron e pela Lâmina Matadora de Dedos.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-godrick-stormveil.summary.es","evidence_id":"evidence.base.godrick-stormveil","locale":"es","field":"summary","text":"Los registros identifican a Godrick como miembro distante del Linaje Dorado, gobernante de Velo Tormentoso y practicante de injertos.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-godrick-stormveil.summary.pt-br","evidence_id":"evidence.base.godrick-stormveil","locale":"pt-BR","field":"summary","text":"Os registros identificam Godrick como membro distante da Linhagem Dourada, governante do Castelo Tempesvéu e praticante de enxertos.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-giants-flame.summary.es","evidence_id":"evidence.base.giants-flame","locale":"es","field":"summary","text":"Los registros conectan al último Gigante de Fuego, las Cimas, la Forja y la llama perdurable combatida por las fuerzas de Marika.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-giants-flame.summary.pt-br","evidence_id":"evidence.base.giants-flame","locale":"pt-BR","field":"summary","text":"Os registros relacionam o último Gigante de Fogo, os Picos, a Forja e a chama duradoura combatida pelas forças de Marika.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-fia-fortissax.summary.es","evidence_id":"evidence.base.fia-fortissax","locale":"es","field":"summary","text":"La misión de Fia la relaciona con Godwyn, Quienes Viven en la Muerte y Fortissax, que luchó contra la Muerte dentro de su compañero.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-fia-fortissax.summary.pt-br","evidence_id":"evidence.base.fia-fortissax","locale":"pt-BR","field":"summary","text":"A missão de Fia a relaciona a Godwyn, aos Que Vivem na Morte e a Fortissax, que combateu a Morte dentro de seu companheiro.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-volcano-manor.summary.es","evidence_id":"evidence.base.volcano-manor","locale":"es","field":"summary","text":"Los registros identifican a Tanith como propietaria de la Mansión del Volcán y a la facción como servidora de Rykard en rebelión contra el Árbol Áureo.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-volcano-manor.summary.pt-br","evidence_id":"evidence.base.volcano-manor","locale":"pt-BR","field":"summary","text":"Os registros identificam Tanith como proprietária da Mansão Vulcânica e a facção como servidora de Rykard em rebelião contra a Térvore.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-melina-guidance.summary.pt-br","evidence_id":"evidence.base.melina-guidance","locale":"pt-BR","field":"summary","text":"Melina oferece um acordo ao Maculado e orienta sua jornada até a Térvore enquanto busca seu próprio propósito.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-gideon-roundtable.summary.es","evidence_id":"evidence.base.gideon-roundtable","locale":"es","field":"summary","text":"El diálogo de Gideon lo establece como líder Omnisciente asociado a la Mesa Redonda y a su búsqueda de Grandes Runas.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-gideon-roundtable.summary.pt-br","evidence_id":"evidence.base.gideon-roundtable","locale":"pt-BR","field":"summary","text":"O diálogo de Gideon o estabelece como líder Onisciente associado à Mesa-Redonda e à busca por Grandes Runas.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-frenzied-flame.summary.pt-br","evidence_id":"evidence.base.frenzied-flame","locale":"pt-BR","field":"summary","text":"Os registros relacionam a Chama Frenética, os Três Dedos, a loucura e o propósito de apagar distinções devolvendo a existência a uma única unidade.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-blood-formless-mother.summary.es","evidence_id":"evidence.base.blood-formless-mother","locale":"es","field":"summary","text":"Los registros de sangre identifican a la Madre Informe como el poder encontrado y servido por Mohg.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-blood-formless-mother.summary.pt-br","evidence_id":"evidence.base.blood-formless-mother","locale":"pt-BR","field":"summary","text":"Os registros de sangue identificam a Mãe Sem Forma como o poder encontrado e servido por Mohg.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-rot.summary.es","evidence_id":"evidence.base.rot","locale":"es","field":"summary","text":"Los registros conectan la Putrefacción Escarlata con Malenia, Caelid, el Lago de la Putrefacción y los esfuerzos por resistir la influencia de un poder exterior.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-rot.summary.pt-br","evidence_id":"evidence.base.rot","locale":"pt-BR","field":"summary","text":"Os registros relacionam a Podridão Escarlate a Malenia, Caelid, o Lago da Podridão e tentativas de resistir à influência de um poder exterior.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-deathroot.summary.es","evidence_id":"evidence.base.deathroot","locale":"es","field":"summary","text":"La Raíz Mortífera se extendió bajo las Tierras Intermedias después de que la Muerte entrara en Godwyn y quedó asociada con Quienes Viven en la Muerte.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-deathroot.summary.pt-br","evidence_id":"evidence.base.deathroot","locale":"pt-BR","field":"summary","text":"A Raiz da Morte espalhou-se sob as Terras Intermédias depois que a Morte entrou em Godwyn e passou a ser associada aos Que Vivem na Morte.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-underground-cities.summary.es","evidence_id":"evidence.base.underground-cities","locale":"es","field":"summary","text":"Los registros subterráneos sitúan Nokron junto al Siofra y relacionan a los Nox con una noche artificial y la oposición a la Voluntad Mayor.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-underground-cities.summary.pt-br","evidence_id":"evidence.base.underground-cities","locale":"pt-BR","field":"summary","text":"Os registros subterrâneos situam Nokron junto ao Siofra e relacionam os Nox a uma noite artificial e à oposição à Vontade Maior.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-farum-dragons.summary.es","evidence_id":"evidence.base.farum-dragons","locale":"es","field":"summary","text":"Los registros identifican a Placidusax como Señor de Elden de una era anterior al Árbol Áureo y lo sitúan en Farum Azula fuera del tiempo ordinario.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-base-farum-dragons.summary.pt-br","evidence_id":"evidence.base.farum-dragons","locale":"pt-BR","field":"summary","text":"Os registros identificam Placidusax como Lorde Prístino de uma era anterior à Térvore e o situam em Farum Azula além do tempo comum.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-dlc-metyr-fingers.summary.es","evidence_id":"evidence.dlc.metyr-fingers","locale":"es","field":"summary","text":"Los registros identifican a Metyr como madre de los Dedos, hija de la Voluntad Mayor y primera estrella fugaz en llegar a las Tierras Intermedias.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-dlc-metyr-fingers.summary.pt-br","evidence_id":"evidence.dlc.metyr-fingers","locale":"pt-BR","field":"summary","text":"Os registros identificam Metyr como mãe dos Dedos, filha da Vontade Maior e primeira estrela cadente a alcançar as Terras Intermédias.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-dlc-trina.summary.es","evidence_id":"evidence.dlc.trina","locale":"es","field":"summary","text":"Los registros relacionan a Santa Trina con el aspecto abandonado de Miquella, el sueño, Thiollier y la oposición a la divinidad de Miquella.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-dlc-trina.summary.pt-br","evidence_id":"evidence.dlc.trina","locale":"pt-BR","field":"summary","text":"Os registros relacionam Santa Trina ao aspecto abandonado de Miquella, ao sono, a Thiollier e à oposição à divindade de Miquella.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-dlc-midra.summary.es","evidence_id":"evidence.dlc.midra","locale":"es","field":"summary","text":"Los registros regionales relacionan a Midra, los Bosques Abisales, un tormento prolongado y el surgimiento de un Señor de la Llama Frenética.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-dlc-midra.summary.pt-br","evidence_id":"evidence.dlc.midra","locale":"pt-BR","field":"summary","text":"Os registros regionais relacionam Midra, os Bosques Abissais, um tormento prolongado e o surgimento de um Lorde da Chama Frenética.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-dlc-dragons.summary.es","evidence_id":"evidence.dlc.dragons","locale":"es","field":"summary","text":"Los registros dracónicos describen el antiguo conflicto de Bayle con Placidusax y las heridas duraderas sufridas por ambos dragones.","origin":"machine_assisted","review_status":"draft"},
+  {"id":"text.evidence-dlc-dragons.summary.pt-br","evidence_id":"evidence.dlc.dragons","locale":"pt-BR","field":"summary","text":"Os registros dracônicos descrevem o antigo conflito de Bayle com Placidusax e as feridas duradouras sofridas por ambos os dragões.","origin":"machine_assisted","review_status":"draft"},
+  {
+    "id": "text.evidence-base-opening-shattering.summary.pt-br",
+    "evidence_id": "evidence.base.opening.shattering",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "A abertura relaciona o Círculo Prístino quebrado, as Grandes Runas, os semideuses e a guerra conhecida como a Fragmentação.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-opening-godwyn.summary.es",
+    "evidence_id": "evidence.base.opening.godwyn",
+    "locale": "es",
+    "field": "summary",
+    "text": "La introducción identifica a Godwyn como el primer semidiós que murió durante la Noche de los Cuchillos Negros.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-opening-godwyn.summary.pt-br",
+    "evidence_id": "evidence.base.opening.godwyn",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "A abertura identifica Godwyn como o primeiro semideus a morrer durante a Noite das Facas Negras.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-official-story.summary.es",
+    "evidence_id": "evidence.base.official.story",
+    "locale": "es",
+    "field": "summary",
+    "text": "La sinopsis oficial describe el reinado de Marika, el Círculo de Elden, las Grandes Runas, la Fragmentación y el regreso de los Sinluz.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-official-story.summary.pt-br",
+    "evidence_id": "evidence.base.official.story",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "A sinopse oficial descreve o governo de Marika, o Círculo Prístino, as Grandes Runas, a Fragmentação e o retorno dos Maculados.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-marika-echoes.summary.es",
+    "evidence_id": "evidence.base.marika-echoes",
+    "locale": "es",
+    "field": "summary",
+    "text": "Los ecos de las palabras de Marika relacionan la pérdida de gracia de Godfrey, el exilio de sus guerreros, su futuro regreso y la orden dada a Radagon.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-marika-echoes.summary.pt-br",
+    "evidence_id": "evidence.base.marika-echoes",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "Os ecos das palavras de Marika relacionam a perda da graça de Godfrey, o exílio de seus guerreiros, o futuro retorno deles e a ordem dada a Radagon.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-radagon-statue.summary.es",
+    "evidence_id": "evidence.base.radagon-statue",
+    "locale": "es",
+    "field": "summary",
+    "text": "La revelación oculta de la capital identifica a Radagon y Marika como un mismo ser, aunque la narrativa sigue distinguiendo sus acciones y funciones.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-radagon-statue.summary.pt-br",
+    "evidence_id": "evidence.base.radagon-statue",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "A revelação oculta da capital identifica Radagon e Marika como um mesmo ser, embora a narrativa continue distinguindo suas ações e funções.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-carian-history.summary.es",
+    "evidence_id": "evidence.base.carian-history",
+    "locale": "es",
+    "field": "summary",
+    "text": "Los registros describen los conflictos de Liurnia, la unión de Radagon con Rennala y cómo los hijos carianos se convirtieron después en hijastros semidioses.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-carian-history.summary.pt-br",
+    "evidence_id": "evidence.base.carian-history",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "Os registros descrevem os conflitos de Liurnia, a união de Radagon com Rennala e como os filhos carianos depois se tornaram enteados semideuses.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-family-remembrances.summary.es",
+    "evidence_id": "evidence.base.family-remembrances",
+    "locale": "es",
+    "field": "summary",
+    "text": "Los recuerdos identifican relaciones familiares y títulos importantes entre Marika, Radagon, Godfrey y sus hijos semidioses.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-family-remembrances.summary.pt-br",
+    "evidence_id": "evidence.base.family-remembrances",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "As lembranças identificam relações familiares e títulos importantes entre Marika, Radagon, Godfrey e seus filhos semideuses.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-death-rune.summary.es",
+    "evidence_id": "evidence.base.death-rune",
+    "locale": "es",
+    "field": "summary",
+    "text": "Estos objetos relacionan el fragmento robado de la Muerte Destinada, los Cuchillos Negros, el ritual de Ranni y la muerte del alma de Godwyn.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-death-rune.summary.pt-br",
+    "evidence_id": "evidence.base.death-rune",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "Esses itens relacionam o fragmento roubado da Morte Destinada, as Facas Negras, o ritual de Ranni e a morte da alma de Godwyn.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-great-runes.summary.es",
+    "evidence_id": "evidence.base.great-runes",
+    "locale": "es",
+    "field": "summary",
+    "text": "Las Grandes Runas identifican a sus portadores y conservan detalles familiares y de linaje sobre los semidioses.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-great-runes.summary.pt-br",
+    "evidence_id": "evidence.base.great-runes",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "As Grandes Runas identificam seus portadores e preservam detalhes familiares e de linhagem sobre os semideuses.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-aeonia.summary.es",
+    "evidence_id": "evidence.base.aeonia",
+    "locale": "es",
+    "field": "summary",
+    "text": "El monumento sitúa a Malenia y Radahn en su enfrentamiento decisivo y lo relaciona con la floración escarlata.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-aeonia.summary.pt-br",
+    "evidence_id": "evidence.base.aeonia",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "O monumento situa Malenia e Radahn em seu confronto decisivo e o relaciona ao florescimento escarlate.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-leyndell-war.summary.es",
+    "evidence_id": "evidence.base.leyndell-war",
+    "locale": "es",
+    "field": "summary",
+    "text": "Los monumentos registran ataques contra la capital y su defensa exitosa durante la Fragmentación.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-leyndell-war.summary.pt-br",
+    "evidence_id": "evidence.base.leyndell-war",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "Os monumentos registram ataques contra a capital e sua defesa bem-sucedida durante a Fragmentação.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-miquella-haligtree.summary.es",
+    "evidence_id": "evidence.base.miquella-haligtree",
+    "locale": "es",
+    "field": "summary",
+    "text": "Los registros relacionan a Miquella, Malenia, el oro puro y el crecimiento del Árbol Hierático.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-miquella-haligtree.summary.pt-br",
+    "evidence_id": "evidence.base.miquella-haligtree",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "Os registros relacionam Miquella, Malenia, o ouro puro e o crescimento da Árvore Sacra.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-mohg-miquella.summary.es",
+    "evidence_id": "evidence.base.mohg-miquella",
+    "locale": "es",
+    "field": "summary",
+    "text": "La investigación de Gideon relaciona a Mohg con la retirada de Miquella del Árbol Hierático y con el capullo del Palacio de Mohgwyn.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-mohg-miquella.summary.pt-br",
+    "evidence_id": "evidence.base.mohg-miquella",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "A investigação de Gideon relaciona Mohg à retirada de Miquella da Árvore Sacra e ao casulo no Palácio de Mohgwyn.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-mohgwyn-scene.summary.es",
+    "evidence_id": "evidence.base.mohgwyn-scene",
+    "locale": "es",
+    "field": "summary",
+    "text": "El encuentro muestra a Mohg junto al capullo que contiene el cuerpo de Miquella.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-mohgwyn-scene.summary.pt-br",
+    "evidence_id": "evidence.base.mohgwyn-scene",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "O encontro mostra Mohg ao lado do casulo que contém o corpo de Miquella.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-locations.summary.es",
+    "evidence_id": "evidence.base.locations",
+    "locale": "es",
+    "field": "summary",
+    "text": "Los mapas y objetos sitúan a las principales potencias en Leyndell, Liurnia, Caelid, la Mansión del Volcán, el Árbol Hierático y el Palacio de Mohgwyn.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-base-locations.summary.pt-br",
+    "evidence_id": "evidence.base.locations",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "Mapas e itens situam as principais potências em Leyndell, Liurnia, Caelid, Mansão Vulcânica, Árvore Sacra e Palácio de Mohgwyn.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-official-story.summary.es",
+    "evidence_id": "evidence.dlc.official-story",
+    "locale": "es",
+    "field": "summary",
+    "text": "La premisa oficial sitúa el viaje de Miquella, la primera llegada de Marika y la purga de Messmer en el Reino de las Sombras.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-official-story.summary.pt-br",
+    "evidence_id": "evidence.dlc.official-story",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "A premissa oficial situa a jornada de Miquella, a primeira chegada de Marika e o expurgo de Messmer no Reino das Sombras.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-official-access.summary.es",
+    "evidence_id": "evidence.dlc.official-access",
+    "locale": "es",
+    "field": "summary",
+    "text": "La guía oficial relaciona la derrota de Mohg, el capullo de Miquella y el paso del jugador al Reino de las Sombras; también exige derrotar a Radahn.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-official-access.summary.pt-br",
+    "evidence_id": "evidence.dlc.official-access",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "O guia oficial relaciona a derrota de Mohg, o casulo de Miquella e a passagem do jogador ao Reino das Sombras; derrotar Radahn também é necessário.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-story-trailer.summary.es",
+    "evidence_id": "evidence.dlc.story-trailer",
+    "locale": "es",
+    "field": "summary",
+    "text": "El tráiler representa un antiguo conflicto en el Reino de las Sombras dirigido por Messmer y lo presenta como oculto para el mundo posterior.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-story-trailer.summary.pt-br",
+    "evidence_id": "evidence.dlc.story-trailer",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "O trailer retrata um conflito antigo no Reino das Sombras liderado por Messmer e o apresenta como oculto para o mundo posterior.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-messmer.summary.es",
+    "evidence_id": "evidence.dlc.messmer",
+    "locale": "es",
+    "field": "summary",
+    "text": "Los registros identifican la relación de Messmer con Marika y su papel en la cruzada contra los cornamentados.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-messmer.summary.pt-br",
+    "evidence_id": "evidence.dlc.messmer",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "Os registros identificam a ligação de Messmer com Marika e seu papel na cruzada contra os hornsent.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-miquella-crosses.summary.es",
+    "evidence_id": "evidence.dlc.miquella-crosses",
+    "locale": "es",
+    "field": "summary",
+    "text": "Las cruces y los diálogos trazan el abandono progresivo de Miquella de su cuerpo, linaje y herencia dorada.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-miquella-crosses.summary.pt-br",
+    "evidence_id": "evidence.dlc.miquella-crosses",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "As cruzes e os diálogos traçam o abandono progressivo, por Miquella, de seu corpo, linhagem e herança dourada.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-followers.summary.es",
+    "evidence_id": "evidence.dlc.followers",
+    "locale": "es",
+    "field": "summary",
+    "text": "El resumen oficial identifica a Miquella como hijo de Marika y Radagon y describe a los seguidores atraídos a su camino.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-followers.summary.pt-br",
+    "evidence_id": "evidence.dlc.followers",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "O resumo oficial identifica Miquella como filho de Marika e Radagon e descreve os seguidores atraídos para seu caminho.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-ansbach.summary.es",
+    "evidence_id": "evidence.dlc.ansbach",
+    "locale": "es",
+    "field": "summary",
+    "text": "La investigación de Ansbach aborda a Mohg, la influencia de Miquella y el propósito del viaje de Miquella.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-ansbach.summary.pt-br",
+    "evidence_id": "evidence.dlc.ansbach",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "A investigação de Ansbach aborda Mohg, a influência de Miquella e o propósito da jornada de Miquella.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-locations.summary.es",
+    "evidence_id": "evidence.dlc.locations",
+    "locale": "es",
+    "field": "summary",
+    "text": "Los registros regionales sitúan Belurat, Enir-Ilim y la civilización de los cornamentados dentro del reino oculto.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  },
+  {
+    "id": "text.evidence-dlc-locations.summary.pt-br",
+    "evidence_id": "evidence.dlc.locations",
+    "locale": "pt-BR",
+    "field": "summary",
+    "text": "Os registros regionais situam Belurat, Enir-Ilim e a civilização dos hornsent dentro do reino oculto.",
+    "origin": "machine_assisted",
+    "review_status": "draft"
+  }
+  ],
+  "claims": [
+    {
+      "id": "claim.marika.rules-lands-between",
+      "subject_id": "character.marika",
+      "predicate": "RULED",
+      "object_id": "location.lands-between",
+      "evidence_ids": [
+        "evidence.base.official.story"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.marika.vessel-of-elden-ring",
+      "subject_id": "character.marika",
+      "predicate": "VESSEL_OF",
+      "object_id": "artifact.elden-ring",
+      "evidence_ids": [
+        "evidence.base.official.story"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.marika-and-radagon.same-being",
+      "subject_id": "character.marika",
+      "predicate": "SAME_BEING_AS",
+      "object_id": "character.radagon",
+      "evidence_ids": [
+        "evidence.base.radagon-statue"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.godfrey.consort-of-marika",
+      "subject_id": "character.godfrey",
+      "predicate": "CONSORT_OF",
+      "object_id": "character.marika",
+      "evidence_ids": [
+        "evidence.base.family-remembrances"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.radagon.consort-of-marika",
+      "subject_id": "character.radagon",
+      "predicate": "CONSORT_OF",
+      "object_id": "character.marika",
+      "evidence_ids": [
+        "evidence.base.marika-echoes"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.radagon.married-rennala",
+      "subject_id": "character.radagon",
+      "predicate": "CONSORT_OF",
+      "object_id": "character.rennala",
+      "evidence_ids": [
+        "evidence.base.carian-history"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.godwyn.child-of-marika",
+      "subject_id": "character.godwyn",
+      "predicate": "CHILD_OF",
+      "object_id": "character.marika",
+      "evidence_ids": [
+        "evidence.base.family-remembrances"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.morgott.child-of-marika",
+      "subject_id": "character.morgott",
+      "predicate": "CHILD_OF",
+      "object_id": "character.marika",
+      "evidence_ids": [
+        "evidence.base.great-runes"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.mohg.child-of-marika",
+      "subject_id": "character.mohg",
+      "predicate": "CHILD_OF",
+      "object_id": "character.marika",
+      "evidence_ids": [
+        "evidence.base.great-runes"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.ranni.child-of-rennala",
+      "subject_id": "character.ranni",
+      "predicate": "CHILD_OF",
+      "object_id": "character.rennala",
+      "evidence_ids": [
+        "evidence.base.carian-history"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.radahn.child-of-rennala",
+      "subject_id": "character.radahn",
+      "predicate": "CHILD_OF",
+      "object_id": "character.rennala",
+      "evidence_ids": [
+        "evidence.base.carian-history"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.rykard.child-of-rennala",
+      "subject_id": "character.rykard",
+      "predicate": "CHILD_OF",
+      "object_id": "character.rennala",
+      "evidence_ids": [
+        "evidence.base.carian-history"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.miquella.child-of-marika",
+      "subject_id": "character.miquella",
+      "predicate": "CHILD_OF",
+      "object_id": "character.marika",
+      "evidence_ids": [
+        "evidence.base.family-remembrances",
+        "evidence.dlc.followers"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.malenia.child-of-marika",
+      "subject_id": "character.malenia",
+      "predicate": "CHILD_OF",
+      "object_id": "character.marika",
+      "evidence_ids": [
+        "evidence.base.family-remembrances"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.miquella.child-of-radagon",
+      "subject_id": "character.miquella",
+      "predicate": "CHILD_OF",
+      "object_id": "character.radagon",
+      "evidence_ids": [
+        "evidence.dlc.followers"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.malenia.child-of-radagon",
+      "subject_id": "character.malenia",
+      "predicate": "CHILD_OF",
+      "object_id": "character.radagon",
+      "evidence_ids": [
+        "evidence.base.family-remembrances"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.miquella.twin-of-malenia",
+      "subject_id": "character.miquella",
+      "predicate": "TWIN_OF",
+      "object_id": "character.malenia",
+      "evidence_ids": [
+        "evidence.base.family-remembrances"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.messmer.child-of-marika",
+      "subject_id": "character.messmer",
+      "predicate": "CHILD_OF",
+      "object_id": "character.marika",
+      "evidence_ids": [
+        "evidence.dlc.messmer"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.godfrey.founded-golden-lineage",
+      "subject_id": "character.godfrey",
+      "predicate": "FOUNDER_OF",
+      "object_id": "faction.golden-lineage",
+      "evidence_ids": [
+        "evidence.base.family-remembrances"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.rennala.leads-carians",
+      "subject_id": "character.rennala",
+      "predicate": "LEADS",
+      "object_id": "faction.carian-royal-family",
+      "evidence_ids": [
+        "evidence.base.carian-history"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.greater-will.abandoned-war",
+      "subject_id": "character.greater-will",
+      "predicate": "ABANDONED",
+      "object_id": "event.war-of-the-shattering",
+      "evidence_ids": [
+        "evidence.base.official.story"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.elden-ring.source-of-erdtree",
+      "subject_id": "artifact.elden-ring",
+      "predicate": "SOURCE_OF",
+      "object_id": "artifact.erdtree",
+      "evidence_ids": [
+        "evidence.base.official.story"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.golden-order.bound-to-ring",
+      "subject_id": "artifact.golden-order",
+      "predicate": "ORDER_OF",
+      "object_id": "artifact.elden-ring",
+      "evidence_ids": [
+        "evidence.base.radagon-statue"
+      ],
+      "evidence_level": "strong_inference",
+      "confidence": "medium",
+      "review_status": "draft",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.rune-of-death.bound-by-maliketh",
+      "subject_id": "artifact.rune-of-death",
+      "predicate": "GUARDED_BY",
+      "object_id": "character.maliketh",
+      "evidence_ids": [
+        "evidence.base.death-rune"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.ranni.stole-death-fragment",
+      "subject_id": "character.ranni",
+      "predicate": "STOLE_FRAGMENT_OF",
+      "object_id": "artifact.rune-of-death",
+      "evidence_ids": [
+        "evidence.base.death-rune"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.great-runes.fragments-of-ring",
+      "subject_id": "artifact.great-runes",
+      "predicate": "FRAGMENTS_OF",
+      "object_id": "artifact.elden-ring",
+      "evidence_ids": [
+        "evidence.base.opening.shattering",
+        "evidence.base.official.story"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.demigods-claimed-great-runes",
+      "subject_id": "artifact.great-runes",
+      "predicate": "CLAIMED_BY",
+      "object_id": "faction.golden-lineage",
+      "evidence_ids": [
+        "evidence.base.opening.shattering"
+      ],
+      "evidence_level": "strong_inference",
+      "confidence": "medium",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.malenia.serves-miquella",
+      "subject_id": "character.malenia",
+      "predicate": "BLADE_OF",
+      "object_id": "character.miquella",
+      "evidence_ids": [
+        "evidence.base.miquella-haligtree"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.miquella.created-haligtree",
+      "subject_id": "character.miquella",
+      "predicate": "CREATED",
+      "object_id": "artifact.haligtree",
+      "evidence_ids": [
+        "evidence.base.miquella-haligtree"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.haligtree.located-at-haligtree",
+      "subject_id": "artifact.haligtree",
+      "predicate": "LOCATED_IN",
+      "object_id": "location.haligtree",
+      "evidence_ids": [
+        "evidence.base.miquella-haligtree"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.mohg.based-at-mohgwyn",
+      "subject_id": "character.mohg",
+      "predicate": "BASED_IN",
+      "object_id": "location.mohgwyn-palace",
+      "evidence_ids": [
+        "evidence.base.mohgwyn-scene"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.rykard.based-at-volcano",
+      "subject_id": "character.rykard",
+      "predicate": "BASED_IN",
+      "object_id": "location.volcano-manor",
+      "evidence_ids": [
+        "evidence.base.locations"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.radahn.based-in-caelid",
+      "subject_id": "character.radahn",
+      "predicate": "BASED_IN",
+      "object_id": "location.caelid",
+      "evidence_ids": [
+        "evidence.base.locations"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.rennala.based-in-liurnia",
+      "subject_id": "character.rennala",
+      "predicate": "BASED_IN",
+      "object_id": "location.liurnia",
+      "evidence_ids": [
+        "evidence.base.locations"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.morgott.defends-leyndell",
+      "subject_id": "character.morgott",
+      "predicate": "DEFENDS",
+      "object_id": "location.leyndell",
+      "evidence_ids": [
+        "evidence.base.leyndell-war"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.realm-shadow.contains-belurat",
+      "subject_id": "location.realm-of-shadow",
+      "predicate": "CONTAINS",
+      "object_id": "location.belurat",
+      "evidence_ids": [
+        "evidence.dlc.locations"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.realm-shadow.contains-enir",
+      "subject_id": "location.realm-of-shadow",
+      "predicate": "CONTAINS",
+      "object_id": "location.enir-ilim",
+      "evidence_ids": [
+        "evidence.dlc.locations"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.hornsent.in-realm-shadow",
+      "subject_id": "faction.hornsent",
+      "predicate": "INHABITS",
+      "object_id": "location.realm-of-shadow",
+      "evidence_ids": [
+        "evidence.dlc.locations"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.godfrey-banished.in-age",
+      "subject_id": "event.godfrey-banished",
+      "predicate": "IN_ERA",
+      "object_id": "era.age-of-erdtree",
+      "evidence_ids": [
+        "evidence.base.marika-echoes"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.liurnian-wars.in-age",
+      "subject_id": "event.liurnian-wars",
+      "predicate": "IN_ERA",
+      "object_id": "era.age-of-erdtree",
+      "evidence_ids": [
+        "evidence.base.carian-history"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.radagon-marries.in-age",
+      "subject_id": "event.radagon-marries-rennala",
+      "predicate": "IN_ERA",
+      "object_id": "era.age-of-erdtree",
+      "evidence_ids": [
+        "evidence.base.carian-history"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.radagon-lord.in-age",
+      "subject_id": "event.radagon-becomes-elden-lord",
+      "predicate": "IN_ERA",
+      "object_id": "era.age-of-erdtree",
+      "evidence_ids": [
+        "evidence.base.marika-echoes"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.black-knives.in-age",
+      "subject_id": "event.night-of-black-knives",
+      "predicate": "IN_ERA",
+      "object_id": "era.age-of-erdtree",
+      "evidence_ids": [
+        "evidence.base.opening.godwyn"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.godwyn-death.in-age",
+      "subject_id": "event.death-of-godwyn",
+      "predicate": "IN_ERA",
+      "object_id": "era.age-of-erdtree",
+      "evidence_ids": [
+        "evidence.base.opening.godwyn"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.shattering-event.in-era",
+      "subject_id": "event.shattering-of-the-elden-ring",
+      "predicate": "IN_ERA",
+      "object_id": "era.the-shattering",
+      "evidence_ids": [
+        "evidence.base.opening.shattering"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.shattering-war.in-era",
+      "subject_id": "event.war-of-the-shattering",
+      "predicate": "IN_ERA",
+      "object_id": "era.the-shattering",
+      "evidence_ids": [
+        "evidence.base.opening.shattering"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.leyndell-defense.in-era",
+      "subject_id": "event.first-defense-of-leyndell",
+      "predicate": "IN_ERA",
+      "object_id": "era.the-shattering",
+      "evidence_ids": [
+        "evidence.base.leyndell-war"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.aeonia.in-era",
+      "subject_id": "event.battle-of-aeonia",
+      "predicate": "IN_ERA",
+      "object_id": "era.the-shattering",
+      "evidence_ids": [
+        "evidence.base.aeonia"
+      ],
+      "evidence_level": "strong_inference",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.stalemate.in-era",
+      "subject_id": "event.stalemate-of-the-demigods",
+      "predicate": "IN_ERA",
+      "object_id": "era.the-shattering",
+      "evidence_ids": [
+        "evidence.base.opening.shattering"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "medium",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.crusade.in-era",
+      "subject_id": "event.messmers-crusade",
+      "predicate": "IN_ERA",
+      "object_id": "era.realm-of-shadow-crusade",
+      "evidence_ids": [
+        "evidence.dlc.story-trailer"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.godfrey-banished.before-black-knives",
+      "subject_id": "event.godfrey-banished",
+      "predicate": "BEFORE",
+      "object_id": "event.night-of-black-knives",
+      "evidence_ids": [
+        "evidence.base.marika-echoes",
+        "evidence.base.opening.godwyn"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.liurnian-wars.before-marriage",
+      "subject_id": "event.liurnian-wars",
+      "predicate": "BEFORE",
+      "object_id": "event.radagon-marries-rennala",
+      "evidence_ids": [
+        "evidence.base.carian-history"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.marriage.before-radagon-lord",
+      "subject_id": "event.radagon-marries-rennala",
+      "predicate": "BEFORE",
+      "object_id": "event.radagon-becomes-elden-lord",
+      "evidence_ids": [
+        "evidence.base.carian-history",
+        "evidence.base.marika-echoes"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.black-knives.before-godwyn-death",
+      "subject_id": "event.night-of-black-knives",
+      "predicate": "BEFORE",
+      "object_id": "event.death-of-godwyn",
+      "evidence_ids": [
+        "evidence.base.opening.godwyn"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.godwyn-death.before-shattering",
+      "subject_id": "event.death-of-godwyn",
+      "predicate": "BEFORE",
+      "object_id": "event.shattering-of-the-elden-ring",
+      "evidence_ids": [
+        "evidence.base.opening.godwyn",
+        "evidence.base.opening.shattering"
+      ],
+      "evidence_level": "strong_inference",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.shattering-event.before-war",
+      "subject_id": "event.shattering-of-the-elden-ring",
+      "predicate": "BEFORE",
+      "object_id": "event.war-of-the-shattering",
+      "evidence_ids": [
+        "evidence.base.opening.shattering"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.war.before-leyndell-defense",
+      "subject_id": "event.war-of-the-shattering",
+      "predicate": "BEFORE",
+      "object_id": "event.first-defense-of-leyndell",
+      "evidence_ids": [
+        "evidence.base.leyndell-war"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.leyndell-defense.before-aeonia",
+      "subject_id": "event.first-defense-of-leyndell",
+      "predicate": "BEFORE",
+      "object_id": "event.battle-of-aeonia",
+      "evidence_ids": [
+        "evidence.base.leyndell-war",
+        "evidence.base.aeonia"
+      ],
+      "evidence_level": "strong_inference",
+      "confidence": "medium",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.aeonia.before-stalemate",
+      "subject_id": "event.battle-of-aeonia",
+      "predicate": "BEFORE",
+      "object_id": "event.stalemate-of-the-demigods",
+      "evidence_ids": [
+        "evidence.base.aeonia",
+        "evidence.base.opening.shattering"
+      ],
+      "evidence_level": "strong_inference",
+      "confidence": "medium",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.black-knives.caused-godwyn-death",
+      "subject_id": "event.night-of-black-knives",
+      "predicate": "CAUSED",
+      "object_id": "event.death-of-godwyn",
+      "evidence_ids": [
+        "evidence.base.opening.godwyn"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.elden-ring.shattered-in-event",
+      "subject_id": "artifact.elden-ring",
+      "predicate": "SHATTERED_IN",
+      "object_id": "event.shattering-of-the-elden-ring",
+      "evidence_ids": [
+        "evidence.base.opening.shattering"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.great-runes.triggered-war",
+      "subject_id": "artifact.great-runes",
+      "predicate": "CATALYST_FOR",
+      "object_id": "event.war-of-the-shattering",
+      "evidence_ids": [
+        "evidence.base.opening.shattering",
+        "evidence.base.official.story"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.leyndell-defense.participant-morgott",
+      "subject_id": "event.first-defense-of-leyndell",
+      "predicate": "PARTICIPANT",
+      "object_id": "character.morgott",
+      "evidence_ids": [
+        "evidence.base.leyndell-war"
+      ],
+      "evidence_level": "strong_inference",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.aeonia.participant-malenia",
+      "subject_id": "event.battle-of-aeonia",
+      "predicate": "PARTICIPANT",
+      "object_id": "character.malenia",
+      "evidence_ids": [
+        "evidence.base.aeonia"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.aeonia.participant-radahn",
+      "subject_id": "event.battle-of-aeonia",
+      "predicate": "PARTICIPANT",
+      "object_id": "character.radahn",
+      "evidence_ids": [
+        "evidence.base.aeonia"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.aeonia.occurred-in-caelid",
+      "subject_id": "event.battle-of-aeonia",
+      "predicate": "OCCURRED_IN",
+      "object_id": "location.caelid",
+      "evidence_ids": [
+        "evidence.base.aeonia"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "base_game"
+    },
+    {
+      "id": "claim.mohg-takes-miquella.participant-mohg",
+      "subject_id": "event.mohg-takes-miquella",
+      "predicate": "PARTICIPANT",
+      "object_id": "character.mohg",
+      "evidence_ids": [
+        "evidence.base.mohg-miquella"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.mohg-takes-miquella.participant-miquella",
+      "subject_id": "event.mohg-takes-miquella",
+      "predicate": "PARTICIPANT",
+      "object_id": "character.miquella",
+      "evidence_ids": [
+        "evidence.base.mohg-miquella"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.miquella-cocoon.contains-miquella",
+      "subject_id": "artifact.miquellas-cocoon",
+      "predicate": "CONTAINS",
+      "object_id": "character.miquella",
+      "evidence_ids": [
+        "evidence.base.mohgwyn-scene"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.cocoon.located-mohgwyn",
+      "subject_id": "artifact.miquellas-cocoon",
+      "predicate": "LOCATED_IN",
+      "object_id": "location.mohgwyn-palace",
+      "evidence_ids": [
+        "evidence.base.mohgwyn-scene"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "both"
+    },
+    {
+      "id": "claim.miquella-enters-shadow.participant",
+      "subject_id": "event.miquella-enters-shadow",
+      "predicate": "PARTICIPANT",
+      "object_id": "character.miquella",
+      "evidence_ids": [
+        "evidence.dlc.official-story"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.miquella-enters-shadow.occurred-in",
+      "subject_id": "event.miquella-enters-shadow",
+      "predicate": "OCCURRED_IN",
+      "object_id": "location.realm-of-shadow",
+      "evidence_ids": [
+        "evidence.dlc.official-story"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.miquella-enters-shadow.after-abduction",
+      "subject_id": "event.mohg-takes-miquella",
+      "predicate": "BEFORE",
+      "object_id": "event.miquella-enters-shadow",
+      "evidence_ids": [
+        "evidence.base.mohg-miquella",
+        "evidence.dlc.official-access"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "medium",
+      "review_status": "draft",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.miquella-followers.follow-miquella",
+      "subject_id": "faction.miquellas-followers",
+      "predicate": "FOLLOWS",
+      "object_id": "character.miquella",
+      "evidence_ids": [
+        "evidence.dlc.followers"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.leda.member-followers",
+      "subject_id": "character.leda",
+      "predicate": "MEMBER_OF",
+      "object_id": "faction.miquellas-followers",
+      "evidence_ids": [
+        "evidence.dlc.followers"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.ansbach.member-followers",
+      "subject_id": "character.ansbach",
+      "predicate": "MEMBER_OF",
+      "object_id": "faction.miquellas-followers",
+      "evidence_ids": [
+        "evidence.dlc.followers",
+        "evidence.dlc.ansbach"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.messmer.leads-crusade",
+      "subject_id": "character.messmer",
+      "predicate": "LEADS",
+      "object_id": "event.messmers-crusade",
+      "evidence_ids": [
+        "evidence.dlc.story-trailer"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.crusade.targets-hornsent",
+      "subject_id": "event.messmers-crusade",
+      "predicate": "TARGETED",
+      "object_id": "faction.hornsent",
+      "evidence_ids": [
+        "evidence.dlc.story-trailer",
+        "evidence.dlc.messmer"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.crusade.occurred-realm-shadow",
+      "subject_id": "event.messmers-crusade",
+      "predicate": "OCCURRED_IN",
+      "object_id": "location.realm-of-shadow",
+      "evidence_ids": [
+        "evidence.dlc.official-story"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.marika.first-set-foot-shadow",
+      "subject_id": "character.marika",
+      "predicate": "FIRST_ARRIVED_IN",
+      "object_id": "location.realm-of-shadow",
+      "evidence_ids": [
+        "evidence.dlc.official-story"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.realm-shadow.obscured-by-erdtree",
+      "subject_id": "location.realm-of-shadow",
+      "predicate": "OBSCURED_BY",
+      "object_id": "artifact.erdtree",
+      "evidence_ids": [
+        "evidence.dlc.official-story"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.miquella-divested-golden-lineage",
+      "subject_id": "character.miquella",
+      "predicate": "ABANDONED",
+      "object_id": "faction.golden-lineage",
+      "evidence_ids": [
+        "evidence.dlc.official-story",
+        "evidence.dlc.miquella-crosses"
+      ],
+      "evidence_level": "synthesis",
+      "confidence": "high",
+      "review_status": "draft",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.tarnished.enter-shadow-via-cocoon",
+      "subject_id": "character.tarnished",
+      "predicate": "ENTERED_VIA",
+      "object_id": "artifact.miquellas-cocoon",
+      "evidence_ids": [
+        "evidence.dlc.official-access"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id": "claim.tarnished.follows-miquella",
+      "subject_id": "character.tarnished",
+      "predicate": "FOLLOWS",
+      "object_id": "character.miquella",
+      "evidence_ids": [
+        "evidence.dlc.official-story"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "continuity": "shadow_of_the_erdtree"
+    },
+    {
+      "id":"claim.melina.guides-tarnished","subject_id":"character.melina","predicate":"GUIDED","object_id":"character.tarnished","evidence_ids":["evidence.base.melina-guidance"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.gideon.member-roundtable","subject_id":"character.gideon-ofnir","predicate":"MEMBER_OF","object_id":"faction.roundtable-hold","evidence_ids":["evidence.base.gideon-roundtable"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.gurranq.is-maliketh","subject_id":"character.maliketh-gurranq","predicate":"IDENTITY_OF","object_id":"character.maliketh","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.gurranq.seeks-deathroot","subject_id":"character.maliketh-gurranq","predicate":"SEEKS","object_id":"artifact.deathroot","evidence_ids":["evidence.base.deathroot"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.deathroot-spread-after-godwyn","subject_id":"artifact.deathroot","predicate":"SPREAD_AFTER","object_id":"event.death-of-godwyn","evidence_ids":["evidence.base.deathroot"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.godwyn.rests-deeproot","subject_id":"character.godwyn","predicate":"RESTS_IN","object_id":"location.deeproot-depths","evidence_ids":["evidence.base.deathroot"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.rune-death-embodies-destined-death","subject_id":"artifact.rune-of-death","predicate":"EMBODIES","object_id":"concept.destined-death","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.three-fingers-serve-frenzy","subject_id":"faction.three-fingers","predicate":"SERVES","object_id":"outer-god.frenzied-flame","evidence_ids":["evidence.base.frenzied-flame"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.frenzy-opposes-distinctions","subject_id":"outer-god.frenzied-flame","predicate":"SEEKS_TO_END","object_id":"artifact.golden-order","evidence_ids":["evidence.base.frenzied-flame"],"evidence_level":"synthesis","confidence":"medium","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.midra-in-abyssal-woods","subject_id":"character.midra","predicate":"LOCATED_IN","object_id":"location.abyssal-woods","evidence_ids":["evidence.dlc.midra"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+    },
+    {
+      "id":"claim.midra-lord-frenzy","subject_id":"character.midra","predicate":"BECAME_LORD_OF","object_id":"outer-god.frenzied-flame","evidence_ids":["evidence.dlc.midra"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+    },
+    {
+      "id":"claim.mohg-serves-formless-mother","subject_id":"character.mohg","predicate":"SERVES","object_id":"outer-god.formless-mother","evidence_ids":["evidence.base.blood-formless-mother"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.formless-mother-grants-bloodflame","subject_id":"outer-god.formless-mother","predicate":"GRANTS_POWER_TO","object_id":"character.mohg","evidence_ids":["evidence.base.blood-formless-mother"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.malenia-afflicted-rot","subject_id":"character.malenia","predicate":"AFFLICTED_BY","object_id":"concept.scarlet-rot","evidence_ids":["evidence.base.rot"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"both"
+    },
+    {
+      "id":"claim.rot-devastated-caelid","subject_id":"concept.scarlet-rot","predicate":"DEVASTATED","object_id":"location.caelid","evidence_ids":["evidence.base.rot","evidence.base.aeonia"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.two-fingers-interpret-greater-will","subject_id":"faction.two-fingers","predicate":"INTERPRETS","object_id":"character.greater-will","evidence_ids":["evidence.base.great-runes"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"both"
+    },
+    {
+      "id":"claim.nokron-in-siofra","subject_id":"location.nokron","predicate":"LOCATED_IN","object_id":"location.siofra-river","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.nokron-opposed-greater-will","subject_id":"location.nokron","predicate":"OPPOSED","object_id":"character.greater-will","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"synthesis","confidence":"medium","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.placidusax-elden-lord","subject_id":"character.placidusax","predicate":"HELD_TITLE","object_id":"artifact.elden-ring","evidence_ids":["evidence.base.farum-dragons"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.placidusax-in-farum","subject_id":"character.placidusax","predicate":"LOCATED_IN","object_id":"location.crumbling-farum-azula","evidence_ids":["evidence.base.farum-dragons"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+    },
+    {
+      "id":"claim.bayle-fought-placidusax","subject_id":"character.bayle","predicate":"FOUGHT","object_id":"character.placidusax","evidence_ids":["evidence.dlc.dragons"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+    },
+    {
+      "id":"claim.metyr-child-greater-will","subject_id":"character.metyr","predicate":"CHILD_OF","object_id":"character.greater-will","evidence_ids":["evidence.dlc.metyr-fingers"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+    },
+    {
+      "id":"claim.metyr-mother-fingers","subject_id":"character.metyr","predicate":"PROGENITOR_OF","object_id":"faction.two-fingers","evidence_ids":["evidence.dlc.metyr-fingers"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+    },
+    {
+      "id":"claim.trina-aspect-miquella","subject_id":"character.st-trina","predicate":"ASPECT_OF","object_id":"character.miquella","evidence_ids":["evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+    },
+    {
+      "id":"claim.thiollier-follows-trina","subject_id":"character.thiollier","predicate":"FOLLOWS","object_id":"character.st-trina","evidence_ids":["evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+    },
+    {
+      "id":"claim.miquella-abandoned-trina","subject_id":"character.miquella","predicate":"ABANDONED_ASPECT","object_id":"character.st-trina","evidence_ids":["evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"shadow_of_the_erdtree"
+    },
+    {
+      "id":"claim.hornsent-member-people","subject_id":"character.hornsent","predicate":"MEMBER_OF","object_id":"faction.hornsent","evidence_ids":["evidence.dlc.followers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","continuity":"shadow_of_the_erdtree"
+    },
+    {
+      "id":"claim.hornsent-follows-miquella","subject_id":"character.hornsent","predicate":"FOLLOWED","object_id":"character.miquella","evidence_ids":["evidence.dlc.followers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","continuity":"shadow_of_the_erdtree"
+    },
+    {
+      "id":"claim.freyja-follows-miquella","subject_id":"character.freyja","predicate":"FOLLOWED","object_id":"character.miquella","evidence_ids":["evidence.dlc.followers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","continuity":"shadow_of_the_erdtree"
+    },
+    {
+      "id":"claim.freyja-served-radahn","subject_id":"character.freyja","predicate":"SERVED","object_id":"character.radahn","evidence_ids":["evidence.dlc.followers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","continuity":"shadow_of_the_erdtree"
+    },
+    {"id":"claim.blaidd-serves-ranni","subject_id":"character.blaidd","predicate":"SERVES","object_id":"character.ranni","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.iji-serves-ranni","subject_id":"character.iji","predicate":"SERVES","object_id":"character.ranni","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.seluvus-serves-ranni","subject_id":"character.seluvus","predicate":"SERVES","object_id":"character.ranni","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.ranni-seeks-nokron","subject_id":"character.ranni","predicate":"SEEKS","object_id":"location.nokron","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.godrick-member-golden-lineage","subject_id":"character.godrick","predicate":"MEMBER_OF","object_id":"faction.golden-lineage","evidence_ids":["evidence.base.godrick-stormveil"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.godrick-rules-stormveil","subject_id":"character.godrick","predicate":"RULED","object_id":"location.stormveil-castle","evidence_ids":["evidence.base.godrick-stormveil"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.fire-giant-in-mountaintops","subject_id":"character.fire-giant","predicate":"INHABITS","object_id":"location.mountaintops-giants","evidence_ids":["evidence.base.giants-flame"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.fire-giant-guards-forge","subject_id":"character.fire-giant","predicate":"DEFENDS","object_id":"location.forge-giants","evidence_ids":["evidence.base.giants-flame"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.fia-serves-those-live-death","subject_id":"character.fia","predicate":"SERVES","object_id":"faction.those-live-death","evidence_ids":["evidence.base.fia-fortissax"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.fia-seeks-godwyn","subject_id":"character.fia","predicate":"SEEKS","object_id":"character.godwyn","evidence_ids":["evidence.base.fia-fortissax"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.fortissax-defends-godwyn","subject_id":"character.fortissax","predicate":"DEFENDS","object_id":"character.godwyn","evidence_ids":["evidence.base.fia-fortissax"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.tanith-leads-volcano-manor","subject_id":"character.tanith","predicate":"LEADS","object_id":"faction.volcano-manor","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.volcano-manor-serves-rykard","subject_id":"faction.volcano-manor","predicate":"SERVES","object_id":"character.rykard","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"},
+    {"id":"claim.volcano-manor-based-volcano","subject_id":"faction.volcano-manor","predicate":"BASED_IN","object_id":"location.volcano-manor","evidence_ids":["evidence.base.volcano-manor"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"}
+  ]
+}

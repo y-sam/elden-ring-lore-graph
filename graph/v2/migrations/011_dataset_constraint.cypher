@@ -1,0 +1,2 @@
+CREATE CONSTRAINT dataset_id_unique IF NOT EXISTS
+FOR (n:Dataset) REQUIRE n.id IS UNIQUE

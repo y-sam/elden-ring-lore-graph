@@ -1,0 +1,12 @@
+{$DOMAIN} {
+    encode zstd gzip
+
+    @editorial path /editorial.html /editorial.js /api/v1/editorial /api/v1/editorial/*
+    respond @editorial 404
+
+    reverse_proxy api:8000
+
+    header {
+        -Server
+    }
+}

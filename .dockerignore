@@ -1,0 +1,10 @@
+.git
+.env
+.venv
+.pytest_cache
+.ruff_cache
+.coverage
+dist
+__pycache__
+._*
+*.pyc

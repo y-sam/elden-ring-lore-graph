@@ -1,17 +1,30 @@
 # macOS
 .DS_Store
+._*
 
 # Neo4j
 *.dump
 *.backup
+Neo4j-*-Created-*.txt
 
 # Env
 .env
+.env.*
+!.env.example
 
 # Node / Python (future)
 node_modules/
 __pycache__/
 .venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+
+# Local Neo4j state
+.neo4j/
 
 # VS Code
 .vscode/*

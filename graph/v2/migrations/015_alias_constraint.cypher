@@ -1,0 +1,2 @@
+CREATE CONSTRAINT alias_id_unique IF NOT EXISTS
+FOR (n:Alias) REQUIRE n.id IS UNIQUE

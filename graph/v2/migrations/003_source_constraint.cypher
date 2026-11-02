@@ -1,0 +1,2 @@
+CREATE CONSTRAINT source_id_unique IF NOT EXISTS
+FOR (n:Source) REQUIRE n.id IS UNIQUE
