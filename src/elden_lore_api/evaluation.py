@@ -137,6 +137,46 @@ CORNERSTONE_QUESTIONS = (
         "where",
     ),
     ReferenceQuestion(
+        "Why did Marika send Messmer against the hornsent?",
+        ("character.marika", "character.messmer", "faction.hornsent"),
+        (
+            "claim.marika-member-shamans",
+            "claim.hornsent-opposed-shamans",
+            "claim.messmer.leads-crusade",
+        ),
+        "why",
+    ),
+    ReferenceQuestion(
+        "What did Miquella abandon in the Realm of Shadow?",
+        ("character.miquella", "character.st-trina"),
+        ("claim.miquella-abandoned-trina",),
+        "what",
+    ),
+    ReferenceQuestion(
+        "What connects Metyr and the Two Fingers?",
+        ("character.metyr", "faction.two-fingers"),
+        ("claim.metyr-mother-fingers",),
+        "relationship",
+    ),
+    ReferenceQuestion(
+        "Why does Igon hunt Bayle?",
+        ("character.igon", "character.bayle"),
+        ("claim.bayle-defeated-igon", "claim.igon-opposes-bayle"),
+        "why",
+    ),
+    ReferenceQuestion(
+        "Why does Ansbach oppose Miquella?",
+        ("character.ansbach", "character.miquella", "character.mohg"),
+        ("claim.ansbach-served-mohg", "claim.ansbach-opposes-miquella"),
+        "why",
+    ),
+    ReferenceQuestion(
+        "Who is Miquella's promised consort?",
+        ("character.miquella",),
+        ("claim.radahn-consort-miquella",),
+        "who",
+    ),
+    ReferenceQuestion(
         "Who rules Stormveil Castle?",
         ("location.stormveil-castle",),
         ("claim.godrick-rules-stormveil",),

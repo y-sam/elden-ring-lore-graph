@@ -1,6 +1,6 @@
 {
   "dataset_id": "dataset.the-shattering.seed",
-  "dataset_version": 17,
+  "dataset_version": 18,
   "status": "draft",
   "entities": [
     {
@@ -464,7 +464,36 @@
     {"id":"location.castle-sol","kind":"location","canonical_name":"Castle Sol","continuity":"base_game"},
     {"id":"artifact.academy-glintstone-key","kind":"artifact","canonical_name":"Academy Glintstone Key","continuity":"base_game"},
     {"id":"artifact.sellen-primal-glintstone","kind":"artifact","canonical_name":"Sellen's Primal Glintstone","continuity":"base_game"},
-    {"id":"artifact.haligtree-secret-medallion-left","kind":"artifact","canonical_name":"Haligtree Secret Medallion (Left)","continuity":"base_game"}
+    {"id":"artifact.haligtree-secret-medallion-left","kind":"artifact","canonical_name":"Haligtree Secret Medallion (Left)","continuity":"base_game"},
+    {"id":"character.ymir","kind":"character","canonical_name":"Count Ymir, High Priest","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.jolan","kind":"character","canonical_name":"Swordhand of Night Jolán","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.anna","kind":"character","canonical_name":"Swordhand of Night Anna","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.igon","kind":"character","canonical_name":"Drake Warrior Igon","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.florissax","kind":"character","canonical_name":"Dragon Communion Priestess Florissax","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.moore","kind":"character","canonical_name":"Sir Moore","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.dryleaf-dane","kind":"character","canonical_name":"Dryleaf Dane","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.romina","kind":"character","canonical_name":"Romina, Saint of the Bud","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.commander-gaius","kind":"character","canonical_name":"Commander Gaius","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.divine-beast-dancing-lion","kind":"character","canonical_name":"Divine Beast Dancing Lion","continuity":"shadow_of_the_erdtree"},
+    {"id":"character.putrescent-knight","kind":"character","canonical_name":"Putrescent Knight","continuity":"shadow_of_the_erdtree"},
+    {"id":"faction.messmer-black-knights","kind":"faction","canonical_name":"Messmer's Black Knights","continuity":"shadow_of_the_erdtree"},
+    {"id":"faction.messmer-fire-knights","kind":"faction","canonical_name":"Messmer's Fire Knights","continuity":"shadow_of_the_erdtree"},
+    {"id":"people.shamans","kind":"people","canonical_name":"Shamans of the Hinterland","continuity":"shadow_of_the_erdtree"},
+    {"id":"artifact.scadutree","kind":"landmark","canonical_name":"Scadutree","continuity":"shadow_of_the_erdtree"},
+    {"id":"artifact.gate-of-divinity","kind":"landmark","canonical_name":"Gate of Divinity","continuity":"shadow_of_the_erdtree"},
+    {"id":"location.gravesite-plain","kind":"location","canonical_name":"Gravesite Plain","continuity":"shadow_of_the_erdtree"},
+    {"id":"location.scadu-altus","kind":"location","canonical_name":"Scadu Altus","continuity":"shadow_of_the_erdtree"},
+    {"id":"location.shadow-keep","kind":"location","canonical_name":"Shadow Keep","continuity":"shadow_of_the_erdtree"},
+    {"id":"location.ancient-ruins-rauh","kind":"location","canonical_name":"Ancient Ruins of Rauh","continuity":"shadow_of_the_erdtree"},
+    {"id":"location.cerulean-coast","kind":"location","canonical_name":"Cerulean Coast","continuity":"shadow_of_the_erdtree"},
+    {"id":"location.stone-coffin-fissure","kind":"location","canonical_name":"Stone Coffin Fissure","continuity":"shadow_of_the_erdtree"},
+    {"id":"location.cathedral-manus-metyr","kind":"location","canonical_name":"Cathedral of Manus Metyr","continuity":"shadow_of_the_erdtree"},
+    {"id":"location.finger-ruins-rhia","kind":"location","canonical_name":"Finger Ruins of Rhia","continuity":"shadow_of_the_erdtree"},
+    {"id":"location.finger-ruins-dheo","kind":"location","canonical_name":"Finger Ruins of Dheo","continuity":"shadow_of_the_erdtree"},
+    {"id":"location.finger-ruins-miyr","kind":"location","canonical_name":"Finger Ruins of Miyr","continuity":"shadow_of_the_erdtree"},
+    {"id":"location.shaman-village","kind":"location","canonical_name":"Shaman Village","continuity":"shadow_of_the_erdtree"},
+    {"id":"event.miquella-ascends","kind":"event","canonical_name":"Miquella's Ascension at the Gate of Divinity","continuity":"shadow_of_the_erdtree"},
+    {"id":"artifact.mohgs-remains","kind":"artifact","canonical_name":"Mohg's Remains","continuity":"shadow_of_the_erdtree"}
   ],
   "aliases": [
   {
@@ -1199,7 +1228,19 @@
     {"id":"evidence.base.deathbirds","source_id":"game.base.item-descriptions","locator":"Death's Poker, Death Ritual Spear, Explosive Ghostflame and Twinbird Kite Shield descriptions","summary_en":"Deathbirds served as keepers of the dead before the Erdtree, tending ghostflame; their mother is the Twinbird, described as an envoy of an outer god.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
     {"id":"evidence.base.ancestral-followers","source_id":"game.base.item-descriptions","locator":"Ancestral Follower armor, horn charms and Ancestral Spirit remembrance","summary_en":"Ancestral Followers reject metal and artificial refinement, worship horned ancestral life and inhabit the underground river regions.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
     {"id":"evidence.base.commanders","source_id":"game.base.item-descriptions","locator":"Veteran's Prosthesis, Commander's Standard and Haligtree Secret Medallion descriptions","summary_en":"Commander O'Neil remains in rot-stricken Caelid, while Commander Niall guards Castle Sol and the left half of the Haligtree medallion.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
-    {"id":"evidence.base.fallingstar-beasts","source_id":"game.base.item-descriptions","locator":"Fallingstar Beast Jaw, Gravity Stone and Full-Grown Fallingstar Beast records","summary_en":"Fallingstar Beasts are stone-skinned creatures associated with meteor impacts and gravity power, encountered in mining regions and on Mt. Gelmir.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"}
+    {"id":"evidence.base.fallingstar-beasts","source_id":"game.base.item-descriptions","locator":"Fallingstar Beast Jaw, Gravity Stone and Full-Grown Fallingstar Beast records","summary_en":"Fallingstar Beasts are stone-skinned creatures associated with meteor impacts and gravity power, encountered in mining regions and on Mt. Gelmir.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.dlc.marika-hornsent","source_id":"game.dlc.item-descriptions","locator":"Minor Erdtree, Tooth Whip, Innard Meat and Shaman Village records","summary_en":"The records place Marika among the shamans of the Hinterland and document the hornsent practice of cutting and melding shaman flesh in ritual jars.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.dlc.messmer-crusade","source_id":"game.dlc.item-descriptions","locator":"Messmer remembrance, armor, Black Knight and Fire Knight descriptions","summary_en":"Marika's son Messmer led the crusade against the hornsent from Shadow Keep with Black Knights, Fire Knights and his flame, then remained abandoned in the hidden realm.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.dlc.miquella-abandonment","source_id":"game.dlc.dialogue","locator":"Miquella's thirteen crosses and St. Trina revelation","summary_en":"Miquella's crosses trace his abandonment of flesh, lineage, fear, doubt and love throughout the Realm of Shadow; his discarded love took the form of St. Trina.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.dlc.miquella-radahn","source_id":"game.dlc.remembrances","locator":"Promised Consort remembrance, Secret Rite Scroll, Ansbach and Freyja dialogue, final memory","summary_en":"Miquella's plan uses Mohg's body as a vessel to restore Radahn as his promised consort before Miquella emerges as a god at the Gate of Divinity.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.dlc.ymir-finger-ruins","source_id":"game.dlc.dialogue","locator":"Ymir quest dialogue, ruin maps and three hanging-bell encounters","summary_en":"Ymir sends the Tarnished through Rhia and Dheo to Miyr beneath his cathedral, reveals the Fingers' defective origin and attempts to replace Metyr as their mother.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.dlc.jolan-anna","source_id":"game.dlc.dialogue","locator":"Ymir quest, Swordhand invasions and Jolán/Anna spirit-ash conclusion","summary_en":"Jolán serves Ymir as a Swordhand of Night; her sister Anna guards the route to Metyr and the sisters can ultimately be united as spirit ashes.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.dlc.igon-bayle","source_id":"game.dlc.dialogue","locator":"Igon dialogue and summon during the ascent of Jagged Peak","summary_en":"Bayle broke Igon's body and spirit, but Igon continues the hunt and asks the Tarnished to summon him for revenge against the dread dragon.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.dlc.florissax-communion","source_id":"game.dlc.item-descriptions","locator":"Florissax dialogue, Priestess Heart and Dragon Communion records","summary_en":"Florissax serves Placidusax at the Grand Altar and recruits mortal drake warriors into the ancient hunt for Bayle and his descendants.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.dlc.trina-putrescence","source_id":"game.dlc.remembrances","locator":"Stone Coffin Fissure, St. Trina dialogue and Remembrance of Putrescence","summary_en":"Discarded Trina lies in the fissure; putrescence from ancient coffins imbibed her nectar and became the knight that guards her garden.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.dlc.followers-conflict","source_id":"game.dlc.dialogue","locator":"Follower dialogue before and after Miquella's charm breaks; Enir-Ilim confrontation","summary_en":"After Miquella's charm breaks, Leda hunts perceived threats while Ansbach opposes Miquella's use of Mohg, Freyja accepts Radahn's return, and Dane remains loyal to Leda.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.dlc.regions","source_id":"game.dlc.item-descriptions","locator":"Realm of Shadow map fragments and regional records","summary_en":"The map places Gravesite Plain, Scadu Altus, the Rauh ruins, Cerulean Coast, Stone Coffin Fissure and Shadow Keep within the Realm of Shadow.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"},
+    {"id":"evidence.dlc.romina-gaius-lion","source_id":"game.dlc.remembrances","locator":"Remembrances of the Saint of the Bud, Wild Boar Rider and Dancing Lion","summary_en":"Romina embraced scarlet rot after her church burned, Gaius commanded Messmer's forces from Shadow Keep, and the hornsent's sculpted keepers invoked divine beasts for war.","summary_rights_status":"original","review_status":"reviewed","verification_status":"game_verified"}
   ],
   "localized_texts": [
   {
@@ -2362,11 +2403,12 @@
       "predicate": "IN_ERA",
       "object_id": "era.realm-of-shadow-crusade",
       "evidence_ids": [
-        "evidence.dlc.story-trailer"
+        "evidence.dlc.messmer-crusade"
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "shadow_of_the_erdtree"
     },
     {
@@ -2726,11 +2768,12 @@
       "predicate": "LEADS",
       "object_id": "event.messmers-crusade",
       "evidence_ids": [
-        "evidence.dlc.story-trailer"
+        "evidence.dlc.messmer-crusade"
       ],
       "evidence_level": "explicit",
       "confidence": "high",
-      "review_status": "draft",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
       "continuity": "shadow_of_the_erdtree"
     },
     {
@@ -3055,6 +3098,47 @@
     {"id":"claim.castle-sol-in-mountaintops","subject_id":"location.castle-sol","predicate":"LOCATED_IN","object_id":"location.mountaintops-giants","evidence_ids":["evidence.base.commanders"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.niall-guards-medallion","subject_id":"character.commander-niall","predicate":"GUARDED","object_id":"artifact.haligtree-secret-medallion-left","evidence_ids":["evidence.base.commanders"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.oneil-in-caelid","subject_id":"character.commander-oneil","predicate":"LOCATED_IN","object_id":"location.caelid","evidence_ids":["evidence.base.commanders"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
-    {"id":"claim.fallingstar-beast-in-gelmir","subject_id":"character.fallingstar-beast","predicate":"LOCATED_IN","object_id":"location.mt-gelmir","evidence_ids":["evidence.base.fallingstar-beasts"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"}
+    {"id":"claim.fallingstar-beast-in-gelmir","subject_id":"character.fallingstar-beast","predicate":"LOCATED_IN","object_id":"location.mt-gelmir","evidence_ids":["evidence.base.fallingstar-beasts"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.marika-member-shamans","subject_id":"character.marika","predicate":"MEMBER_OF","object_id":"people.shamans","evidence_ids":["evidence.dlc.marika-hornsent"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.shamans-in-shaman-village","subject_id":"people.shamans","predicate":"INHABITS","object_id":"location.shaman-village","evidence_ids":["evidence.dlc.marika-hornsent"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.hornsent-opposed-shamans","subject_id":"faction.hornsent","predicate":"OPPOSED","object_id":"people.shamans","evidence_ids":["evidence.dlc.marika-hornsent"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.messmer-based-shadow-keep","subject_id":"character.messmer","predicate":"BASED_IN","object_id":"location.shadow-keep","evidence_ids":["evidence.dlc.messmer-crusade"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.black-knights-serve-messmer","subject_id":"faction.messmer-black-knights","predicate":"SERVES","object_id":"character.messmer","evidence_ids":["evidence.dlc.messmer-crusade"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.fire-knights-serve-messmer","subject_id":"faction.messmer-fire-knights","predicate":"SERVES","object_id":"character.messmer","evidence_ids":["evidence.dlc.messmer-crusade"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.marika-abandoned-messmer","subject_id":"character.marika","predicate":"ABANDONED","object_id":"character.messmer","evidence_ids":["evidence.dlc.messmer-crusade"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.radahn-consort-miquella","subject_id":"character.radahn","predicate":"CONSORT_OF","object_id":"character.miquella","evidence_ids":["evidence.dlc.miquella-radahn"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.mohg-remains-vessel-radahn","subject_id":"artifact.mohgs-remains","predicate":"VESSEL_OF","object_id":"character.radahn","evidence_ids":["evidence.dlc.miquella-radahn"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.miquella-ascends-gate","subject_id":"event.miquella-ascends","predicate":"OCCURRED_IN","object_id":"artifact.gate-of-divinity","evidence_ids":["evidence.dlc.miquella-radahn"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.miquella-participant-ascension","subject_id":"event.miquella-ascends","predicate":"PARTICIPANT","object_id":"character.miquella","evidence_ids":["evidence.dlc.miquella-radahn"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.ymir-based-cathedral","subject_id":"character.ymir","predicate":"BASED_IN","object_id":"location.cathedral-manus-metyr","evidence_ids":["evidence.dlc.ymir-finger-ruins"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.ymir-seeks-replace-metyr","subject_id":"character.ymir","predicate":"SEEKS","object_id":"character.metyr","evidence_ids":["evidence.dlc.ymir-finger-ruins"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.metyr-in-miyr","subject_id":"character.metyr","predicate":"LOCATED_IN","object_id":"location.finger-ruins-miyr","evidence_ids":["evidence.dlc.ymir-finger-ruins","evidence.dlc.metyr-fingers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.rhia-in-cerulean-coast","subject_id":"location.finger-ruins-rhia","predicate":"LOCATED_IN","object_id":"location.cerulean-coast","evidence_ids":["evidence.dlc.ymir-finger-ruins","evidence.dlc.regions"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.jolan-serves-ymir","subject_id":"character.jolan","predicate":"SERVES","object_id":"character.ymir","evidence_ids":["evidence.dlc.jolan-anna"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.anna-sibling-jolan","subject_id":"character.anna","predicate":"SIBLING_OF","object_id":"character.jolan","evidence_ids":["evidence.dlc.jolan-anna"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.igon-opposes-bayle","subject_id":"character.igon","predicate":"OPPOSED","object_id":"character.bayle","evidence_ids":["evidence.dlc.igon-bayle"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.bayle-defeated-igon","subject_id":"character.bayle","predicate":"DEFEATED","object_id":"character.igon","evidence_ids":["evidence.dlc.igon-bayle"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.florissax-serves-placidusax","subject_id":"character.florissax","predicate":"SERVES","object_id":"character.placidusax","evidence_ids":["evidence.dlc.florissax-communion"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.florissax-guides-communion","subject_id":"character.florissax","predicate":"GUIDED","object_id":"concept.dragon-communion","evidence_ids":["evidence.dlc.florissax-communion"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.putrescent-knight-serves-trina","subject_id":"character.putrescent-knight","predicate":"SERVES","object_id":"character.st-trina","evidence_ids":["evidence.dlc.trina-putrescence"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.trina-in-fissure","subject_id":"character.st-trina","predicate":"LOCATED_IN","object_id":"location.stone-coffin-fissure","evidence_ids":["evidence.dlc.trina-putrescence"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.thiollier-seeks-trina","subject_id":"character.thiollier","predicate":"SEEKS","object_id":"character.st-trina","evidence_ids":["evidence.dlc.trina-putrescence","evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.ansbach-served-mohg","subject_id":"character.ansbach","predicate":"SERVED","object_id":"character.mohg","evidence_ids":["evidence.dlc.followers-conflict"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.ansbach-opposes-miquella","subject_id":"character.ansbach","predicate":"OPPOSED","object_id":"character.miquella","evidence_ids":["evidence.dlc.followers-conflict"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.freyja-supports-radahn-return","subject_id":"character.freyja","predicate":"FOLLOWS","object_id":"character.radahn","evidence_ids":["evidence.dlc.followers-conflict"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.dane-serves-leda","subject_id":"character.dryleaf-dane","predicate":"SERVES","object_id":"character.leda","evidence_ids":["evidence.dlc.followers-conflict"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.moore-member-followers","subject_id":"character.moore","predicate":"MEMBER_OF","object_id":"faction.miquellas-followers","evidence_ids":["evidence.dlc.followers-conflict"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.gravesite-in-shadow","subject_id":"location.gravesite-plain","predicate":"LOCATED_IN","object_id":"location.realm-of-shadow","evidence_ids":["evidence.dlc.regions"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.scadu-altus-in-shadow","subject_id":"location.scadu-altus","predicate":"LOCATED_IN","object_id":"location.realm-of-shadow","evidence_ids":["evidence.dlc.regions"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.shadow-keep-in-scadu-altus","subject_id":"location.shadow-keep","predicate":"LOCATED_IN","object_id":"location.scadu-altus","evidence_ids":["evidence.dlc.regions"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.rauh-in-shadow","subject_id":"location.ancient-ruins-rauh","predicate":"LOCATED_IN","object_id":"location.realm-of-shadow","evidence_ids":["evidence.dlc.regions"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.cerulean-coast-in-shadow","subject_id":"location.cerulean-coast","predicate":"LOCATED_IN","object_id":"location.realm-of-shadow","evidence_ids":["evidence.dlc.regions"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.fissure-in-cerulean-coast","subject_id":"location.stone-coffin-fissure","predicate":"LOCATED_IN","object_id":"location.cerulean-coast","evidence_ids":["evidence.dlc.regions","evidence.dlc.trina-putrescence"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.romina-afflicted-rot","subject_id":"character.romina","predicate":"AFFLICTED_BY","object_id":"concept.scarlet-rot","evidence_ids":["evidence.dlc.romina-gaius-lion"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.gaius-serves-messmer","subject_id":"character.commander-gaius","predicate":"SERVES","object_id":"character.messmer","evidence_ids":["evidence.dlc.romina-gaius-lion"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.gaius-based-shadow-keep","subject_id":"character.commander-gaius","predicate":"BASED_IN","object_id":"location.shadow-keep","evidence_ids":["evidence.dlc.romina-gaius-lion"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.dancing-lion-defends-belurat","subject_id":"character.divine-beast-dancing-lion","predicate":"DEFENDS","object_id":"location.belurat","evidence_ids":["evidence.dlc.romina-gaius-lion"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.scadutree-in-shadow","subject_id":"artifact.scadutree","predicate":"LOCATED_IN","object_id":"location.realm-of-shadow","evidence_ids":["evidence.dlc.regions"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.dheo-in-shadow","subject_id":"location.finger-ruins-dheo","predicate":"LOCATED_IN","object_id":"location.realm-of-shadow","evidence_ids":["evidence.dlc.ymir-finger-ruins","evidence.dlc.regions"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"}
   ]
 }
