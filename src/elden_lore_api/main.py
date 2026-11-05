@@ -16,6 +16,7 @@ from elden_lore_api.config import get_settings
 from elden_lore_api.database import create_driver
 from elden_lore_api.routers.answers import router as answers_router
 from elden_lore_api.routers.claims import router as claims_router
+from elden_lore_api.routers.discovery import router as discovery_router
 from elden_lore_api.routers.editorial import router as editorial_router
 from elden_lore_api.routers.entities import router as entities_router
 from elden_lore_api.routers.feedback import router as feedback_router
@@ -46,6 +47,7 @@ def create_app(*, manage_database: bool = True) -> FastAPI:
     app.include_router(search_router, prefix="/api/v1")
     app.include_router(timeline_router, prefix="/api/v1")
     app.include_router(feedback_router, prefix="/api/v1")
+    app.include_router(discovery_router, prefix="/api/v1")
     if get_settings().editorial_enabled:
         app.include_router(editorial_router, prefix="/api/v1")
 
@@ -135,6 +137,7 @@ def create_app(*, manage_database: bool = True) -> FastAPI:
                 "search": "/api/v1/search",
                 "timeline": "/api/v1/timeline",
                 "feedback": "/api/v1/feedback",
+                "discovery": "/api/v1/discovery",
                 **(
                     {"editorial": "/editorial.html"}
                     if get_settings().editorial_enabled

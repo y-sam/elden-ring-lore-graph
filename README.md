@@ -85,7 +85,18 @@ GET /api/v1/answers?q=Quem+é+Miquella&lang=pt-BR
 GET /api/v1/search?q=elden+ring
 GET /api/v1/timeline
 GET /api/v1/timeline?era_id=era.the-shattering
+GET /api/v1/discovery?spoiler_level=minimal
+GET /api/v1/discovery/start.main-characters?spoiler_level=minimal
 ```
+
+The public web archive includes a spoiler-aware **New to Elden Ring? Start here**
+mode. Curated journeys open an exact five-node graph, preselect an introductory
+entity, provide a short supported orientation, and recommend the next entities
+to explore. Journey URLs retain both the collection and spoiler preference, for
+example `/?journey=start.main-characters&spoilers=minimal`. The available
+spoiler levels are `minimal`, `base_game`, and `full`; expanding beyond the
+curated starting graph is explicitly identified as potentially revealing wider
+relationships.
 
 Subgraphs contain entity nodes and claim edges. `depth` is limited to 3 and
 `limit` to 200. `include_drafts=true` is rejected when `APP_ENV=production`.

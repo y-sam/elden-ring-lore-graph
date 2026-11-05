@@ -103,6 +103,37 @@ class SearchResponse(BaseModel):
     items: list[SearchHit]
 
 
+class DiscoveryCollectionSummary(BaseModel):
+    id: str
+    title: str
+    description: str
+    spoiler_level: Literal["minimal", "base_game", "full"]
+    default_entity_id: str
+    entity_count: int
+
+
+class DiscoveryEntry(BaseModel):
+    entity: EntitySummary
+    introduction: str
+    prompt: str
+    next_entity_ids: list[str] = Field(default_factory=list)
+
+
+class DiscoveryCollection(BaseModel):
+    id: str
+    title: str
+    description: str
+    spoiler_level: Literal["minimal", "base_game", "full"]
+    default_entity_id: str
+    entries: list[DiscoveryEntry]
+    edges: list[GraphEdge] = Field(default_factory=list)
+    recommended_collection_ids: list[str] = Field(default_factory=list)
+
+
+class DiscoveryIndex(BaseModel):
+    collections: list[DiscoveryCollectionSummary]
+
+
 class AnswerResponse(BaseModel):
     answer_id: str
     question: str

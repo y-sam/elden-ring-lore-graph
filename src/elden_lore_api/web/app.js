@@ -19,6 +19,9 @@ const state = {
   suppressNodeClick: false,
   canvasSize: { width: 900, height: 520 },
   zoom: 1,
+  spoilerLevel: urlState.get("spoilers") || "minimal",
+  journey: null,
+  journeyEntries: new Map(),
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -92,6 +95,35 @@ function renderInspector(entity) {
     <div class="claim-list">${claims}</div>`;
   $("#entity-inspector").querySelector("[data-expand-entity]").addEventListener("click", () => expandNode(entity.id));
   $("#entity-inspector").querySelectorAll("[data-claim-id]").forEach((button) => button.addEventListener("click", () => selectEdge(button.dataset.claimId)));
+}
+
+function renderDiscoveryInspector(entity, entry) {
+  const nextSteps = entry.next_entity_ids.map((entityId) => {
+    const node = state.nodes.get(entityId);
+    const label = node?.canonical_name || readable(entityId.split(".").at(-1));
+    return `<button type="button" data-next-entity="${escapeHtml(entityId)}">${escapeHtml(label)}</button>`;
+  }).join("");
+  $("#entity-inspector").innerHTML = `
+    <p class="entity-kind">${escapeHtml(entity.kind)} · guided introduction</p>
+    <h2>${escapeHtml(entity.canonical_name)}</h2>
+    <p class="discovery-introduction">${escapeHtml(entry.introduction)}</p>
+    <div class="discovery-inspector-actions">
+      <button class="inspector-action" type="button" data-ask-entity>Ask about this</button>
+      <button class="inspector-action" type="button" data-expand-entity="${escapeHtml(entity.id)}">Expand this entity</button>
+      <a class="inspector-action" href="/entity.html?id=${encodeURIComponent(entity.id)}">Open permanent profile</a>
+    </div>
+    ${nextSteps ? `<section class="discovery-next"><p class="eyebrow">Continue exploring</p><div>${nextSteps}</div></section>` : ""}
+    <p class="spoiler-note">Expanding the graph may reveal relationships beyond this guided introduction.</p>`;
+  $("#entity-inspector").querySelector("[data-ask-entity]").addEventListener("click", () => {
+    $("#question-input").value = entry.prompt;
+    askArchive(entry.prompt);
+    $("#question-form").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+  $("#entity-inspector").querySelector("[data-expand-entity]").addEventListener("click", () => expandNode(entity.id));
+  $("#entity-inspector").querySelectorAll("[data-next-entity]").forEach((button) => button.addEventListener("click", () => {
+    if (state.nodes.has(button.dataset.nextEntity)) selectNode(button.dataset.nextEntity);
+    else loadRoot(button.dataset.nextEntity);
+  }));
 }
 
 function renderClaimInspector(claim) {
@@ -331,7 +363,10 @@ async function selectNode(entityId, rerender = true) {
   if (rerender) renderGraph();
   $("#entity-inspector").innerHTML = '<div class="skeleton-block"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div>';
   try {
-    renderInspector(await api(apiPath(`/api/v1/entities/${encodeURIComponent(entityId)}`)));
+    const entity = await api(apiPath(`/api/v1/entities/${encodeURIComponent(entityId)}`));
+    const journeyEntry = state.journeyEntries.get(entityId);
+    if (journeyEntry) renderDiscoveryInspector(entity, journeyEntry);
+    else renderInspector(entity);
   } catch {
     $("#entity-inspector").innerHTML = '<p class="empty-state">This entity could not be loaded.</p>';
   }
@@ -354,6 +389,8 @@ async function revealAnswerClaim(claim) {
 }
 
 async function loadRoot(entityId, restoreExpanded = []) {
+  state.journey = null;
+  state.journeyEntries.clear();
   state.rootEntityId = entityId;
   state.activeEntityId = entityId;
   state.selectedEdgeId = null;
@@ -373,6 +410,57 @@ async function loadRoot(entityId, restoreExpanded = []) {
     updateUrl();
   } catch {
     $("#graph-canvas").innerHTML = '<p class="empty-state">The graph could not be loaded.</p>';
+  }
+}
+
+async function loadDiscoveryCollections() {
+  const container = $("#discovery-collections");
+  container.innerHTML = '<p class="empty-state">Loading guided paths…</p>';
+  try {
+    const data = await api(`/api/v1/discovery?spoiler_level=${encodeURIComponent(state.spoilerLevel)}`);
+    container.innerHTML = data.collections.map((collection) => `
+      <button class="discovery-card${state.journey?.id === collection.id ? " is-active" : ""}" type="button" data-journey="${escapeHtml(collection.id)}">
+        <span>${escapeHtml(readable(collection.spoiler_level))}</span>
+        <strong>${escapeHtml(collection.title)}</strong>
+        <small>${escapeHtml(collection.description)}</small>
+        <em>${collection.entity_count} starting points →</em>
+      </button>`).join("");
+    container.querySelectorAll("[data-journey]").forEach((button) => button.addEventListener("click", () => loadJourney(button.dataset.journey)));
+  } catch {
+    container.innerHTML = '<p class="empty-state">Guided paths are temporarily unavailable.</p>';
+  }
+}
+
+async function loadJourney(collectionId) {
+  const status = $("#discovery-status");
+  status.hidden = false;
+  status.textContent = "Opening the guided graph…";
+  try {
+    const journey = await api(`/api/v1/discovery/${encodeURIComponent(collectionId)}?spoiler_level=${encodeURIComponent(state.spoilerLevel)}`);
+    state.journey = journey;
+    state.journeyEntries = new Map(journey.entries.map((entry) => [entry.entity.id, entry]));
+    state.rootEntityId = journey.default_entity_id;
+    state.activeEntityId = journey.default_entity_id;
+    state.selectedEdgeId = null;
+    state.nodes.clear(); state.edges.clear(); state.positions.clear();
+    state.expansionChildren.clear(); state.expandedNodes.clear(); state.history = [];
+    state.canvasSize = { width: 900, height: 520 };
+    const ordered = [...journey.entries].sort((a, b) => a.entity.id === journey.default_entity_id ? -1 : b.entity.id === journey.default_entity_id ? 1 : 0);
+    ordered.forEach((entry, index) => {
+      state.nodes.set(entry.entity.id, entry.entity);
+      state.positions.set(entry.entity.id, initialPosition(index, ordered.length));
+    });
+    journey.edges.forEach((edge) => state.edges.set(edge.id, edge));
+    state.initialGraph = graphSnapshot();
+    renderGraph();
+    await selectNode(journey.default_entity_id, false);
+    updateUrl();
+    activateView("graph");
+    await loadDiscoveryCollections();
+    status.textContent = `${journey.title}: select any node to begin.`;
+    $("#graph-view").scrollIntoView({ behavior: "smooth", block: "start" });
+  } catch {
+    status.textContent = "This guided path could not be opened with the selected spoiler setting.";
   }
 }
 
@@ -442,7 +530,10 @@ function resetGraph() {
 
 function updateUrl() {
   const params = new URLSearchParams();
-  params.set("entity", state.rootEntityId);
+  if (state.journey) {
+    params.set("journey", state.journey.id);
+    params.set("spoilers", state.spoilerLevel);
+  } else params.set("entity", state.rootEntityId);
   if (state.expandedNodes.size) params.set("expanded", [...state.expandedNodes].join(","));
   window.history.replaceState(null, "", `${window.location.pathname}?${params}`);
 }
@@ -609,6 +700,16 @@ $("#reset-graph").addEventListener("click", resetGraph);
 $("#kind-filter").addEventListener("change", (event) => { state.kindFilter = event.target.value; renderGraph(); });
 $("#evidence-filter").addEventListener("change", (event) => { state.evidenceFilter = event.target.value; renderGraph(); });
 $("#timeline-era").addEventListener("change", loadTimeline);
+$("#spoiler-level").value = state.spoilerLevel;
+$("#spoiler-level").addEventListener("change", async (event) => {
+  state.spoilerLevel = event.target.value;
+  if (state.journey && { minimal: 0, base_game: 1, full: 2 }[state.journey.spoiler_level] > { minimal: 0, base_game: 1, full: 2 }[state.spoilerLevel]) {
+    state.journey = null;
+    state.journeyEntries.clear();
+  }
+  await loadDiscoveryCollections();
+  updateUrl();
+});
 const dialog = $("#about-dialog");
 $("#about-button").addEventListener("click", () => dialog.showModal());
 $("#dialog-close").addEventListener("click", () => dialog.close());
@@ -616,4 +717,7 @@ dialog.addEventListener("click", (event) => { if (event.target === dialog) dialo
 
 checkStatus();
 const expandedFromUrl = (urlState.get("expanded") || "").split(",").filter(Boolean).slice(0, 20);
-loadRoot(state.rootEntityId, expandedFromUrl);
+loadDiscoveryCollections();
+const journeyFromUrl = urlState.get("journey");
+if (journeyFromUrl) loadJourney(journeyFromUrl);
+else loadRoot(state.rootEntityId, expandedFromUrl);

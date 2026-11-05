@@ -79,6 +79,26 @@
         </section>
       </section>
 
+      <section class="discovery" id="discovery" aria-labelledby="discovery-title">
+        <div class="discovery-copy">
+          <p class="eyebrow">A guided first step</p>
+          <h2 id="discovery-title">New to Elden Ring? Start here.</h2>
+          <p>Choose a path and meet five essential people, events, or places. Select a node to learn why it matters, then ask a question or expand the graph.</p>
+        </div>
+        <div class="discovery-controls">
+          <label for="spoiler-level">Spoilers</label>
+          <select id="spoiler-level">
+            <option value="minimal">Minimal spoilers</option>
+            <option value="base_game">Base-game spoilers</option>
+            <option value="full">Full lore, including the DLC</option>
+          </select>
+        </div>
+        <div class="discovery-collections" id="discovery-collections" aria-live="polite">
+          <p class="empty-state">Loading guided paths…</p>
+        </div>
+        <p class="discovery-status" id="discovery-status" hidden></p>
+      </section>
+
       <nav class="view-tabs" aria-label="Archive views">
         <button class="view-tab is-active" data-view="graph" type="button">
           Relationship graph
