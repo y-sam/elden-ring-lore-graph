@@ -1,6 +1,6 @@
 {
   "dataset_id": "dataset.the-shattering.seed",
-  "dataset_version": 18,
+  "dataset_version": 19,
   "status": "draft",
   "entities": [
     {
@@ -493,6 +493,8 @@
     {"id":"location.finger-ruins-miyr","kind":"location","canonical_name":"Finger Ruins of Miyr","continuity":"shadow_of_the_erdtree"},
     {"id":"location.shaman-village","kind":"location","canonical_name":"Shaman Village","continuity":"shadow_of_the_erdtree"},
     {"id":"event.miquella-ascends","kind":"event","canonical_name":"Miquella's Ascension at the Gate of Divinity","continuity":"shadow_of_the_erdtree"},
+    {"id":"event.marika-arrives-realm-shadow","kind":"event","canonical_name":"Marika Arrives in the Realm of Shadow","continuity":"shadow_of_the_erdtree"},
+    {"id":"event.theft-rune-of-death","kind":"event","canonical_name":"Theft of a Fragment of the Rune of Death","continuity":"base_game"},
     {"id":"artifact.mohgs-remains","kind":"artifact","canonical_name":"Mohg's Remains","continuity":"shadow_of_the_erdtree"}
   ],
   "aliases": [
@@ -1758,7 +1760,7 @@
     {
       "id": "claim.marika-and-radagon.same-being",
       "subject_id": "character.marika",
-      "predicate": "SAME_BEING_AS",
+      "predicate": "IDENTITY_OF",
       "object_id": "character.radagon",
       "evidence_ids": [
         "evidence.base.radagon-statue"
@@ -1767,7 +1769,9 @@
       "confidence": "high",
       "review_status": "reviewed",
       "verification_status": "game_verified",
-      "continuity": "base_game"
+      "continuity": "base_game",
+      "qualifier": "two identities sharing one being",
+      "legacy_predicate": "SAME_BEING_AS"
     },
     {
       "id": "claim.godfrey.consort-of-marika",
@@ -1981,7 +1985,7 @@
     {
       "id": "claim.godfrey.founded-golden-lineage",
       "subject_id": "character.godfrey",
-      "predicate": "FOUNDER_OF",
+      "predicate": "CREATED",
       "object_id": "faction.golden-lineage",
       "evidence_ids": [
         "evidence.base.family-remembrances"
@@ -1989,7 +1993,9 @@
       "evidence_level": "synthesis",
       "confidence": "high",
       "review_status": "draft",
-      "continuity": "base_game"
+      "continuity": "base_game",
+      "role": "founder",
+      "legacy_predicate": "FOUNDER_OF"
     },
     {
       "id": "claim.rennala.leads-carians",
@@ -2033,35 +2039,23 @@
     },
     {
       "id": "claim.golden-order.bound-to-ring",
-      "subject_id": "artifact.golden-order",
-      "predicate": "ORDER_OF",
-      "object_id": "artifact.elden-ring",
+      "subject_id": "artifact.elden-ring",
+      "predicate": "SOURCE_OF",
+      "object_id": "artifact.golden-order",
       "evidence_ids": [
         "evidence.base.radagon-statue"
       ],
       "evidence_level": "strong_inference",
       "confidence": "medium",
       "review_status": "draft",
-      "continuity": "both"
+      "continuity": "both",
+      "qualifier": "the order configured through the Elden Ring",
+      "legacy_predicate": "ORDER_OF"
     },
     {
       "id": "claim.rune-of-death.bound-by-maliketh",
-      "subject_id": "artifact.rune-of-death",
-      "predicate": "GUARDED_BY",
-      "object_id": "character.maliketh",
-      "evidence_ids": [
-        "evidence.base.death-rune"
-      ],
-      "evidence_level": "explicit",
-      "confidence": "high",
-      "review_status": "reviewed",
-      "verification_status": "game_verified",
-      "continuity": "base_game"
-    },
-    {
-      "id": "claim.ranni.stole-death-fragment",
-      "subject_id": "character.ranni",
-      "predicate": "STOLE_FRAGMENT_OF",
+      "subject_id": "character.maliketh",
+      "predicate": "GUARDED",
       "object_id": "artifact.rune-of-death",
       "evidence_ids": [
         "evidence.base.death-rune"
@@ -2070,7 +2064,25 @@
       "confidence": "high",
       "review_status": "reviewed",
       "verification_status": "game_verified",
-      "continuity": "base_game"
+      "continuity": "base_game",
+      "qualifier": "bound and guarded",
+      "legacy_predicate": "GUARDED_BY"
+    },
+    {
+      "id": "claim.ranni.stole-death-fragment",
+      "subject_id": "event.theft-rune-of-death",
+      "predicate": "PARTICIPANT",
+      "object_id": "character.ranni",
+      "evidence_ids": [
+        "evidence.base.death-rune"
+      ],
+      "evidence_level": "explicit",
+      "confidence": "high",
+      "review_status": "reviewed",
+      "verification_status": "game_verified",
+      "continuity": "base_game",
+      "role": "instigator",
+      "legacy_predicate": "STOLE_FRAGMENT_OF"
     },
     {
       "id": "claim.great-runes.fragments-of-ring",
@@ -2103,7 +2115,7 @@
     {
       "id": "claim.malenia.serves-miquella",
       "subject_id": "character.malenia",
-      "predicate": "BLADE_OF",
+      "predicate": "SERVES",
       "object_id": "character.miquella",
       "evidence_ids": [
         "evidence.base.miquella-haligtree"
@@ -2112,7 +2124,9 @@
       "confidence": "high",
       "review_status": "reviewed",
       "verification_status": "game_verified",
-      "continuity": "both"
+      "continuity": "both",
+      "role": "blade",
+      "legacy_predicate": "BLADE_OF"
     },
     {
       "id": "claim.miquella.created-haligtree",
@@ -2551,9 +2565,9 @@
     },
     {
       "id": "claim.elden-ring.shattered-in-event",
-      "subject_id": "artifact.elden-ring",
-      "predicate": "SHATTERED_IN",
-      "object_id": "event.shattering-of-the-elden-ring",
+      "subject_id": "event.shattering-of-the-elden-ring",
+      "predicate": "TARGETED",
+      "object_id": "artifact.elden-ring",
       "evidence_ids": [
         "evidence.base.opening.shattering"
       ],
@@ -2561,7 +2575,9 @@
       "confidence": "high",
       "review_status": "reviewed",
       "verification_status": "game_verified",
-      "continuity": "base_game"
+      "continuity": "base_game",
+      "role": "object shattered",
+      "legacy_predicate": "SHATTERED_IN"
     },
     {
       "id": "claim.great-runes.triggered-war",
@@ -2806,16 +2822,18 @@
     },
     {
       "id": "claim.marika.first-set-foot-shadow",
-      "subject_id": "character.marika",
-      "predicate": "FIRST_ARRIVED_IN",
-      "object_id": "location.realm-of-shadow",
+      "subject_id": "event.marika-arrives-realm-shadow",
+      "predicate": "PARTICIPANT",
+      "object_id": "character.marika",
       "evidence_ids": [
         "evidence.dlc.official-story"
       ],
       "evidence_level": "explicit",
       "confidence": "high",
       "review_status": "reviewed",
-      "continuity": "shadow_of_the_erdtree"
+      "continuity": "shadow_of_the_erdtree",
+      "role": "first known arrival",
+      "legacy_predicate": "FIRST_ARRIVED_IN"
     },
     {
       "id": "claim.realm-shadow.obscured-by-erdtree",
@@ -2886,7 +2904,7 @@
       "id":"claim.deathroot-spread-after-godwyn","subject_id":"artifact.deathroot","predicate":"SPREAD_AFTER","object_id":"event.death-of-godwyn","evidence_ids":["evidence.base.deathroot"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
     },
     {
-      "id":"claim.godwyn.rests-deeproot","subject_id":"character.godwyn","predicate":"RESTS_IN","object_id":"location.deeproot-depths","evidence_ids":["evidence.base.deathroot"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game"
+      "id":"claim.godwyn.rests-deeproot","subject_id":"character.godwyn","predicate":"LOCATED_IN","object_id":"location.deeproot-depths","evidence_ids":["evidence.base.deathroot"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"base_game","qualifier":"resting place of his transformed body","legacy_predicate":"RESTS_IN"
     },
     {
       "id":"claim.rune-death-embodies-destined-death","subject_id":"artifact.rune-of-death","predicate":"EMBODIES","object_id":"concept.destined-death","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"
@@ -2895,13 +2913,13 @@
       "id":"claim.three-fingers-serve-frenzy","subject_id":"faction.three-fingers","predicate":"SERVES","object_id":"outer-god.frenzied-flame","evidence_ids":["evidence.base.frenzied-flame"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"
     },
     {
-      "id":"claim.frenzy-opposes-distinctions","subject_id":"outer-god.frenzied-flame","predicate":"SEEKS_TO_END","object_id":"artifact.golden-order","evidence_ids":["evidence.base.frenzied-flame"],"evidence_level":"synthesis","confidence":"medium","review_status":"draft","continuity":"base_game"
+      "id":"claim.frenzy-opposes-distinctions","subject_id":"outer-god.frenzied-flame","predicate":"OPPOSED","object_id":"artifact.golden-order","evidence_ids":["evidence.base.frenzied-flame"],"evidence_level":"synthesis","confidence":"medium","review_status":"draft","continuity":"base_game","qualifier":"seeks to end the distinctions maintained by the order","legacy_predicate":"SEEKS_TO_END"
     },
     {
       "id":"claim.midra-in-abyssal-woods","subject_id":"character.midra","predicate":"LOCATED_IN","object_id":"location.abyssal-woods","evidence_ids":["evidence.dlc.midra"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"
     },
     {
-      "id":"claim.midra-lord-frenzy","subject_id":"character.midra","predicate":"BECAME_LORD_OF","object_id":"outer-god.frenzied-flame","evidence_ids":["evidence.dlc.midra"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"
+      "id":"claim.midra-lord-frenzy","subject_id":"character.midra","predicate":"VESSEL_OF","object_id":"outer-god.frenzied-flame","evidence_ids":["evidence.dlc.midra"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree","role":"Lord of Frenzied Flame","legacy_predicate":"BECAME_LORD_OF"
     },
     {
       "id":"claim.mohg-serves-formless-mother","subject_id":"character.mohg","predicate":"SERVES","object_id":"outer-god.formless-mother","evidence_ids":["evidence.base.blood-formless-mother"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"
@@ -2913,7 +2931,7 @@
       "id":"claim.malenia-afflicted-rot","subject_id":"character.malenia","predicate":"AFFLICTED_BY","object_id":"concept.scarlet-rot","evidence_ids":["evidence.base.rot"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"both"
     },
     {
-      "id":"claim.rot-devastated-caelid","subject_id":"concept.scarlet-rot","predicate":"DEVASTATED","object_id":"location.caelid","evidence_ids":["evidence.base.rot","evidence.base.aeonia"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game"
+      "id":"claim.rot-devastated-caelid","subject_id":"location.caelid","predicate":"AFFLICTED_BY","object_id":"concept.scarlet-rot","evidence_ids":["evidence.base.rot","evidence.base.aeonia"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"base_game","qualifier":"devastated by the bloom after the Battle of Aeonia","legacy_predicate":"DEVASTATED"
     },
     {
       "id":"claim.two-fingers-interpret-greater-will","subject_id":"faction.two-fingers","predicate":"INTERPRETS","object_id":"character.greater-will","evidence_ids":["evidence.base.great-runes"],"evidence_level":"synthesis","confidence":"high","review_status":"draft","continuity":"both"
@@ -2946,7 +2964,7 @@
       "id":"claim.thiollier-follows-trina","subject_id":"character.thiollier","predicate":"FOLLOWS","object_id":"character.st-trina","evidence_ids":["evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"
     },
     {
-      "id":"claim.miquella-abandoned-trina","subject_id":"character.miquella","predicate":"ABANDONED_ASPECT","object_id":"character.st-trina","evidence_ids":["evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"
+      "id":"claim.miquella-abandoned-trina","subject_id":"character.miquella","predicate":"ABANDONED","object_id":"character.st-trina","evidence_ids":["evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree","qualifier":"abandoned an aspect of himself","legacy_predicate":"ABANDONED_ASPECT"
     },
     {
       "id":"claim.hornsent-member-people","subject_id":"character.hornsent","predicate":"MEMBER_OF","object_id":"faction.hornsent","evidence_ids":["evidence.dlc.followers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","continuity":"shadow_of_the_erdtree"
@@ -2958,7 +2976,7 @@
       "id":"claim.freyja-follows-miquella","subject_id":"character.freyja","predicate":"FOLLOWED","object_id":"character.miquella","evidence_ids":["evidence.dlc.followers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","continuity":"shadow_of_the_erdtree"
     },
     {
-      "id":"claim.freyja-served-radahn","subject_id":"character.freyja","predicate":"SERVED","object_id":"character.radahn","evidence_ids":["evidence.dlc.followers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","continuity":"shadow_of_the_erdtree"
+      "id":"claim.freyja-served-radahn","subject_id":"character.freyja","predicate":"SERVES","object_id":"character.radahn","evidence_ids":["evidence.dlc.followers"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","continuity":"shadow_of_the_erdtree","temporal_scope":"formerly","legacy_predicate":"SERVED"
     },
     {"id":"claim.blaidd-serves-ranni","subject_id":"character.blaidd","predicate":"SERVES","object_id":"character.ranni","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.blaidd-seeks-nokron","subject_id":"character.blaidd","predicate":"SEEKS","object_id":"location.nokron","evidence_ids":["evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
@@ -3008,7 +3026,7 @@
     {"id":"claim.nokstella-in-ainsel","subject_id":"location.nokstella","predicate":"LOCATED_IN","object_id":"location.ainsel-river","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.nameless-city-in-deeproot","subject_id":"location.nameless-eternal-city","predicate":"LOCATED_IN","object_id":"location.deeproot-depths","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.fingerslayer-blade-in-nokron","subject_id":"artifact.fingerslayer-blade","predicate":"LOCATED_IN","object_id":"location.nokron","evidence_ids":["evidence.base.underground-cities","evidence.base.ranni-retinue"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
-    {"id":"claim.fingerslayer-blade-targets-greater-will","subject_id":"artifact.fingerslayer-blade","predicate":"HARMS_VASSALS_OF","object_id":"character.greater-will","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.fingerslayer-blade-targets-greater-will","subject_id":"artifact.fingerslayer-blade","predicate":"OPPOSED","object_id":"character.greater-will","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game","qualifier":"can harm the Greater Will's vassals and Fingers","legacy_predicate":"HARMS_VASSALS_OF"},
     {"id":"claim.nox-created-mimic-tear","subject_id":"people.nox","predicate":"CREATED","object_id":"character.mimic-tear","evidence_ids":["evidence.base.underground-cities"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.marika-member-numen","subject_id":"character.marika","predicate":"MEMBER_OF","object_id":"people.numen","evidence_ids":["evidence.base.numen"],"evidence_level":"explicit","confidence":"high","review_status":"draft","continuity":"both"},
     {"id":"claim.black-knives-member-numen","subject_id":"faction.black-knife-assassins","predicate":"MEMBER_OF","object_id":"people.numen","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
@@ -3028,7 +3046,7 @@
     {"id":"claim.dragon-communion-targets-bayle","subject_id":"concept.dragon-communion","predicate":"TARGETED","object_id":"character.bayle","evidence_ids":["evidence.dlc.dragons"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
     {"id":"claim.bayle-in-jagged-peak","subject_id":"character.bayle","predicate":"LOCATED_IN","object_id":"location.jagged-peak","evidence_ids":["evidence.dlc.dragons","evidence.dlc.locations"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
     {"id":"claim.crucible-primordial-erdtree","subject_id":"concept.crucible","predicate":"SOURCE_OF","object_id":"artifact.erdtree","evidence_ids":["evidence.base.crucible-erdtree"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"both"},
-    {"id":"claim.crucible-knights-served-godfrey","subject_id":"faction.crucible-knights","predicate":"SERVED","object_id":"character.godfrey","evidence_ids":["evidence.base.crucible-erdtree"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
+    {"id":"claim.crucible-knights-served-godfrey","subject_id":"faction.crucible-knights","predicate":"SERVES","object_id":"character.godfrey","evidence_ids":["evidence.base.crucible-erdtree"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game","temporal_scope":"formerly","legacy_predicate":"SERVED"},
     {"id":"claim.golden-order-sealed-destined-death","subject_id":"artifact.golden-order","predicate":"OPPOSED","object_id":"concept.destined-death","evidence_ids":["evidence.base.golden-order-origin"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.morgott-member-omens","subject_id":"character.morgott","predicate":"MEMBER_OF","object_id":"people.omens","evidence_ids":["evidence.base.omen-twins"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
     {"id":"claim.mohg-member-omens","subject_id":"character.mohg","predicate":"MEMBER_OF","object_id":"people.omens","evidence_ids":["evidence.base.omen-twins"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"},
@@ -3123,7 +3141,7 @@
     {"id":"claim.putrescent-knight-serves-trina","subject_id":"character.putrescent-knight","predicate":"SERVES","object_id":"character.st-trina","evidence_ids":["evidence.dlc.trina-putrescence"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
     {"id":"claim.trina-in-fissure","subject_id":"character.st-trina","predicate":"LOCATED_IN","object_id":"location.stone-coffin-fissure","evidence_ids":["evidence.dlc.trina-putrescence"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
     {"id":"claim.thiollier-seeks-trina","subject_id":"character.thiollier","predicate":"SEEKS","object_id":"character.st-trina","evidence_ids":["evidence.dlc.trina-putrescence","evidence.dlc.trina"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
-    {"id":"claim.ansbach-served-mohg","subject_id":"character.ansbach","predicate":"SERVED","object_id":"character.mohg","evidence_ids":["evidence.dlc.followers-conflict"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.ansbach-served-mohg","subject_id":"character.ansbach","predicate":"SERVES","object_id":"character.mohg","evidence_ids":["evidence.dlc.followers-conflict"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree","temporal_scope":"formerly","legacy_predicate":"SERVED"},
     {"id":"claim.ansbach-opposes-miquella","subject_id":"character.ansbach","predicate":"OPPOSED","object_id":"character.miquella","evidence_ids":["evidence.dlc.followers-conflict"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
     {"id":"claim.freyja-supports-radahn-return","subject_id":"character.freyja","predicate":"FOLLOWS","object_id":"character.radahn","evidence_ids":["evidence.dlc.followers-conflict"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
     {"id":"claim.dane-serves-leda","subject_id":"character.dryleaf-dane","predicate":"SERVES","object_id":"character.leda","evidence_ids":["evidence.dlc.followers-conflict"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
@@ -3139,6 +3157,9 @@
     {"id":"claim.gaius-based-shadow-keep","subject_id":"character.commander-gaius","predicate":"BASED_IN","object_id":"location.shadow-keep","evidence_ids":["evidence.dlc.romina-gaius-lion"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
     {"id":"claim.dancing-lion-defends-belurat","subject_id":"character.divine-beast-dancing-lion","predicate":"DEFENDS","object_id":"location.belurat","evidence_ids":["evidence.dlc.romina-gaius-lion"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
     {"id":"claim.scadutree-in-shadow","subject_id":"artifact.scadutree","predicate":"LOCATED_IN","object_id":"location.realm-of-shadow","evidence_ids":["evidence.dlc.regions"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
-    {"id":"claim.dheo-in-shadow","subject_id":"location.finger-ruins-dheo","predicate":"LOCATED_IN","object_id":"location.realm-of-shadow","evidence_ids":["evidence.dlc.ymir-finger-ruins","evidence.dlc.regions"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"}
+    {"id":"claim.dheo-in-shadow","subject_id":"location.finger-ruins-dheo","predicate":"LOCATED_IN","object_id":"location.realm-of-shadow","evidence_ids":["evidence.dlc.ymir-finger-ruins","evidence.dlc.regions"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.marika-arrival-occurred-shadow","subject_id":"event.marika-arrives-realm-shadow","predicate":"OCCURRED_IN","object_id":"location.realm-of-shadow","evidence_ids":["evidence.dlc.official-story"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","continuity":"shadow_of_the_erdtree"},
+    {"id":"claim.theft-rune-targeted-death","subject_id":"event.theft-rune-of-death","predicate":"TARGETED","object_id":"artifact.rune-of-death","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game","qualifier":"a fragment was stolen"},
+    {"id":"claim.theft-rune-before-black-knives","subject_id":"event.theft-rune-of-death","predicate":"BEFORE","object_id":"event.night-of-black-knives","evidence_ids":["evidence.base.death-rune"],"evidence_level":"explicit","confidence":"high","review_status":"reviewed","verification_status":"game_verified","continuity":"base_game"}
   ]
 }

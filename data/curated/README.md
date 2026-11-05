@@ -46,3 +46,8 @@ The report includes semantic duplicate candidates, disconnected entities,
 review coverage, verification coverage, entity kinds, continuities, predicates,
 and evidence levels. Warnings require editorial inspection but do not block an
 import. Errors must be resolved first.
+
+Claims must use the controlled predicate vocabulary. Use `role`, `qualifier`,
+and `temporal_scope` for contextual detail; introduce an Event when an action
+has meaningful participants, targets, location, or chronology. A predicate used
+only once is reported for review but is not automatically invalid.

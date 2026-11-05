@@ -24,9 +24,17 @@ function evidenceMarkup(evidence) {
   return evidence.map((item) => `<details class="evidence"><summary>${escaped(item.locator)}</summary><p>${escaped(item.summary_en)}</p><cite>${escaped(item.source_title)} · ${escaped(item.authority_tier)} · ${escaped(readable(item.verification_status))}</cite></details>`).join("");
 }
 
+function claimContext(claim) {
+  return [
+    claim.role ? `Role: ${claim.role}` : "",
+    claim.temporal_scope ? `Time: ${readable(claim.temporal_scope)}` : "",
+    claim.qualifier || "",
+  ].filter(Boolean).join(" · ");
+}
+
 function claimMarkup(claim) {
   const counterpart = claim.direction === "outgoing" ? claim.object : claim.subject;
-  return `<article class="profile-claim"><header><span class="predicate">${escaped(readable(claim.predicate))}</span><span class="chip">${escaped(claim.confidence)} confidence</span></header><p><span>${claim.direction === "incoming" ? "From" : "To"}</span> <a href="/entity.html?id=${encodeURIComponent(counterpart.id)}">${escaped(counterpart.canonical_name)}</a></p><div class="claim-meta"><span class="chip">${escaped(readable(claim.evidence_level))}</span><span class="chip">${escaped(claim.review_status)}</span><span class="chip">${escaped(readable(claim.verification_status))}</span><span class="chip">${escaped(claim.continuity)}</span></div>${evidenceMarkup(claim.evidence)}</article>`;
+  return `<article class="profile-claim"><header><span class="predicate">${escaped(readable(claim.predicate))}</span><span class="chip">${escaped(claim.confidence)} confidence</span></header><p><span>${claim.direction === "incoming" ? "From" : "To"}</span> <a href="/entity.html?id=${encodeURIComponent(counterpart.id)}">${escaped(counterpart.canonical_name)}</a></p>${claimContext(claim) ? `<p class="claim-context">${escaped(claimContext(claim))}</p>` : ""}<div class="claim-meta"><span class="chip">${escaped(readable(claim.evidence_level))}</span><span class="chip">${escaped(claim.review_status)}</span><span class="chip">${escaped(readable(claim.verification_status))}</span><span class="chip">${escaped(claim.continuity)}</span></div>${evidenceMarkup(claim.evidence)}</article>`;
 }
 
 async function loadProfile() {

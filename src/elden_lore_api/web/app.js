@@ -78,6 +78,14 @@ function localizedEvidenceSummary(item, language = $("#answer-language")?.value)
   return item.localized_summaries?.[language] || item.summary_en;
 }
 
+function claimContext(claim) {
+  return [
+    claim.role ? `Role: ${claim.role}` : "",
+    claim.temporal_scope ? `Time: ${readable(claim.temporal_scope)}` : "",
+    claim.qualifier || "",
+  ].filter(Boolean).join(" · ");
+}
+
 function renderInspector(entity) {
   const claims = entity.claims.length
     ? entity.claims.map((claim) => {
@@ -86,6 +94,7 @@ function renderInspector(entity) {
         <button class="claim-card" type="button" data-claim-id="${escapeHtml(claim.id)}">
           <header><span class="predicate">${escapeHtml(readable(claim.predicate))}</span><span class="direction">${claim.direction}</span></header>
           <span class="claim-target">${counterpart ? escapeHtml(counterpart.canonical_name) : "—"}</span>
+          ${claimContext(claim) ? `<small class="claim-context">${escapeHtml(claimContext(claim))}</small>` : ""}
           <span class="claim-meta"><span class="chip">${escapeHtml(readable(claim.evidence_level))}</span><span class="chip">${escapeHtml(claim.confidence)} confidence</span></span>
         </button>`;
     }).join("")
@@ -150,6 +159,7 @@ function renderClaimInspector(claim) {
       <span class="chip">${escapeHtml(claim.confidence)} confidence</span>
       <span class="chip">${escapeHtml(claim.review_status)}</span>
     </div>
+    ${claimContext(claim) ? `<p class="claim-context">${escapeHtml(claimContext(claim))}</p>` : ""}
     <div class="evidence-list"><h3>Evidence</h3>${evidenceMarkup(claim.evidence)}</div>`;
   $(".inspector-back").addEventListener("click", () => selectNode(state.activeEntityId));
   $("#entity-inspector").querySelectorAll("[data-route-entity]").forEach((button) => button.addEventListener("click", () => selectNode(button.dataset.routeEntity)));
@@ -572,7 +582,7 @@ function claimAnswerMarkup(claim) {
   return `<button class="answer-claim" type="button" data-answer-claim="${escapeHtml(claim.id)}">
     <span>${escapeHtml(readable(claim.predicate))}</span>
     <strong>${escapeHtml(claim.subject.canonical_name)} → ${escapeHtml(target)}</strong>
-    <small>${escapeHtml(readable(claim.evidence_level))} · ${escapeHtml(claim.confidence)} confidence</small>
+    <small>${escapeHtml(readable(claim.evidence_level))} · ${escapeHtml(claim.confidence)} confidence${claimContext(claim) ? ` · ${escapeHtml(claimContext(claim))}` : ""}</small>
   </button>`;
 }
 
@@ -724,7 +734,8 @@ function connectionRouteMarkup(path) {
     const next = path.nodes[index + 1];
     if (!claim || !next) return;
     const forward = claim.subject.id === node.id && claim.object?.id === next.id;
-    parts.push(`<span>${forward ? `${escapeHtml(readable(claim.predicate))} →` : `← ${escapeHtml(readable(claim.predicate))}`}</span>`);
+    const relation = claim.role ? `${readable(claim.predicate)} (${claim.role})` : readable(claim.predicate);
+    parts.push(`<span>${forward ? `${escapeHtml(relation)} →` : `← ${escapeHtml(relation)}`}</span>`);
   });
   return parts.join("");
 }

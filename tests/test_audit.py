@@ -17,6 +17,8 @@ def test_seed_passes_editorial_audit() -> None:
     assert report.coverage["entities_by_kind"]["character"] > 0
     assert report.coverage["claims_by_verification"]
     assert report.coverage["evidence_with_spanish_percentage"] > 0
+    assert report.coverage["predicate_vocabulary"]["canonical_used"] > 0
+    assert not any(issue.code == "deprecated_predicate" for issue in report.issues)
 
 
 def test_audit_detects_timeline_cycle() -> None:
@@ -50,3 +52,22 @@ def test_audit_flags_semantic_duplicate_claim() -> None:
     report = audit_dataset(dataset)
 
     assert any(issue.code == "possible_duplicate_claim" for issue in report.issues)
+
+
+def test_audit_flags_rare_and_deprecated_predicates() -> None:
+    dataset = load_curated_dataset(DATASET)
+    original = dataset.claims[0]
+    dataset.claims.append(
+        ClaimRecord(
+            **{
+                **original.model_dump(),
+                "id": "claim.deprecated.for-test",
+                "predicate": "BLADE_OF",
+            }
+        )
+    )
+
+    report = audit_dataset(dataset)
+
+    assert any(issue.code == "deprecated_predicate" for issue in report.issues)
+    assert any(issue.code == "rare_predicate" for issue in report.issues)

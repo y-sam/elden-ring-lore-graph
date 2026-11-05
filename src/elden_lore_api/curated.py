@@ -144,6 +144,12 @@ class ClaimRecord(StrictModel):
     review_status: ReviewStatus
     verification_status: VerificationStatus = VerificationStatus.UNVERIFIED
     continuity: Continuity
+    role: Annotated[str, Field(min_length=1, max_length=100)] | None = None
+    qualifier: Annotated[str, Field(min_length=1, max_length=300)] | None = None
+    temporal_scope: Literal["before", "after", "during", "formerly"] | None = None
+    legacy_predicate: Annotated[
+        str, Field(pattern=r"^[A-Z][A-Z0-9_]*$")
+    ] | None = None
 
 
 class CuratedDataset(StrictModel):

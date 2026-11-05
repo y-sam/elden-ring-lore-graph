@@ -31,6 +31,10 @@ class ClaimView(BaseModel):
     review_status: str
     verification_status: str = "unverified"
     continuity: str
+    role: str | None = None
+    qualifier: str | None = None
+    temporal_scope: str | None = None
+    legacy_predicate: str | None = None
     direction: Literal["outgoing", "incoming"]
     subject: EntitySummary
     object: EntitySummary | None = None
@@ -45,6 +49,10 @@ class ClaimDetail(BaseModel):
     review_status: str
     verification_status: str = "unverified"
     continuity: str
+    role: str | None = None
+    qualifier: str | None = None
+    temporal_scope: str | None = None
+    legacy_predicate: str | None = None
     subject: EntitySummary
     object: EntitySummary | None = None
     evidence: list[EvidenceView] = Field(default_factory=list)
@@ -69,6 +77,9 @@ class GraphEdge(BaseModel):
     confidence: str
     review_status: str
     verification_status: str = "unverified"
+    role: str | None = None
+    qualifier: str | None = None
+    temporal_scope: str | None = None
 
 
 class EntitySubgraph(BaseModel):

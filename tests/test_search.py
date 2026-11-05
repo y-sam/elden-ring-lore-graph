@@ -55,7 +55,8 @@ def test_question_intent_detection() -> None:
 
 
 def test_who_intent_accepts_character_service_relationships() -> None:
-    assert {"SERVES", "SERVED", "FOLLOWS", "FOLLOWED"} <= INTENT_PREDICATES["who"]
+    assert {"SERVES", "FOLLOWS", "FOLLOWED"} <= INTENT_PREDICATES["who"]
+    assert "SERVED" not in INTENT_PREDICATES["who"]
 
 
 def test_fuzzy_entity_score_recovers_small_name_typos() -> None:

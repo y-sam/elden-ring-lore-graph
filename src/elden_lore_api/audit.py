@@ -7,6 +7,12 @@ from pydantic import BaseModel
 
 from elden_lore_api.curated import CuratedDataset, load_curated_dataset
 from elden_lore_api.importer import DEFAULT_DATASET
+from elden_lore_api.ontology import (
+    CANONICAL_PREDICATES,
+    CORE_PREDICATES,
+    DEPRECATED_PREDICATES,
+    EXTENSION_PREDICATES,
+)
 from elden_lore_api.timeline import topological_layers
 
 
@@ -122,6 +128,28 @@ def audit_dataset(dataset: CuratedDataset) -> AuditReport:
                     record_id=claim.id,
                 )
             )
+        if claim.predicate == "PARTICIPANT" and (
+            subject.kind != "event" or object_ is None or object_.kind == "event"
+        ):
+            issues.append(
+                AuditIssue(
+                    severity="error",
+                    code="invalid_participant_types",
+                    message="PARTICIPANT requires an event subject and non-event object",
+                    record_id=claim.id,
+                )
+            )
+        if claim.legacy_predicate and claim.legacy_predicate not in DEPRECATED_PREDICATES:
+            issues.append(
+                AuditIssue(
+                    severity="error",
+                    code="unknown_legacy_predicate",
+                    message=(
+                        f"{claim.legacy_predicate} is not a documented ontology migration"
+                    ),
+                    record_id=claim.id,
+                )
+            )
         if claim.review_status == "reviewed":
             draft_evidence = [
                 evidence[evidence_id].id
@@ -155,6 +183,37 @@ def audit_dataset(dataset: CuratedDataset) -> AuditReport:
         )
 
     predicates = Counter(claim.predicate for claim in dataset.claims)
+    for predicate, count in sorted(predicates.items()):
+        if predicate in DEPRECATED_PREDICATES:
+            issues.append(
+                AuditIssue(
+                    severity="error",
+                    code="deprecated_predicate",
+                    message=(
+                        f"{predicate} is deprecated; migrate to "
+                        f"{DEPRECATED_PREDICATES[predicate]}"
+                    ),
+                )
+            )
+        elif predicate not in CANONICAL_PREDICATES:
+            issues.append(
+                AuditIssue(
+                    severity="error",
+                    code="unknown_predicate",
+                    message=f"{predicate} is not in the controlled vocabulary",
+                )
+            )
+        if count == 1:
+            issues.append(
+                AuditIssue(
+                    severity="warning",
+                    code="rare_predicate",
+                    message=(
+                        f"{predicate} is used once; confirm that a qualifier, role, "
+                        "or Event would not model it better"
+                    ),
+                )
+            )
     connected_entity_ids = {
         entity_id
         for claim in dataset.claims
@@ -192,6 +251,12 @@ def audit_dataset(dataset: CuratedDataset) -> AuditReport:
             sorted(Counter(e.continuity.value for e in dataset.entities).items())
         ),
         "claims_by_predicate": dict(sorted(predicates.items())),
+        "predicate_vocabulary": {
+            "core_defined": len(CORE_PREDICATES),
+            "extensions_defined": len(EXTENSION_PREDICATES),
+            "canonical_used": len(set(predicates) & CANONICAL_PREDICATES),
+            "rare_used": sum(count == 1 for count in predicates.values()),
+        },
         "claims_by_evidence_level": dict(
             sorted(Counter(c.evidence_level.value for c in dataset.claims).items())
         ),

@@ -130,6 +130,10 @@ class EntityRepository:
             review_status=claim.review_status,
             verification_status=claim.verification_status,
             continuity=claim.continuity,
+            role=claim.role,
+            qualifier=claim.qualifier,
+            temporal_scope=claim.temporal_scope,
+            legacy_predicate=claim.legacy_predicate,
             subject=claim.subject,
             object=claim.object,
             evidence=claim.evidence,
@@ -194,6 +198,9 @@ class EntityRepository:
                         verification_status=claim.get(
                             "verification_status", "unverified"
                         ),
+                        role=claim.get("role"),
+                        qualifier=claim.get("qualifier"),
+                        temporal_scope=claim.get("temporal_scope"),
                     )
                 frontier = next_frontier
 
@@ -654,6 +661,10 @@ def _group_claims(records: Iterable[Any], *, entity_id: str) -> list[ClaimView]:
                 review_status=claim["review_status"],
                 verification_status=claim.get("verification_status", "unverified"),
                 continuity=claim["continuity"],
+                role=claim.get("role"),
+                qualifier=claim.get("qualifier"),
+                temporal_scope=claim.get("temporal_scope"),
+                legacy_predicate=claim.get("legacy_predicate"),
                 direction="outgoing" if subject_properties["id"] == entity_id else "incoming",
                 subject=entity_summary(subject_properties),
                 object=entity_summary(object_properties) if object_properties else None,
@@ -673,6 +684,9 @@ def _graph_edge(record: Any) -> GraphEdge:
         confidence=claim["confidence"],
         review_status=claim["review_status"],
         verification_status=claim.get("verification_status", "unverified"),
+        role=claim.get("role"),
+        qualifier=claim.get("qualifier"),
+        temporal_scope=claim.get("temporal_scope"),
     )
 
 
@@ -834,6 +848,10 @@ def _claim_details(records: Iterable[Any]) -> list[ClaimDetail]:
                 review_status=claim["review_status"],
                 verification_status=claim.get("verification_status", "unverified"),
                 continuity=claim["continuity"],
+                role=claim.get("role"),
+                qualifier=claim.get("qualifier"),
+                temporal_scope=claim.get("temporal_scope"),
+                legacy_predicate=claim.get("legacy_predicate"),
                 subject=entity_summary(record["subject"]),
                 object=entity_summary(record["object"]) if record["object"] else None,
             )
@@ -877,14 +895,13 @@ def _claim_rank(claim: ClaimDetail) -> tuple[int, int]:
 def _intent_claim_rank(claim: ClaimDetail, intent: str) -> int:
     priorities = {
         "who": [
-            "SAME_BEING_AS", "CHILD_OF", "TWIN_OF", "CONSORT_OF", "VESSEL_OF",
-            "CREATED", "BLADE_OF", "LEADS", "MEMBER_OF", "FOUNDER_OF", "RULED",
-            "SERVES", "SERVED", "FOLLOWS", "FOLLOWED", "GUIDED", "SEEKS",
+            "IDENTITY_OF", "CHILD_OF", "TWIN_OF", "CONSORT_OF", "VESSEL_OF",
+            "CREATED", "LEADS", "MEMBER_OF", "RULED", "SERVES", "FOLLOWS",
+            "FOLLOWED", "GUIDED", "SEEKS",
             "PARTICIPANT", "ABANDONED", "AFFLICTED_BY", "ASPECT_OF",
         ],
         "where": [
             "BASED_IN", "LOCATED_IN", "OCCURRED_IN", "INHABITS",
-            "RESTS_IN", "FIRST_ARRIVED_IN",
         ],
         "when": ["IN_ERA", "BEFORE"],
         "why": ["CAUSED", "CATALYST_FOR"],
@@ -895,13 +912,12 @@ def _intent_claim_rank(claim: ClaimDetail, intent: str) -> int:
 
 INTENT_PREDICATES = {
     "who": {
-        "ABANDONED", "BLADE_OF", "CHILD_OF", "CONSORT_OF", "CREATED", "FOLLOWS",
-        "FOUNDER_OF", "LEADS", "MEMBER_OF", "PARTICIPANT", "RULED", "SAME_BEING_AS",
-        "SERVED", "SERVES", "FOLLOWED", "GUIDED", "SEEKS", "TWIN_OF", "VESSEL_OF",
+        "ABANDONED", "CHILD_OF", "CONSORT_OF", "CREATED", "FOLLOWS",
+        "IDENTITY_OF", "LEADS", "MEMBER_OF", "PARTICIPANT", "RULED", "SERVES",
+        "FOLLOWED", "GUIDED", "SEEKS", "TWIN_OF", "VESSEL_OF",
     },
     "where": {
-        "BASED_IN", "FIRST_ARRIVED_IN", "INHABITS", "LOCATED_IN", "OCCURRED_IN",
-        "RESTS_IN",
+        "BASED_IN", "INHABITS", "LOCATED_IN", "OCCURRED_IN",
     },
     "when": {"BEFORE", "IN_ERA"},
     "why": {"CATALYST_FOR", "CAUSED"},
@@ -951,7 +967,7 @@ def _filter_claims_for_intent(
         if intent != "who":
             return selected
         inverse_predicates = {
-            "serves": "SERVES", "served": "SERVED", "follows": "FOLLOWS",
+            "serves": "SERVES", "served": "SERVES", "follows": "FOLLOWS",
             "followed": "FOLLOWED", "guides": "GUIDED", "rules": "RULED",
         }
         requested_inverse = next(
@@ -1216,7 +1232,12 @@ def _compose_answer(
             claim.predicate, claim.predicate.lower().replace("_", " ")
         )
         target = claim.object.canonical_name if claim.object else "—"
-        statements.append(f"{claim.subject.canonical_name} {relation} {target}")
+        context = ""
+        if claim.role:
+            context += f" (as {claim.role})"
+        if claim.qualifier:
+            context += f" — {claim.qualifier}"
+        statements.append(f"{claim.subject.canonical_name} {relation} {target}{context}")
     text = ANSWER_TEXT[language]
     prefix = text["supported"] if explicit else text["inference"]
     answer = f"{prefix}: " + "; ".join(statements) + "."
