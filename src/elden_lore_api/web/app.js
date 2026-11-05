@@ -33,7 +33,10 @@ function apiPath(path) {
 }
 
 async function api(path) {
-  const response = await fetch(path, { headers: { Accept: "application/json" } });
+  const response = await fetch(path, {
+    headers: { Accept: "application/json" },
+    signal: AbortSignal.timeout(15000),
+  });
   if (!response.ok) throw new Error(`Request failed: ${response.status}`);
   return response.json();
 }
