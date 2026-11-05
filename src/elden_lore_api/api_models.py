@@ -79,6 +79,21 @@ class EntitySubgraph(BaseModel):
     truncated: bool
 
 
+class ConnectionPath(BaseModel):
+    nodes: list[EntitySummary]
+    claims: list[ClaimDetail]
+    length: int
+    minimum_confidence: str
+
+
+class ConnectionResponse(BaseModel):
+    source: EntitySummary
+    target: EntitySummary
+    paths: list[ConnectionPath]
+    max_depth: int
+    truncated: bool
+
+
 class TimelineResponse(BaseModel):
     era_id: str | None
     events: list[EntitySummary]

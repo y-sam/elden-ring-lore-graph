@@ -87,6 +87,7 @@ GET /api/v1/timeline
 GET /api/v1/timeline?era_id=era.the-shattering
 GET /api/v1/discovery?spoiler_level=minimal
 GET /api/v1/discovery/start.main-characters?spoiler_level=minimal
+GET /api/v1/connections?from_id=character.ranni&to_id=character.blaidd&max_depth=3
 ```
 
 The public web archive includes a spoiler-aware **New to Elden Ring? Start here**
@@ -97,6 +98,13 @@ example `/?journey=start.main-characters&spoilers=minimal`. The available
 spoiler levels are `minimal`, `base_game`, and `full`; expanding beyond the
 curated starting graph is explicitly identified as potentially revealing wider
 relationships.
+
+The connection finder searches reviewed claim paths without APOC, so it remains
+compatible with Neo4j Community Edition. Searches are bounded to four steps and
+five returned paths. Shorter paths rank first; ties prefer explicit evidence,
+stronger verification, and higher confidence. Every result contains the exact
+claims and evidence used, can be projected onto the interactive graph, and has
+a shareable URL.
 
 Subgraphs contain entity nodes and claim edges. `depth` is limited to 3 and
 `limit` to 200. `include_drafts=true` is rejected when `APP_ENV=production`.

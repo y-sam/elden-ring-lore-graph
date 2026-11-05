@@ -1,5 +1,6 @@
 import hashlib
 import re
+from collections import defaultdict, deque
 from collections.abc import Iterable
 from difflib import SequenceMatcher
 from typing import Any
@@ -10,6 +11,8 @@ from elden_lore_api.api_models import (
     AnswerResponse,
     ClaimDetail,
     ClaimView,
+    ConnectionPath,
+    ConnectionResponse,
     EntityDetail,
     EntityPage,
     EntitySubgraph,
@@ -199,6 +202,104 @@ class EntityRepository:
             depth=depth,
             nodes=sorted(nodes.values(), key=lambda node: (node.canonical_name.lower(), node.id)),
             edges=sorted(edges.values(), key=lambda edge: edge.id),
+            truncated=truncated,
+        )
+
+    def find_connections(
+        self,
+        source_id: str,
+        target_id: str,
+        *,
+        max_depth: int,
+        limit: int,
+        evidence_level: str | None,
+        verification_status: str | None,
+        include_drafts: bool,
+    ) -> ConnectionResponse | None:
+        if source_id == target_id:
+            return None
+
+        with self.driver.session(database=self.database) as session:
+            endpoint_records = list(
+                session.run(
+                    """
+                    MATCH (entity:Entity)
+                    WHERE entity.id IN [$source_id, $target_id]
+                    RETURN properties(entity) AS entity
+                    """,
+                    source_id=source_id,
+                    target_id=target_id,
+                )
+            )
+            endpoints = {
+                record["entity"]["id"]: entity_summary(record["entity"])
+                for record in endpoint_records
+            }
+            if source_id not in endpoints or target_id not in endpoints:
+                return None
+
+            records = list(
+                session.run(
+                    """
+                    MATCH (claim:Claim)-[:SUBJECT]->(subject:Entity)
+                    MATCH (claim)-[:OBJECT]->(object:Entity)
+                    WHERE ($include_drafts OR
+                           claim.review_status IN ['reviewed', 'disputed'])
+                      AND ($evidence_level IS NULL OR
+                           claim.evidence_level = $evidence_level)
+                      AND ($verification_status IS NULL OR
+                           claim.verification_status = $verification_status)
+                    RETURN properties(claim) AS claim,
+                           properties(subject) AS subject,
+                           properties(object) AS object
+                    ORDER BY claim.id
+                    """,
+                    include_drafts=include_drafts,
+                    evidence_level=evidence_level,
+                    verification_status=verification_status,
+                )
+            )
+
+        edge_by_id: dict[str, GraphEdge] = {}
+        node_by_id = dict(endpoints)
+        for record in records:
+            edge = _graph_edge(record)
+            edge_by_id[edge.id] = edge
+            node_by_id[edge.source] = entity_summary(record["subject"])
+            node_by_id[edge.target] = entity_summary(record["object"])
+
+        ranked_paths, truncated = _find_ranked_paths(
+            source_id,
+            target_id,
+            list(edge_by_id.values()),
+            max_depth=max_depth,
+            limit=limit,
+        )
+        claim_ids = {
+            claim_id for _, path_claim_ids in ranked_paths for claim_id in path_claim_ids
+        }
+        claim_by_id = {
+            claim_id: claim
+            for claim_id in claim_ids
+            if (claim := self.get_claim(claim_id, include_drafts=include_drafts)) is not None
+        }
+        paths = [
+            ConnectionPath(
+                nodes=[node_by_id[node_id] for node_id in node_ids],
+                claims=[claim_by_id[claim_id] for claim_id in path_claim_ids],
+                length=len(path_claim_ids),
+                minimum_confidence=_minimum_confidence(
+                    edge_by_id[claim_id].confidence for claim_id in path_claim_ids
+                ),
+            )
+            for node_ids, path_claim_ids in ranked_paths
+            if all(claim_id in claim_by_id for claim_id in path_claim_ids)
+        ]
+        return ConnectionResponse(
+            source=endpoints[source_id],
+            target=endpoints[target_id],
+            paths=paths,
+            max_depth=max_depth,
             truncated=truncated,
         )
 
@@ -573,6 +674,84 @@ def _graph_edge(record: Any) -> GraphEdge:
         review_status=claim["review_status"],
         verification_status=claim.get("verification_status", "unverified"),
     )
+
+
+def _find_ranked_paths(
+    source_id: str,
+    target_id: str,
+    edges: list[GraphEdge],
+    *,
+    max_depth: int,
+    limit: int,
+    candidate_limit: int = 500,
+) -> tuple[list[tuple[list[str], list[str]]], bool]:
+    adjacency: dict[str, list[tuple[str, GraphEdge]]] = defaultdict(list)
+    for edge in edges:
+        adjacency[edge.source].append((edge.target, edge))
+        adjacency[edge.target].append((edge.source, edge))
+    for neighbors in adjacency.values():
+        neighbors.sort(key=lambda item: (_connection_edge_rank(item[1]), item[0], item[1].id))
+
+    queue = deque([(source_id, [source_id], [])])
+    candidates: list[tuple[list[str], list[str]]] = []
+    truncated = False
+    explored_states = 0
+    while queue:
+        explored_states += 1
+        if explored_states > 5000:
+            truncated = True
+            break
+        current_id, node_ids, claim_ids = queue.popleft()
+        if len(claim_ids) >= max_depth:
+            continue
+        for neighbor_id, edge in adjacency.get(current_id, []):
+            if neighbor_id in node_ids:
+                continue
+            next_nodes = [*node_ids, neighbor_id]
+            next_claims = [*claim_ids, edge.id]
+            if neighbor_id == target_id:
+                candidates.append((next_nodes, next_claims))
+                if len(candidates) >= candidate_limit:
+                    truncated = True
+                    queue.clear()
+                    break
+            else:
+                queue.append((neighbor_id, next_nodes, next_claims))
+
+    edge_by_id = {edge.id: edge for edge in edges}
+    candidates.sort(
+        key=lambda path: (
+            len(path[1]),
+            sum(_connection_edge_rank(edge_by_id[claim_id]) for claim_id in path[1]),
+            tuple(path[1]),
+        )
+    )
+    if len(candidates) > limit:
+        truncated = True
+    return candidates[:limit], truncated
+
+
+def _connection_edge_rank(edge: GraphEdge) -> int:
+    evidence_penalty = {
+        "explicit": 0,
+        "synthesis": 1,
+        "strong_inference": 2,
+        "inference": 2,
+        "theory": 4,
+    }.get(edge.evidence_level, 3)
+    verification_penalty = {
+        "game_verified": 0,
+        "official_verified": 1,
+        "community_verified": 2,
+        "unverified": 4,
+    }.get(edge.verification_status, 3)
+    confidence_penalty = {"high": 0, "medium": 1, "low": 3}.get(edge.confidence, 2)
+    return evidence_penalty * 10 + verification_penalty * 3 + confidence_penalty
+
+
+def _minimum_confidence(confidences: Iterable[str]) -> str:
+    ranks = {"low": 0, "medium": 1, "high": 2}
+    return min(confidences, key=lambda value: ranks.get(value, -1), default="low")
 
 
 def build_fulltext_query(query: str) -> str:

@@ -22,6 +22,7 @@ const state = {
   spoilerLevel: urlState.get("spoilers") || "minimal",
   journey: null,
   journeyEntries: new Map(),
+  connection: null,
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -95,8 +96,10 @@ function renderInspector(entity) {
     <p class="entity-id">${escapeHtml(entity.id)}</p>
     <a class="inspector-action" href="/entity.html?id=${encodeURIComponent(entity.id)}">Open permanent profile</a>
     <button class="inspector-action" type="button" data-expand-entity="${escapeHtml(entity.id)}">Expand this entity</button>
+    <button class="inspector-action" type="button" data-connect-entity="${escapeHtml(entity.id)}">Find a connection</button>
     <div class="claim-list">${claims}</div>`;
   $("#entity-inspector").querySelector("[data-expand-entity]").addEventListener("click", () => expandNode(entity.id));
+  $("#entity-inspector").querySelector("[data-connect-entity]").addEventListener("click", () => startConnectionFrom(entity));
   $("#entity-inspector").querySelectorAll("[data-claim-id]").forEach((button) => button.addEventListener("click", () => selectEdge(button.dataset.claimId)));
 }
 
@@ -113,6 +116,7 @@ function renderDiscoveryInspector(entity, entry) {
     <div class="discovery-inspector-actions">
       <button class="inspector-action" type="button" data-ask-entity>Ask about this</button>
       <button class="inspector-action" type="button" data-expand-entity="${escapeHtml(entity.id)}">Expand this entity</button>
+      <button class="inspector-action" type="button" data-connect-entity="${escapeHtml(entity.id)}">Find a connection</button>
       <a class="inspector-action" href="/entity.html?id=${encodeURIComponent(entity.id)}">Open permanent profile</a>
     </div>
     ${nextSteps ? `<section class="discovery-next"><p class="eyebrow">Continue exploring</p><div>${nextSteps}</div></section>` : ""}
@@ -123,6 +127,7 @@ function renderDiscoveryInspector(entity, entry) {
     $("#question-form").scrollIntoView({ behavior: "smooth", block: "center" });
   });
   $("#entity-inspector").querySelector("[data-expand-entity]").addEventListener("click", () => expandNode(entity.id));
+  $("#entity-inspector").querySelector("[data-connect-entity]").addEventListener("click", () => startConnectionFrom(entity));
   $("#entity-inspector").querySelectorAll("[data-next-entity]").forEach((button) => button.addEventListener("click", () => {
     if (state.nodes.has(button.dataset.nextEntity)) selectNode(button.dataset.nextEntity);
     else loadRoot(button.dataset.nextEntity);
@@ -394,6 +399,7 @@ async function revealAnswerClaim(claim) {
 async function loadRoot(entityId, restoreExpanded = []) {
   state.journey = null;
   state.journeyEntries.clear();
+  state.connection = null;
   state.rootEntityId = entityId;
   state.activeEntityId = entityId;
   state.selectedEdgeId = null;
@@ -532,8 +538,13 @@ function resetGraph() {
 }
 
 function updateUrl() {
-  const params = new URLSearchParams();
-  if (state.journey) {
+  const params = state.connection
+    ? new URLSearchParams(state.connection.params)
+    : new URLSearchParams();
+  if (state.connection) {
+    params.set("view", "graph");
+    params.set("path", String(state.connection.pathIndex || 0));
+  } else if (state.journey) {
     params.set("journey", state.journey.id);
     params.set("spoilers", state.spoilerLevel);
   } else params.set("entity", state.rootEntityId);
@@ -655,6 +666,178 @@ async function askArchive(question) {
   }
 }
 
+const connectionSearchTimers = { from: null, to: null };
+
+function setConnectionEntity(side, entity) {
+  $(`#connection-${side}`).value = entity.canonical_name;
+  $(`#connection-${side}-id`).value = entity.id;
+  $(`#connection-${side}-results`).hidden = true;
+}
+
+function startConnectionFrom(entity) {
+  setConnectionEntity("from", entity);
+  $("#connection-to").value = "";
+  $("#connection-to-id").value = "";
+  activateView("connection");
+  $("#connection-view").scrollIntoView({ behavior: "smooth", block: "start" });
+  $("#connection-to").focus();
+}
+
+async function searchConnectionEntities(side, query) {
+  const container = $(`#connection-${side}-results`);
+  if (query.length < 2) { container.hidden = true; return; }
+  container.hidden = false;
+  container.innerHTML = '<p class="empty-state">Searching…</p>';
+  try {
+    const data = await api(apiPath(`/api/v1/search?q=${encodeURIComponent(query)}&limit=7`));
+    const entities = data.items.filter((item) => item.result_type === "entity");
+    container.innerHTML = entities.length ? entities.map((entity) => `
+      <button type="button" data-connection-entity="${escapeHtml(entity.id)}" data-connection-name="${escapeHtml(entity.title)}">
+        <strong>${escapeHtml(entity.title)}</strong><span>Entity</span>
+      </button>`).join("") : '<p class="empty-state">No matching entities.</p>';
+    container.querySelectorAll("[data-connection-entity]").forEach((button) => button.addEventListener("click", () => setConnectionEntity(side, {
+      id: button.dataset.connectionEntity,
+      canonical_name: button.dataset.connectionName,
+    })));
+  } catch {
+    container.innerHTML = '<p class="empty-state">Search is temporarily unavailable.</p>';
+  }
+}
+
+function connectionQuery() {
+  const params = new URLSearchParams({
+    from_id: $("#connection-from-id").value,
+    to_id: $("#connection-to-id").value,
+    max_depth: $("#connection-depth").value,
+    limit: "3",
+  });
+  if ($("#connection-evidence").value) params.set("evidence_level", $("#connection-evidence").value);
+  if ($("#connection-verification").value) params.set("verification_status", $("#connection-verification").value);
+  return params;
+}
+
+function connectionRouteMarkup(path) {
+  const parts = [];
+  path.nodes.forEach((node, index) => {
+    parts.push(`<strong>${escapeHtml(node.canonical_name)}</strong>`);
+    const claim = path.claims[index];
+    const next = path.nodes[index + 1];
+    if (!claim || !next) return;
+    const forward = claim.subject.id === node.id && claim.object?.id === next.id;
+    parts.push(`<span>${forward ? `${escapeHtml(readable(claim.predicate))} →` : `← ${escapeHtml(readable(claim.predicate))}`}</span>`);
+  });
+  return parts.join("");
+}
+
+function renderConnectionResults(data) {
+  const container = $("#connection-results");
+  if (!data.paths.length) {
+    container.innerHTML = `<p class="empty-state">No reviewed path up to ${data.max_depth} steps connects these entities with the selected filters.</p>`;
+    return;
+  }
+  container.innerHTML = `
+    <p class="connection-summary">${data.paths.length} supported ${data.paths.length === 1 ? "path" : "paths"} found between <strong>${escapeHtml(data.source.canonical_name)}</strong> and <strong>${escapeHtml(data.target.canonical_name)}</strong>.</p>
+    <div class="connection-paths">${data.paths.map((path, index) => `
+      <article class="connection-path">
+        <header><strong>Path ${index + 1}</strong><span>${path.length} ${path.length === 1 ? "step" : "steps"} · ${escapeHtml(path.minimum_confidence)} minimum confidence</span></header>
+        <div class="connection-route">${connectionRouteMarkup(path)}</div>
+        <button type="button" data-show-connection="${index}">Show this path on the graph</button>
+      </article>`).join("")}</div>`;
+  container.querySelectorAll("[data-show-connection]").forEach((button) => button.addEventListener("click", () => showConnectionPath(data, Number(button.dataset.showConnection))));
+}
+
+async function findConnections({ updateHistory = true } = {}) {
+  const fromId = $("#connection-from-id").value;
+  const toId = $("#connection-to-id").value;
+  const container = $("#connection-results");
+  if (!fromId || !toId) {
+    container.innerHTML = '<p class="empty-state">Select both entities from the search suggestions.</p>';
+    return;
+  }
+  if (fromId === toId) {
+    container.innerHTML = '<p class="empty-state">Choose two different entities.</p>';
+    return;
+  }
+  container.innerHTML = '<p class="empty-state">Tracing reviewed paths…</p>';
+  const params = connectionQuery();
+  try {
+    const data = await api(apiPath(`/api/v1/connections?${params}`));
+    state.connection = { data, params: new URLSearchParams(params) };
+    renderConnectionResults(data);
+    if (updateHistory) {
+      const shared = new URLSearchParams(params);
+      shared.set("view", "connection");
+      window.history.replaceState(null, "", `${window.location.pathname}?${shared}`);
+    }
+  } catch {
+    container.innerHTML = '<p class="empty-state">The archive could not trace this connection right now.</p>';
+  }
+}
+
+async function showConnectionPath(data, pathIndex) {
+  const path = data.paths[pathIndex];
+  if (!path) return;
+  if (state.connection) state.connection.pathIndex = pathIndex;
+  state.journey = null;
+  state.journeyEntries.clear();
+  state.rootEntityId = data.source.id;
+  state.activeEntityId = data.source.id;
+  state.selectedEdgeId = null;
+  state.nodes.clear(); state.edges.clear(); state.positions.clear();
+  state.expansionChildren.clear(); state.expandedNodes.clear(); state.history = [];
+  state.canvasSize = { width: Math.max(900, path.nodes.length * 210), height: 520 };
+  path.nodes.forEach((node, index) => {
+    state.nodes.set(node.id, node);
+    state.positions.set(node.id, {
+      x: 100 + index * ((state.canvasSize.width - 200) / Math.max(path.nodes.length - 1, 1)),
+      y: 260 + (index % 2 ? 55 : -55),
+    });
+  });
+  path.claims.forEach((claim) => state.edges.set(claim.id, {
+    id: claim.id,
+    source: claim.subject.id,
+    target: claim.object.id,
+    predicate: claim.predicate,
+    evidence_level: claim.evidence_level,
+    confidence: claim.confidence,
+    review_status: claim.review_status,
+    verification_status: claim.verification_status,
+  }));
+  state.initialGraph = graphSnapshot();
+  activateView("graph");
+  renderGraph();
+  await selectNode(data.source.id, false);
+  const shared = new URLSearchParams(state.connection?.params || connectionQuery());
+  shared.set("view", "graph");
+  shared.set("path", String(pathIndex));
+  window.history.replaceState(null, "", `${window.location.pathname}?${shared}`);
+  $("#graph-view").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+async function initializeConnectionFromUrl() {
+  const fromId = urlState.get("from_id");
+  const toId = urlState.get("to_id");
+  if (!fromId || !toId) return;
+  try {
+    const [source, target] = await Promise.all([
+      api(apiPath(`/api/v1/entities/${encodeURIComponent(fromId)}`)),
+      api(apiPath(`/api/v1/entities/${encodeURIComponent(toId)}`)),
+    ]);
+    setConnectionEntity("from", source);
+    setConnectionEntity("to", target);
+    $("#connection-depth").value = urlState.get("max_depth") || "3";
+    $("#connection-evidence").value = urlState.get("evidence_level") || "";
+    $("#connection-verification").value = urlState.get("verification_status") || "";
+    await findConnections({ updateHistory: false });
+    const pathIndex = Number(urlState.get("path"));
+    if (urlState.get("view") === "graph" && state.connection?.data.paths[pathIndex]) {
+      await showConnectionPath(state.connection.data, pathIndex);
+    }
+  } catch {
+    $("#connection-results").innerHTML = '<p class="empty-state">This shared connection could not be restored.</p>';
+  }
+}
+
 async function loadTimeline() {
   const container = $("#timeline");
   container.innerHTML = '<p class="empty-state">Assembling the relative chronology…</p>';
@@ -674,6 +857,7 @@ async function loadTimeline() {
 function activateView(view) {
   document.querySelectorAll(".view-tab").forEach((tab) => tab.classList.toggle("is-active", tab.dataset.view === view));
   $("#graph-view").classList.toggle("is-active", view === "graph");
+  $("#connection-view").classList.toggle("is-active", view === "connection");
   $("#timeline-view").classList.toggle("is-active", view === "timeline");
   if (view === "timeline") loadTimeline();
 }
@@ -703,6 +887,17 @@ $("#reset-graph").addEventListener("click", resetGraph);
 $("#kind-filter").addEventListener("change", (event) => { state.kindFilter = event.target.value; renderGraph(); });
 $("#evidence-filter").addEventListener("change", (event) => { state.evidenceFilter = event.target.value; renderGraph(); });
 $("#timeline-era").addEventListener("change", loadTimeline);
+for (const side of ["from", "to"]) {
+  $(`#connection-${side}`).addEventListener("input", (event) => {
+    $(`#connection-${side}-id`).value = "";
+    clearTimeout(connectionSearchTimers[side]);
+    connectionSearchTimers[side] = setTimeout(() => searchConnectionEntities(side, event.target.value.trim()), 220);
+  });
+}
+$("#connection-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  findConnections();
+});
 $("#spoiler-level").value = state.spoilerLevel;
 $("#spoiler-level").addEventListener("change", async (event) => {
   state.spoilerLevel = event.target.value;
@@ -718,9 +913,19 @@ $("#about-button").addEventListener("click", () => dialog.showModal());
 $("#dialog-close").addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
 
-checkStatus();
-const expandedFromUrl = (urlState.get("expanded") || "").split(",").filter(Boolean).slice(0, 20);
-loadDiscoveryCollections();
-const journeyFromUrl = urlState.get("journey");
-if (journeyFromUrl) loadJourney(journeyFromUrl);
-else loadRoot(state.rootEntityId, expandedFromUrl);
+async function initializeApp() {
+  checkStatus();
+  const expandedFromUrl = (urlState.get("expanded") || "").split(",").filter(Boolean).slice(0, 20);
+  loadDiscoveryCollections();
+  const journeyFromUrl = urlState.get("journey");
+  if (journeyFromUrl) await loadJourney(journeyFromUrl);
+  else {
+    await loadRoot(state.rootEntityId, expandedFromUrl);
+    if (urlState.get("view") === "connection" || urlState.get("from_id")) {
+      activateView("connection");
+      await initializeConnectionFromUrl();
+    }
+  }
+}
+
+initializeApp();

@@ -8,7 +8,7 @@
       content="Explore evidence-backed Elden Ring lore through entities, relationships, and relative chronology."
     />
     <title>The Lands Between Archive</title>
-    <link rel="stylesheet" href="/styles.css?v=19" />
+    <link rel="stylesheet" href="/styles.css?v=20" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to the archive</a>
@@ -103,6 +103,9 @@
         <button class="view-tab is-active" data-view="graph" type="button">
           Relationship graph
         </button>
+        <button class="view-tab" data-view="connection" type="button">
+          Find connection
+        </button>
         <button class="view-tab" data-view="timeline" type="button">
           Relative timeline
         </button>
@@ -168,6 +171,60 @@
         </section>
       </section>
 
+      <section class="connection-workspace" id="connection-view" aria-labelledby="connection-heading">
+        <header class="connection-heading">
+          <div>
+            <p class="eyebrow">Graph investigation</p>
+            <h2 id="connection-heading">How are two entities connected?</h2>
+          </div>
+          <p>Find short, reviewed paths and inspect the evidence behind every step.</p>
+        </header>
+        <form class="connection-form" id="connection-form">
+          <div class="connection-selector">
+            <label for="connection-from">From</label>
+            <input id="connection-from" type="search" autocomplete="off" placeholder="Search Ranni, Marika, the Elden Ring…" required />
+            <input id="connection-from-id" type="hidden" />
+            <div class="connection-suggestions" id="connection-from-results" hidden></div>
+          </div>
+          <span class="connection-arrow" aria-hidden="true">→</span>
+          <div class="connection-selector">
+            <label for="connection-to">To</label>
+            <input id="connection-to" type="search" autocomplete="off" placeholder="Search Blaidd, Radagon, the Erdtree…" required />
+            <input id="connection-to-id" type="hidden" />
+            <div class="connection-suggestions" id="connection-to-results" hidden></div>
+          </div>
+          <div class="connection-options">
+            <label>Maximum steps
+              <select id="connection-depth">
+                <option value="2">2</option>
+                <option value="3" selected>3</option>
+                <option value="4">4</option>
+              </select>
+            </label>
+            <label>Evidence
+              <select id="connection-evidence">
+                <option value="">All reviewed</option>
+                <option value="explicit">Explicit only</option>
+                <option value="synthesis">Synthesis only</option>
+                <option value="strong_inference">Strong inference only</option>
+              </select>
+            </label>
+            <label>Verification
+              <select id="connection-verification">
+                <option value="">All levels</option>
+                <option value="game_verified">Game verified</option>
+                <option value="official_verified">Official verified</option>
+                <option value="community_verified">Community verified</option>
+              </select>
+            </label>
+          </div>
+          <button class="connection-submit" type="submit">Find supported paths</button>
+        </form>
+        <div class="connection-results" id="connection-results" aria-live="polite">
+          <p class="empty-state">Choose two entities to investigate their relationship.</p>
+        </div>
+      </section>
+
       <section class="workspace timeline-workspace" id="timeline-view" aria-label="Timeline">
         <div class="timeline-heading">
           <div>
@@ -209,6 +266,6 @@
       <span>Unofficial fan project.</span>
       <span>Not affiliated with FromSoftware or Bandai Namco Entertainment.</span>
     </footer>
-    <script src="/app.js?v=19" defer></script>
+    <script src="/app.js?v=20" defer></script>
   </body>
 </html>
