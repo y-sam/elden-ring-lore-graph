@@ -1,11 +1,13 @@
 import argparse
 from collections import Counter, defaultdict
 from pathlib import Path
+from statistics import median
 from typing import Literal
 
 from pydantic import BaseModel
 
 from elden_lore_api.curated import CuratedDataset, load_curated_dataset
+from elden_lore_api.discovery import COLLECTIONS
 from elden_lore_api.importer import DEFAULT_DATASET
 from elden_lore_api.ontology import (
     CANONICAL_PREDICATES,
@@ -230,6 +232,66 @@ def audit_dataset(dataset: CuratedDataset) -> AuditReport:
                 record_id=entity_id,
             )
         )
+    claims_by_entity: Counter[str] = Counter()
+    reviewed_claims_by_entity: Counter[str] = Counter()
+    verified_claims_by_entity: Counter[str] = Counter()
+    predicates_by_entity: dict[str, set[str]] = defaultdict(set)
+    for claim in dataset.claims:
+        claim_entity_ids = [claim.subject_id]
+        if claim.object_id:
+            claim_entity_ids.append(claim.object_id)
+        for entity_id in claim_entity_ids:
+            claims_by_entity[entity_id] += 1
+            predicates_by_entity[entity_id].add(claim.predicate)
+            if claim.review_status == "reviewed":
+                reviewed_claims_by_entity[entity_id] += 1
+            if claim.verification_status in {"game_verified", "official_verified"}:
+                verified_claims_by_entity[entity_id] += 1
+
+    minimum_claims_by_kind = {
+        "character": 3, "event": 3, "location": 2, "artifact": 2,
+        "faction": 2, "concept": 2, "outer_god": 2, "people": 2,
+        "landmark": 2, "era": 1, "group": 1,
+    }
+    below_minimum_ids = sorted(
+        entity_id
+        for entity_id, entity in entities.items()
+        if claims_by_entity[entity_id] < minimum_claims_by_kind.get(entity.kind, 2)
+    )
+    priority_entity_ids = {
+        entry["entity_id"]
+        for collection in COLLECTIONS
+        for entry in collection["entries"]
+    }
+    priority_below_minimum_ids = sorted(priority_entity_ids & set(below_minimum_ids))
+    for entity_id in priority_below_minimum_ids:
+        issues.append(
+            AuditIssue(
+                severity="warning",
+                code="priority_entity_undercovered",
+                message=(
+                    f"Priority entity has {claims_by_entity[entity_id]} claims; expected at "
+                    f"least {minimum_claims_by_kind.get(entities[entity_id].kind, 2)}"
+                ),
+                record_id=entity_id,
+            )
+        )
+
+    event_ids = sorted(
+        entity_id for entity_id, entity in entities.items() if entity.kind == "event"
+    )
+    event_without_participants = [
+        entity_id for entity_id in event_ids
+        if "PARTICIPANT" not in predicates_by_entity[entity_id]
+    ]
+    event_without_location = [
+        entity_id for entity_id in event_ids
+        if "OCCURRED_IN" not in predicates_by_entity[entity_id]
+    ]
+    event_without_chronology = [
+        entity_id for entity_id in event_ids
+        if not predicates_by_entity[entity_id] & {"BEFORE", "IN_ERA"}
+    ]
     counts = {
         "entities": len(dataset.entities),
         "aliases": len(dataset.aliases),
@@ -256,6 +318,29 @@ def audit_dataset(dataset: CuratedDataset) -> AuditReport:
             "extensions_defined": len(EXTENSION_PREDICATES),
             "canonical_used": len(set(predicates) & CANONICAL_PREDICATES),
             "rare_used": sum(count == 1 for count in predicates.values()),
+        },
+        "entity_depth": {
+            "average_claims": round(
+                sum(claims_by_entity.values()) / len(entities), 2
+            ) if entities else 0.0,
+            "median_claims": median(claims_by_entity.values()) if entities else 0.0,
+            "minimum_claims_by_kind": minimum_claims_by_kind,
+            "below_minimum_count": len(below_minimum_ids),
+            "below_minimum_ids": below_minimum_ids,
+            "priority_below_minimum_ids": priority_below_minimum_ids,
+            "entities_with_no_reviewed_claims": sorted(
+                entity_id for entity_id in entities
+                if reviewed_claims_by_entity[entity_id] == 0
+            ),
+            "entities_with_no_verified_claims": sorted(
+                entity_id for entity_id in entities
+                if verified_claims_by_entity[entity_id] == 0
+            ),
+        },
+        "editorial_gaps": {
+            "events_without_participants": event_without_participants,
+            "events_without_location": event_without_location,
+            "events_without_chronology": event_without_chronology,
         },
         "claims_by_evidence_level": dict(
             sorted(Counter(c.evidence_level.value for c in dataset.claims).items())

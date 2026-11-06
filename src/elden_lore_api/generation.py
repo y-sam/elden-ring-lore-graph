@@ -1,5 +1,6 @@
 import hashlib
 import json
+import logging
 import threading
 import time
 from collections import OrderedDict
@@ -10,6 +11,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from elden_lore_api.api_models import AnswerResponse
 
 PROMPT_VERSION = "grounded-answer-v1"
+logger = logging.getLogger(__name__)
 
 
 class GeneratedAnswer(BaseModel):
@@ -218,8 +220,15 @@ class GroundedAnswerService:
         ).hexdigest()
         cached = self.cache.get(cache_key)
         if cached is not None:
+            logger.info(
+                "grounded_generation cache_hit provider=%s model=%s answer_id=%s",
+                self.generator.provider,
+                getattr(self.generator, "active_model", self.generator.model),
+                base.answer_id,
+            )
             return cached
 
+        started_at = time.monotonic()
         generated = self.generator.generate(base)
         claim_ids = {
             claim.id
@@ -265,10 +274,21 @@ class GroundedAnswerService:
                 ),
                 "generated_claim_ids": cited_claim_ids,
                 "generated_evidence_ids": cited_evidence_ids,
+                "generation_mode": "generated",
                 "limitations": limitations,
             }
         )
         self.cache.put(cache_key, result)
+        logger.info(
+            "grounded_generation generated provider=%s model=%s answer_id=%s "
+            "elapsed_ms=%d claims=%d evidence=%d",
+            self.generator.provider,
+            getattr(self.generator, "active_model", self.generator.model),
+            base.answer_id,
+            round((time.monotonic() - started_at) * 1000),
+            len(cited_claim_ids),
+            len(cited_evidence_ids),
+        )
         return result
 
 

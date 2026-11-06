@@ -70,6 +70,8 @@ def create_app(*, manage_database: bool = True) -> FastAPI:
         limits = {
             "/api/v1/answers": settings.answer_rate_limit_per_minute,
             "/api/v1/feedback": settings.feedback_rate_limit_per_minute,
+            "/api/v1/search": settings.query_rate_limit_per_minute,
+            "/api/v1/connections": settings.query_rate_limit_per_minute,
         }
         if request.url.path in limits:
             client = request.client.host if request.client else "unknown"
@@ -85,6 +87,8 @@ def create_app(*, manage_database: bool = True) -> FastAPI:
                     headers={"Retry-After": "60"},
                 )
             window.append(now)
+            while len(request_windows) > settings.rate_limit_max_clients:
+                request_windows.pop(next(iter(request_windows)))
         response = await call_next(request)
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["X-Frame-Options"] = "DENY"
@@ -141,6 +145,9 @@ def create_app(*, manage_database: bool = True) -> FastAPI:
                 "feedback": "/api/v1/feedback",
                 "discovery": "/api/v1/discovery",
                 "connections": "/api/v1/connections?from_id={id}&to_id={id}",
+                "suggested_questions": "/api/v1/entities/{entity_id}/questions",
+                "privacy": "/privacy.html",
+                "legal": "/legal.html",
                 **(
                     {"editorial": "/editorial.html"}
                     if get_settings().editorial_enabled

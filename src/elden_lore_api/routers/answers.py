@@ -85,11 +85,25 @@ def _enhance_answer(base: AnswerResponse, settings: Settings) -> AnswerResponse:
                 settings.answer_cache_max_entries,
             )
         else:
-            return base
+            return base.model_copy(update={"generation_mode": "fallback"})
         return service.enhance(base)
     except Exception:
         logger.exception("grounded answer generation failed; using deterministic fallback")
-        return base
+        model = (
+            settings.openai_model
+            if settings.answer_generator == "openai"
+            else settings.gemini_model
+        )
+        return base.model_copy(
+            update={
+                "generation_mode": "fallback",
+                "generator_model": model,
+                "limitations": [
+                    *base.limitations,
+                    "The generative layer was unavailable; this is the deterministic fallback.",
+                ],
+            }
+        )
 
 
 @router.get("", response_model=AnswerResponse)
@@ -100,10 +114,20 @@ def answer_question(
     limit: Annotated[int, Query(ge=1, le=20)] = 12,
     include_drafts: bool = False,
 ) -> AnswerResponse:
+    settings = get_settings()
     base = repository.answer_question(
         question=q,
         language=lang,
         limit=limit,
         include_drafts=resolve_draft_visibility(include_drafts),
     )
-    return _enhance_answer(base, get_settings())
+    if base.status == "unknown":
+        context = {
+            "answer_id": base.answer_id,
+            "intent": base.intent,
+            "matched_entity_ids": [entity.id for entity in base.matched_entities],
+        }
+        if settings.log_unknown_questions:
+            context["question"] = q
+        logger.info("unknown_answer %s", context)
+    return _enhance_answer(base, settings)

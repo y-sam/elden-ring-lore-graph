@@ -18,6 +18,8 @@ def test_seed_passes_editorial_audit() -> None:
     assert report.coverage["claims_by_verification"]
     assert report.coverage["evidence_with_spanish_percentage"] > 0
     assert report.coverage["predicate_vocabulary"]["canonical_used"] > 0
+    assert report.coverage["entity_depth"]["average_claims"] > 0
+    assert "events_without_participants" in report.coverage["editorial_gaps"]
     assert not any(issue.code == "deprecated_predicate" for issue in report.issues)
 
 

@@ -37,7 +37,10 @@ class Settings(BaseSettings):
     answer_cache_ttl_seconds: int = Field(default=3600, ge=60, le=86400)
     answer_cache_max_entries: int = Field(default=500, ge=10, le=10000)
     answer_rate_limit_per_minute: int = Field(default=60, ge=1, le=10000)
+    query_rate_limit_per_minute: int = Field(default=120, ge=1, le=10000)
     feedback_rate_limit_per_minute: int = Field(default=10, ge=1, le=1000)
+    rate_limit_max_clients: int = Field(default=10_000, ge=100, le=100_000)
+    log_unknown_questions: bool = False
     max_request_bytes: int = Field(default=16_384, ge=1024, le=1_048_576)
 
     @model_validator(mode="after")

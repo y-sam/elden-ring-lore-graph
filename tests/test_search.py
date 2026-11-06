@@ -1,13 +1,37 @@
+from elden_lore_api.api_models import ClaimDetail, EntitySummary
 from elden_lore_api.repository import (
     INTENT_PREDICATES,
     _alias_is_named,
     _entity_is_named,
     _fuzzy_entity_score,
+    _why_explanation_claims,
     build_entity_query,
     build_fulltext_query,
     detect_question_intent,
     detect_question_language,
 )
+
+
+def _claim(claim_id: str, predicate: str, subject_id: str, object_id: str) -> ClaimDetail:
+    def entity(entity_id: str) -> EntitySummary:
+        return EntitySummary(
+            id=entity_id,
+            kind=entity_id.split(".", 1)[0],
+            canonical_name=entity_id.split(".", 1)[1].replace("-", " ").title(),
+            continuity="both",
+        )
+
+    return ClaimDetail(
+        id=claim_id,
+        predicate=predicate,
+        evidence_level="explicit",
+        confidence="high",
+        review_status="reviewed",
+        verification_status="game_verified",
+        continuity="both",
+        subject=entity(subject_id),
+        object=entity(object_id),
+    )
 
 
 def test_fulltext_query_uses_only_safe_alphanumeric_terms() -> None:
@@ -48,6 +72,7 @@ def test_question_language_detection() -> None:
 
 def test_question_intent_detection() -> None:
     assert detect_question_intent("Who is Miquella?") == "who"
+    assert detect_question_intent("What did Miquella abandon?") == "what"
     assert detect_question_intent("Onde ocorreu a Batalha de Aeonia?") == "where"
     assert detect_question_intent("¿Cuándo ocurrió Aeonia?") == "when"
     assert detect_question_intent("Why did the Shattering happen?") == "why"
@@ -63,3 +88,19 @@ def test_fuzzy_entity_score_recovers_small_name_typos() -> None:
     entity = {"canonical_name": "Blaidd the Half-Wolf"}
     assert _fuzzy_entity_score("Who is Blaid?", entity) >= 0.8
     assert _fuzzy_entity_score("Who is Malenia?", entity) < 0.72
+
+
+def test_why_explanation_keeps_paths_and_focus_support_only() -> None:
+    claims = [
+        _claim("opposes", "OPPOSED", "character.ansbach", "character.miquella"),
+        _claim("served", "SERVES", "character.ansbach", "character.mohg"),
+        _claim("unrelated", "FOLLOWS", "character.freyja", "character.miquella"),
+    ]
+
+    selected = _why_explanation_claims(
+        claims,
+        matched_ids={"character.ansbach", "character.miquella"},
+        question="Why does Ansbach oppose Miquella?",
+    )
+
+    assert {claim.id for claim in selected} == {"opposes", "served"}

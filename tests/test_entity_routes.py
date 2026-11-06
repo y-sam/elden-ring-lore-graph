@@ -119,6 +119,13 @@ def test_get_entity_and_subgraph() -> None:
     assert graph_response.json()["root_id"] == ENTITY.id
 
 
+def test_get_contextual_questions() -> None:
+    response = client().get(f"/api/v1/entities/{ENTITY.id}/questions")
+
+    assert response.status_code == 200
+    assert response.json()["items"][0]["question"] == "What is Elden Ring?"
+
+
 def test_missing_entity_returns_404() -> None:
     response = client().get("/api/v1/entities/missing.entity")
 

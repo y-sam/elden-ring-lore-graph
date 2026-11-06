@@ -182,6 +182,7 @@ def test_grounded_generator_uses_structured_output_and_cache() -> None:
     second = service.enhance(_base_answer())
 
     assert first.generator == "openai"
+    assert first.generation_mode == "generated"
     assert first.generator_model == "test-model"
     assert first.generated_claim_ids == ["claim.ranni-is-empyrean"]
     assert second.answer == first.answer

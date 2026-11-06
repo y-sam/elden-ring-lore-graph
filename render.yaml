@@ -31,7 +31,13 @@ services:
         value: deterministic
       - key: ANSWER_RATE_LIMIT_PER_MINUTE
         value: "60"
+      - key: QUERY_RATE_LIMIT_PER_MINUTE
+        value: "120"
       - key: FEEDBACK_RATE_LIMIT_PER_MINUTE
         value: "10"
+      - key: RATE_LIMIT_MAX_CLIENTS
+        value: "10000"
+      - key: LOG_UNKNOWN_QUESTIONS
+        value: "false"
       - key: MAX_REQUEST_BYTES
         value: "16384"

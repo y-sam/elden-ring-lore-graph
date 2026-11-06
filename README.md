@@ -6,9 +6,11 @@ chronology.
 
 ## Current milestone
 
-The repository is transitioning from its original graph-modeling prototype to a
-reviewable v2 schema. Legacy Cypher is preserved in `graph/migrations`; new work
-uses `graph/v2/migrations` and does not promote legacy claims without evidence.
+The project now runs on the reviewable v2 schema and ships a production-oriented
+evidence-first application. The current curated dataset contains 214 entities
+and 317 claims spanning the base game and *Shadow of the Erdtree*. Retrieval,
+guided discovery, graph exploration, grounded prose generation, editorial
+auditing, and production smoke monitoring all preserve claim-level provenance.
 
 ## Core Principles
 - Lore is represented as a graph, not tables
@@ -55,18 +57,12 @@ and [v2 graph model](graph/v2/README.md).
 
 ## Entity API
 
-The curated seed is imported idempotently with `make import`. Its claims remain
-`draft`, so public responses omit unreviewed records by default. Version 8 connects 95
-entities through 128 evidence-backed claims across the base game and
-*Shadow of the Erdtree*, including family lines, major powers, places, artifacts,
-the Shattering and the Realm of Shadow crusade. All 40 project-authored evidence
-summaries also have machine-assisted Spanish and Brazilian Portuguese drafts;
-English remains the canonical fallback.
-
-Five evidence records and 17 dependent claims have completed primary-source
-review against official Bandai Namco pages. The remaining 35 evidence records
-and 111 claims stay in `draft` until their in-game dialogue, description,
-remembrance, monument, or scene locators can be checked directly.
+The curated seed is imported idempotently with `make import`. Version 20 connects
+all 214 entities through 317 evidence-backed claims and 84 evidence records.
+It includes family lines, major powers, regions, endings, NPC quest lines, the
+Shattering, and the Realm of Shadow. Public responses omit unreviewed records by
+default; 82.3% of claims and 89.3% of evidence currently pass editorial review.
+English remains the canonical content language.
 
 Editorial approval is independent from verification strength. Fan-maintained
 references may produce `community_verified` records when their URL is retained;
@@ -79,6 +75,7 @@ GET /api/v1/entities?q=ring&kind=artifact&limit=25&offset=0
 GET /api/v1/entities/artifact.elden-ring
 GET /api/v1/entities/artifact.elden-ring?include_drafts=true
 GET /api/v1/entities/artifact.elden-ring/subgraph?depth=1&limit=100
+GET /api/v1/entities/artifact.elden-ring/questions
 GET /api/v1/claims/claim.elden-ring.shattered-in-event?include_drafts=true
 GET /api/v1/answers?q=What+is+the+relationship+between+Marika+and+Radagon
 GET /api/v1/answers?q=Quem+é+Miquella&lang=pt-BR
@@ -130,12 +127,14 @@ answer path.
 Entity inspectors link to permanent, shareable profiles at
 `/entity.html?id=<entity-id>`. Profiles provide an English factual summary,
 relationship cards, evidence, confidence, continuity, related-entity links,
-graph navigation, and moderated reader feedback.
+graph navigation, contextual questions for continued exploration, and moderated
+reader feedback.
 
 Search and question answering include a conservative typo fallback when exact
 full-text and alias matching fail. `make evaluate` runs 100 deterministic
 English reference questions against Neo4j and checks their expected entities
-and claims.
+and claims. The current version passes all 100 reference questions, including
+causal questions that require supporting claims beyond the directly named node.
 
 Each answer has a deterministic `answer_id`. Readers can rate it as helpful,
 mixed, or not helpful and optionally explain why with `POST /api/v1/feedback`.
@@ -150,8 +149,12 @@ The optional generative mode supports `ANSWER_GENERATOR=gemini` with
 answers use bounded graph context, structured output,
 verified claim/evidence identifiers, an in-memory TTL cache, output limits, and
 automatic deterministic fallback. Unsupported questions never call the model;
-enabling the setting does not bypass evidence or review policy.
+enabling the setting does not bypass evidence or review policy. The interface
+identifies generated, deterministic, and fallback answers and displays the
+number of grounded, reviewed, and verified records behind each response.
 See [production operations](docs/production.md) before deployment.
 
 Run `make audit` before every import. The audit rejects invalid temporal types,
 self-relations, reviewed claims backed by draft evidence, and precedence cycles.
+Its depth report also flags under-covered entities and events missing participants,
+locations, or chronology so corpus expansion can be prioritized by impact.

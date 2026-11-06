@@ -171,6 +171,21 @@ Back up Neo4j before migrations, run `make check`, `make migrate`, `make audit`,
 and `make import`, then verify `/ready`. Retain feedback only as long as needed;
 comments must not collect email addresses or other unnecessary personal data.
 
+`make smoke-production` verifies the public health endpoint, Neo4j readiness,
+and one grounded answer. The scheduled GitHub workflow runs this check daily;
+it is intentionally not an anti-sleep ping for the free Render service. Treat a
+failure as an operational alert and inspect Render and AuraDB before redeploying.
+
+Search and connection queries have their own per-process limit in addition to
+answer and feedback limits. `RATE_LIMIT_MAX_CLIENTS` bounds in-memory limiter
+state. When the application runs with multiple workers, enforce shared limits at
+the edge because process-local counters are not globally consistent.
+
+Unknown answers are logged by answer hash, intent, and matched entity IDs.
+Question text remains disabled by default; enable `LOG_UNKNOWN_QUESTIONS` only
+for a documented diagnostic window and delete those logs according to the
+privacy retention policy in [`privacy.md`](privacy.md).
+
 For a controlled AuraDB corpus synchronization, run `make import-aura`. The
 script prompts for credentials without storing them, audits the bundled dataset,
 shows the target URI, and requires typing `IMPORT` before the idempotent import.

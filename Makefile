@@ -2,7 +2,7 @@ UV_ENVIRONMENT ?= /tmp/elden-lore-venv
 UV_CACHE ?= /tmp/elden-lore-uv-cache
 UV_RUN = UV_PROJECT_ENVIRONMENT=$(UV_ENVIRONMENT) UV_CACHE_DIR=$(UV_CACHE) uv run
 
-.PHONY: sync lint test check run migrate import import-aura audit corpus-validate corpus-report evaluate prod-config prod-build
+.PHONY: sync lint test check run migrate import import-aura audit corpus-validate corpus-report evaluate prod-config prod-build smoke-production
 
 sync:
 	UV_PROJECT_ENVIRONMENT=$(UV_ENVIRONMENT) UV_CACHE_DIR=$(UV_CACHE) uv sync --extra dev --link-mode=copy
@@ -44,3 +44,6 @@ prod-config:
 
 prod-build:
 	sh scripts/build-production-image.sh elden-ring-lore-graph:$${IMAGE_TAG:-local}
+
+smoke-production:
+	bash scripts/smoke-production.sh "$${PRODUCTION_URL:-https://elden-ring-lore-graph.onrender.com}"

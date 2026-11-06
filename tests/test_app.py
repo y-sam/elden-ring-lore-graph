@@ -31,6 +31,13 @@ def test_web_app_is_served_at_root() -> None:
     assert "The Lands Between Archive" in response.text
 
 
+def test_public_policy_pages_are_served() -> None:
+    client = TestClient(create_app(manage_database=False))
+
+    assert client.get("/privacy.html").status_code == 200
+    assert client.get("/legal.html").status_code == 200
+
+
 def test_editorial_surface_can_be_disabled_in_production(monkeypatch) -> None:
     monkeypatch.setenv("APP_ENV", "production")
     monkeypatch.setenv("NEO4J_PASSWORD", "n" * 32)

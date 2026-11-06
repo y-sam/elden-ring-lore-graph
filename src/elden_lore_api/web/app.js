@@ -106,10 +106,12 @@ function renderInspector(entity) {
     <a class="inspector-action" href="/entity.html?id=${encodeURIComponent(entity.id)}">Open permanent profile</a>
     <button class="inspector-action" type="button" data-expand-entity="${escapeHtml(entity.id)}">Expand this entity</button>
     <button class="inspector-action" type="button" data-connect-entity="${escapeHtml(entity.id)}">Find a connection</button>
+    <section class="suggested-questions" data-suggested-for="${escapeHtml(entity.id)}"><p class="eyebrow">Questions to explore</p><p class="empty-state">Loading suggestions…</p></section>
     <div class="claim-list">${claims}</div>`;
   $("#entity-inspector").querySelector("[data-expand-entity]").addEventListener("click", () => expandNode(entity.id));
   $("#entity-inspector").querySelector("[data-connect-entity]").addEventListener("click", () => startConnectionFrom(entity));
   $("#entity-inspector").querySelectorAll("[data-claim-id]").forEach((button) => button.addEventListener("click", () => selectEdge(button.dataset.claimId)));
+  loadSuggestedQuestions(entity.id);
 }
 
 function renderDiscoveryInspector(entity, entry) {
@@ -128,6 +130,7 @@ function renderDiscoveryInspector(entity, entry) {
       <button class="inspector-action" type="button" data-connect-entity="${escapeHtml(entity.id)}">Find a connection</button>
       <a class="inspector-action" href="/entity.html?id=${encodeURIComponent(entity.id)}">Open permanent profile</a>
     </div>
+    <section class="suggested-questions" data-suggested-for="${escapeHtml(entity.id)}"><p class="eyebrow">Questions to explore</p><p class="empty-state">Loading suggestions…</p></section>
     ${nextSteps ? `<section class="discovery-next"><p class="eyebrow">Continue exploring</p><div>${nextSteps}</div></section>` : ""}
     <p class="spoiler-note">Expanding the graph may reveal relationships beyond this guided introduction.</p>`;
   $("#entity-inspector").querySelector("[data-ask-entity]").addEventListener("click", () => {
@@ -141,6 +144,24 @@ function renderDiscoveryInspector(entity, entry) {
     if (state.nodes.has(button.dataset.nextEntity)) selectNode(button.dataset.nextEntity);
     else loadRoot(button.dataset.nextEntity);
   }));
+  loadSuggestedQuestions(entity.id);
+}
+
+async function loadSuggestedQuestions(entityId) {
+  const container = $(`[data-suggested-for="${CSS.escape(entityId)}"]`);
+  if (!container) return;
+  try {
+    const data = await api(apiPath(`/api/v1/entities/${encodeURIComponent(entityId)}/questions`));
+    if (!document.body.contains(container)) return;
+    container.innerHTML = `<p class="eyebrow">Questions to explore</p><div>${data.items.map((item) => `<button type="button" data-suggested-question="${escapeHtml(item.question)}">${escapeHtml(item.question)}</button>`).join("")}</div>`;
+    container.querySelectorAll("[data-suggested-question]").forEach((button) => button.addEventListener("click", () => {
+      $("#question-input").value = button.dataset.suggestedQuestion;
+      askArchive(button.dataset.suggestedQuestion);
+      $("#question-form").scrollIntoView({ behavior: "smooth", block: "center" });
+    }));
+  } catch {
+    container.innerHTML = '<p class="eyebrow">Questions to explore</p><p class="empty-state">Suggestions are temporarily unavailable.</p>';
+  }
 }
 
 function renderClaimInspector(claim) {
@@ -600,14 +621,22 @@ function renderAnswer(data) {
       <cite>${escapeHtml(citation.source_title)} · ${escapeHtml(citation.authority_tier)} · ${escapeHtml(readable(citation.verification_status))}</cite>
     </details>`).join("");
   const entities = data.matched_entities.map((entity) => `<button type="button" data-answer-entity="${escapeHtml(entity.id)}">${escapeHtml(entity.canonical_name)}</button>`).join("");
+  const generationLabel = data.generation_mode === "generated"
+    ? `${readable(data.generator)} generated`
+    : data.generation_mode === "fallback"
+      ? "Deterministic fallback"
+      : "Deterministic";
   result.innerHTML = `
-    <header><span class="answer-status ${escapeHtml(data.status)}">${escapeHtml(data.status)}</span><span>${escapeHtml(readable(data.intent))} · ${escapeHtml(data.language)} · ${data.citations.length} citations</span></header>
+    <header><span class="answer-status ${escapeHtml(data.status)}">${escapeHtml(data.status)}</span><span>${escapeHtml(readable(data.intent))} · ${escapeHtml(data.language)} · ${escapeHtml(generationLabel)}</span></header>
     <p class="answer-copy">${escapeHtml(data.answer)}</p>
+    <p class="answer-provenance">Grounded in ${data.reviewed_claim_count} reviewed of ${data.grounded_claim_count} selected claims · ${data.verified_evidence_count} verified evidence records.</p>
     ${entities ? `<div class="answer-entities">${entities}</div>` : ""}
-    ${explicit ? `<section><h3>Supported relationships</h3><div class="answer-claims">${explicit}</div></section>` : ""}
-    ${inferred ? `<section class="answer-inference"><h3>Inference and uncertainty</h3><div class="answer-claims">${inferred}</div></section>` : ""}
-    ${supporting ? `<section class="answer-path"><h3>Connection path</h3><p>These claims connect the named entity to the answer through one intermediate node.</p><div class="answer-claims">${supporting}</div></section>` : ""}
-    ${citations ? `<section><h3>Evidence trail</h3>${citations}</section>` : ""}
+    ${(explicit || inferred || supporting || citations) ? `<details class="answer-grounding" ${data.generation_mode === "generated" ? "" : "open"}><summary>Inspect the evidence view: ${data.grounded_claim_count} claims · ${data.citations.length} citations</summary>
+      ${explicit ? `<section><h3>Supported relationships</h3><div class="answer-claims">${explicit}</div></section>` : ""}
+      ${inferred ? `<section class="answer-inference"><h3>Inference and uncertainty</h3><div class="answer-claims">${inferred}</div></section>` : ""}
+      ${supporting ? `<section class="answer-path"><h3>Connection path</h3><p>These claims connect the named entity to the answer through one intermediate node.</p><div class="answer-claims">${supporting}</div></section>` : ""}
+      ${citations ? `<section><h3>Evidence trail</h3>${citations}</section>` : ""}
+    </details>` : ""}
     ${data.limitations.length ? `<ul class="answer-limitations">${data.limitations.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}`;
   result.insertAdjacentHTML("beforeend", `
     <form class="feedback-form" id="feedback-form">
@@ -936,6 +965,11 @@ async function initializeApp() {
       activateView("connection");
       await initializeConnectionFromUrl();
     }
+  }
+  const sharedQuestion = urlState.get("question");
+  if (sharedQuestion && sharedQuestion.length >= 3) {
+    $("#question-input").value = sharedQuestion;
+    await askArchive(sharedQuestion);
   }
 }
 

@@ -68,6 +68,17 @@ class EntityPage(BaseModel):
     offset: int
 
 
+class SuggestedQuestion(BaseModel):
+    question: str
+    category: Literal["introduction", "relationship", "location", "event", "affiliation"]
+    related_entity_id: str | None = None
+
+
+class SuggestedQuestionResponse(BaseModel):
+    entity_id: str
+    items: list[SuggestedQuestion]
+
+
 class GraphEdge(BaseModel):
     id: str
     source: str
@@ -164,7 +175,9 @@ class AnswerResponse(BaseModel):
     answer_id: str
     question: str
     language: Literal["en", "es", "pt-BR"]
-    intent: Literal["who", "where", "when", "why", "relationship", "event", "general"]
+    intent: Literal[
+        "who", "what", "where", "when", "why", "relationship", "event", "general"
+    ]
     status: Literal["supported", "partial", "unknown"]
     answer: str
     matched_entities: list[EntitySummary] = Field(default_factory=list)
@@ -177,6 +190,10 @@ class AnswerResponse(BaseModel):
     generator_model: str | None = None
     generated_claim_ids: list[str] = Field(default_factory=list)
     generated_evidence_ids: list[str] = Field(default_factory=list)
+    generation_mode: Literal["deterministic", "generated", "fallback"] = "deterministic"
+    grounded_claim_count: int = 0
+    reviewed_claim_count: int = 0
+    verified_evidence_count: int = 0
 
 
 class FeedbackCreate(BaseModel):

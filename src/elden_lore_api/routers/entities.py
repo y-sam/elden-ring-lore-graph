@@ -3,9 +3,15 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
 from neo4j import Driver
 
-from elden_lore_api.api_models import EntityDetail, EntityPage, EntitySubgraph
+from elden_lore_api.api_models import (
+    EntityDetail,
+    EntityPage,
+    EntitySubgraph,
+    SuggestedQuestionResponse,
+)
 from elden_lore_api.config import get_settings
 from elden_lore_api.repository import EntityRepository
+from elden_lore_api.suggestions import build_suggested_questions
 
 router = APIRouter(prefix="/entities", tags=["entities"])
 
@@ -56,6 +62,24 @@ def get_entity(
     if entity is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Entity not found")
     return entity
+
+
+@router.get("/{entity_id}/questions", response_model=SuggestedQuestionResponse)
+def get_suggested_questions(
+    entity_id: str,
+    repository: Repository,
+    include_drafts: bool = False,
+) -> SuggestedQuestionResponse:
+    entity = repository.get_entity(
+        entity_id,
+        include_drafts=resolve_draft_visibility(include_drafts),
+    )
+    if entity is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Entity not found")
+    return SuggestedQuestionResponse(
+        entity_id=entity.id,
+        items=build_suggested_questions(entity),
+    )
 
 
 @router.get("/{entity_id}/subgraph", response_model=EntitySubgraph)

@@ -264,6 +264,18 @@ kbd { border: 1px solid var(--line); color: var(--muted); padding: 0.25rem 0.42r
 .direction { color: var(--muted); font-size: 0.66rem; text-transform: uppercase; }
 .claim-target { display: block; margin: 0.65rem 0 0; font-family: var(--serif); }
 .claim-context { display: block; margin: 0.45rem 0 0; color: var(--muted); font-size: 0.7rem; line-height: 1.45; }
+.suggested-questions { margin-top: 1.6rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.suggested-questions > div, .profile-questions { display: grid; gap: 0.45rem; margin-top: 0.7rem; }
+.suggested-questions button, .profile-questions a { border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--muted); padding: 0.45rem 0; text-align: left; cursor: pointer; text-decoration: none; }
+.suggested-questions button:hover, .profile-questions a:hover { color: var(--gold-bright); border-color: var(--line-strong); }
+.answer-provenance { color: var(--muted); font-size: 0.7rem; letter-spacing: 0.04em; }
+.answer-grounding { margin-top: 1.2rem; border-top: 1px solid var(--line); }
+.answer-grounding > summary { padding: 0.9rem 0; color: var(--gold-bright); cursor: pointer; font-size: 0.76rem; }
+.policy-page main { width: min(760px, calc(100% - 2rem)); margin: 4rem auto; }
+.policy-page h1 { font: 400 clamp(2.5rem, 8vw, 5rem)/1 var(--serif); }
+.policy-page h2 { margin-top: 2rem; font: 400 1.6rem var(--serif); }
+.policy-page p { color: var(--muted); line-height: 1.7; }
+.policy-page a, footer a, .about-dialog a { color: var(--gold-bright); }
 .claim-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.7rem; }
 .chip { border: 1px solid var(--line); padding: 0.22rem 0.4rem; color: var(--muted); font-size: 0.62rem; text-transform: uppercase; }
 .evidence { margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid var(--line); }

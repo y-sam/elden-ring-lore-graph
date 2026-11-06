@@ -16,6 +16,7 @@ from elden_lore_api.api_models import (
     EntityDetail,
     EntityPage,
     EntitySubgraph,
+    EntitySummary,
     EvidenceView,
     GraphEdge,
     SearchHit,
@@ -948,6 +949,8 @@ def detect_question_intent(question: str) -> str:
         return "why"
     if re.search(r"\b(who|quem|quién|quien)\b", text):
         return "who"
+    if re.search(r"\b(what|o que|que é|qué es)\b", text):
+        return "what"
     if re.search(r"\b(happened|aconteceu|ocorreu|pasó|ocurrió)\b", text):
         return "event"
     return "general"
@@ -964,6 +967,17 @@ def _filter_claims_for_intent(
     predicates = INTENT_PREDICATES.get(intent)
     if predicates:
         selected = [claim for claim in claims if claim.predicate in predicates]
+        if intent == "why":
+            explanatory = {
+                "ABANDONED", "AFFLICTED_BY", "CAUSED", "CATALYST_FOR", "DEFEATED",
+                "FOLLOWED", "FOLLOWS", "LEADS", "MEMBER_OF", "OPPOSED",
+                "PARTICIPANT", "SERVES", "TARGETED",
+            }
+            return _why_explanation_claims(
+                [claim for claim in claims if claim.predicate in explanatory],
+                matched_ids=matched_ids,
+                question=question,
+            )
         if intent != "who":
             return selected
         inverse_predicates = {
@@ -1001,6 +1015,58 @@ def _filter_claims_for_intent(
             if claim.object and claim.object.id in matched_ids
         ]
     return claims
+
+
+def _why_explanation_claims(
+    claims: list[ClaimDetail], *, matched_ids: set[str], question: str
+) -> list[ClaimDetail]:
+    """Keep the smallest reviewed explanation graph around the named entities."""
+    endpoints = {
+        claim.id: {
+            claim.subject.id,
+            claim.object.id if claim.object else None,
+        } - {None}
+        for claim in claims
+    }
+    path_claim_ids: set[str] = set()
+    named_ids = sorted(matched_ids)
+    for index, left_id in enumerate(named_ids):
+        for right_id in named_ids[index + 1:]:
+            for claim in claims:
+                if {left_id, right_id} <= endpoints[claim.id]:
+                    path_claim_ids.add(claim.id)
+            left_edges = [claim for claim in claims if left_id in endpoints[claim.id]]
+            right_edges = [claim for claim in claims if right_id in endpoints[claim.id]]
+            for left in left_edges:
+                for right in right_edges:
+                    shared_intermediates = (
+                        endpoints[left.id] & endpoints[right.id]
+                    ) - {left_id, right_id}
+                    if shared_intermediates:
+                        path_claim_ids.update((left.id, right.id))
+
+    normalized_question = " ".join(re.findall(r"\w+", question.lower()))
+    mention_positions: list[tuple[int, str]] = []
+    for entity_id in matched_ids:
+        slug = entity_id.split(".", 1)[-1].replace("-", " ")
+        tokens = [token for token in slug.split() if token not in GENERIC_NAME_TOKENS]
+        positions = [normalized_question.find(token) for token in tokens]
+        positions = [position for position in positions if position >= 0]
+        if positions:
+            mention_positions.append((min(positions), entity_id))
+    focus_id = min(mention_positions)[1] if mention_positions else None
+
+    focus_support = sorted(
+        (
+            claim for claim in claims
+            if focus_id in endpoints[claim.id] and claim.id not in path_claim_ids
+        ),
+        key=lambda claim: (_claim_rank(claim), claim.id),
+    )[:2]
+    selected_ids = path_claim_ids | {claim.id for claim in focus_support}
+    if not selected_ids:
+        return claims
+    return [claim for claim in claims if claim.id in selected_ids]
 
 
 def _claims_with_support(
@@ -1212,6 +1278,9 @@ def _compose_answer(
         return _unknown_answer(
             question, language=language, intent=intent, matched_entities=matched_entities
         )
+    matched_entities = _answer_context_entities(
+        matched_entities, claims=claims, supporting_claims=supporting_claims
+    )
     explicit = [claim for claim in claims if claim.evidence_level in {"explicit", "synthesis"}]
     inferred = [claim for claim in claims if claim.evidence_level not in {"explicit", "synthesis"}]
     leading = explicit or inferred
@@ -1263,7 +1332,32 @@ def _compose_answer(
         inferred_claims=inferred, supporting_claims=supporting_claims,
         citations=list(citations_by_id.values()),
         limitations=limitations,
+        grounded_claim_count=len({claim.id for claim in [*claims, *supporting_claims]}),
+        reviewed_claim_count=sum(
+            claim.review_status == "reviewed" for claim in [*claims, *supporting_claims]
+        ),
+        verified_evidence_count=sum(
+            evidence.verification_status in {"game_verified", "official_verified"}
+            for evidence in citations_by_id.values()
+        ),
     )
+
+
+def _answer_context_entities(
+    matched_entities: list[EntitySummary], *, claims: list[ClaimDetail],
+    supporting_claims: list[ClaimDetail], limit: int = 12,
+) -> list[EntitySummary]:
+    """Include entities discovered by the grounded claim path in the answer context."""
+    result = list(matched_entities)
+    seen = {entity.id for entity in result}
+    for claim in [*claims, *supporting_claims]:
+        for entity in (claim.subject, claim.object):
+            if entity is not None and entity.id not in seen:
+                result.append(entity)
+                seen.add(entity.id)
+                if len(result) >= limit:
+                    return result
+    return result
 
 
 def _unknown_answer(
